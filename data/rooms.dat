@@ -1,0 +1,15 @@
+Room Name: Room 1
+Room Description:  You are at the side of a white house, there seems to be a clearing to the east. To the west, is an open window. 
+Exit Rooms: E-Room 2, W-Kitchen
+Room Name: Room 2
+Room Description:  This is Room 2
+Exit Rooms: W-Room 1, U-Room 3
+Room Name: Room 3
+Room Description:  You are upstairs.
+Exit Rooms: D-Room 2
+Room Name: Kitchen 
+Room Description: You are in a kitchen, There is a table at the centre of the room and a fridge which is ajar. There seems to be a stairs leading up. 
+Exit Rooms: E-Room 1, U-Attic
+Room Name: Attic
+Room Description: It is dark. You are likely to be eated by a grue.
+Exit Rooms: D-Kitchen 
