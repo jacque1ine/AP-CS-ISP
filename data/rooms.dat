@@ -10,6 +10,6 @@ Exit Rooms: D-Room 2
 Room Name: Kitchen 
 Room Description: You are in a kitchen, There is a table at the centre of the room and a fridge which is ajar. There seems to be a stairs leading up. 
 Exit Rooms: E-Room 1, U-Attic
-Room Name: Attic
+Room Name: 3rd floor
 Room Description: It is dark. You are likely to be eated by a grue.
 Exit Rooms: D-Kitchen 
