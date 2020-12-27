@@ -34,7 +34,7 @@ public class Room {
     // default constructor.
     roomName = "DEFAULT ROOM";
     description = "DEFAULT DESCRIPTION";
-    exits = new HashMap<String, Room>();
+    exits = new HashMap<String, Room>(); // <key(direction), value> 
   }
 
   public void setExit(char direction, Room r) throws Exception {
