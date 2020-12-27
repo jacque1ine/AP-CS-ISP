@@ -4,9 +4,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * Class Game - the main class of the "Zork" game.
- *
- * Author: Michael Kolling Version: 1.1 Date: March 2000
  * 
  * This class is the main class of the "Zork" application. Zork is a very
  * simple, text based adventure game. Users can walk around some scenery. That's
@@ -31,6 +28,7 @@ public class Game {
   // Room (assuming you have one).
   private HashMap<String, Room> masterRoomMap;
 
+    //do not touch unit rooms
   private void initRooms(String fileName) throws Exception {
     masterRoomMap = new HashMap<String, Room>();
     Scanner roomScanner;
@@ -71,7 +69,7 @@ public class Game {
 
           String roomName2 = tempExits.get(s.trim());
           Room exitRoom = masterRoomMap.get(roomName2.toUpperCase().replaceAll(" ", "_"));
-          roomTemp.setExit(s.trim().charAt(0), exitRoom);
+          roomTemp.setExit(s.trim(), exitRoom);
         }
       }
 
@@ -87,9 +85,8 @@ public class Game {
   public Game() {
     try {
       initRooms("data/rooms.dat");
-      currentRoom = masterRoomMap.get("ROOM_1");
+      currentRoom = masterRoomMap.get("TOWN_SQUARE"); //starting room - grab from room.dat
     } catch (Exception e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
     parser = new Parser();
@@ -144,6 +141,9 @@ public class Game {
         return true; // signal that we want to quit
     } else if (commandWord.equals("eat")) {
       System.out.println("Do you really think you should be eating at a time like this?");
+    }
+    else if (commandWord.equals("yell")){
+      System.out.println("Attention seeking aren't you?");
     }
     return false;
   }

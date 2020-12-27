@@ -19,6 +19,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+
+//takes what you type and creates a command 
 public class Parser {
   private CommandWords commands; // holds all valid command words
 
@@ -29,14 +31,17 @@ public class Parser {
   public Command getCommand() {
     String inputLine = ""; // will hold the full input line
     String word1;
-    String word2;
+    String word2; //if u want three words command, you must update these
     System.out.print("> "); // print prompt
+
+    //bufferedReader is like a scanner  (DO NOT TOUCH)
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     try {
       inputLine = reader.readLine();
     } catch (java.io.IOException exc) {
       System.out.println("There was an error during reading: " + exc.getMessage());
     }
+
     StringTokenizer tokenizer = new StringTokenizer(inputLine);
     if (tokenizer.hasMoreTokens())
       word1 = tokenizer.nextToken(); // get first word

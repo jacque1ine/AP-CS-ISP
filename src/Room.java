@@ -13,13 +13,17 @@
  * to the neighbouring room, or null if there is no exit in that direction.
  */
 import java.util.Set;
+
+import javax.lang.model.util.ElementScanner14;
+
 import java.util.HashMap;
 import java.util.Iterator;
 
 public class Room {
   private String roomName;
   private String description;
-  private HashMap<String, Room> exits; // stores exits of this room.
+  private HashMap<String, Room> exits; //stores exits of this room. 
+  // HashMap stores MULTIPLE OBJECTS in a variable. 
 
   /**
    * Create a room described "description". Initially, it has no exits.
@@ -37,30 +41,24 @@ public class Room {
     exits = new HashMap<String, Room>(); // <key(direction), value> 
   }
 
-  public void setExit(char direction, Room r) throws Exception {
+  public void setExit(String direction, Room r) throws Exception {
     String dir = "";
-    switch (direction) {
-      case 'E':
-        dir = "east";
-        break;
-      case 'W':
-        dir = "west";
-        break;
-      case 'S':
-        dir = "south";
-        break;
-      case 'N':
-        dir = "north";
-        break;
-      case 'U':
-        dir = "up";
-        break;
-      case 'D':
-        dir = "down";
-        break;
-      default:
-        throw new Exception("Invalid Direction");
-    }
+    if (direction.equals("E"))
+      dir = "east";
+    else if(direction.equals("W"))
+      dir = "west";
+    else if(direction.equals("N"))
+      dir = "north";
+    else if(direction.equals("S"))
+      dir = "south";
+    else if(direction.equals("U"))
+      dir = "up";
+    else if(direction.equals("D"))
+      dir = "down";
+    else if(direction.equals("SW"))
+      dir = "southwest";
+    else
+      throw new Exception("Invalid Direction");
 
     exits.put(dir, r);
   }
@@ -69,7 +67,7 @@ public class Room {
    * Define the exits of this room. Every direction either leads to another room
    * or is null (no exit there).
    */
-  public void setExits(Room north, Room east, Room south, Room west, Room up, Room down) {
+  public void setExits(Room north, Room east, Room south, Room west, Room up, Room down, Room southwest) {
     if (north != null)
       exits.put("north", north);
     if (east != null)
@@ -82,6 +80,8 @@ public class Room {
       exits.put("up", up);
     if (up != null)
       exits.put("down", down);
+    if (southwest != null)
+      exits.put("southwest", southwest);
   }
 
   /**
