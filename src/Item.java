@@ -2,12 +2,12 @@ public class Item {
     private String description;
     private String name; 
     private int weight; 
-    private boolean canLift; 
 
 
     public Item(String name, String description, int weight){
         this.name = name; 
         this.description = description;
+        this.weight = weight;
     }
 
     public String getDescription(){
@@ -18,7 +18,15 @@ public class Item {
         return weight;
     }
 
-    public 
+    public Boolean moveable(){
+        if(weight==1){
+            return true;
+        }
+        else{
+            return false; 
+        }
+    }
+
 
 //has name
 //description
