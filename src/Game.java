@@ -115,6 +115,7 @@ public class Game {
     System.out.println();
     System.out.println("Welcome to Zork!");
     System.out.println("Zork is a new, incredibly boring adventure game.");
+    System.out.println("You are from 2050. After being chased by bad guys, you run through a special door which turned out to a be a portal...");
     System.out.println("Type 'help' if you need help.");
     System.out.println();
     System.out.println(currentRoom.longDescription());
@@ -141,18 +142,31 @@ public class Game {
         return true; // signal that we want to quit
     } else if (commandWord.equals("eat")) {
       System.out.println("Do you really think you should be eating at a time like this?");
-    }
-    else if (commandWord.equals("yell")){
-      System.out.println("Attention seeking aren't you?");
+    }else if (commandWord.equals("yell")){
+      yell(command.getSecondWord());
     }
     return false;
   }
+  
+  
 
   // implementations of user commands:
   /**
    * Print out some help information. Here we print some stupid, cryptic message
    * and a list of the command words.
    */
+
+  private void yell(String secondWord){
+    if (secondWord != null){
+      System.out.println(secondWord.toUpperCase() + "!!!!!");
+      System.out.println("Attention seeking aren't you?");
+    }
+    else{
+      System.out.println("ARGHHHH!!!!");
+      System.out.println("Attention seeking aren't you?");
+    }
+
+  }
   private void printHelp() {
     System.out.println("You are lost. You are alone. You wander");
     System.out.println("around at Monash Uni, Peninsula Campus.");
