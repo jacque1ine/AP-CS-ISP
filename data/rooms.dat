@@ -1,9 +1,9 @@
-Room Name: TOWN SQUARE 
+Room Name: Town Square 
 Room Description:  You are in the familiar main town square of Hill Valley only it looks... much older than you recall. There seems to a newspaper stand. 
 Exit Rooms: N-North Road, S-South Road
 Room Name: North Road
 Room Description:  This is Room 2
-Exit Rooms: S-TOWN SQUARE
+Exit Rooms: S-Town Square
 Room Name: South Road 
 Room Description:  This is south of the town square. 
-Exit Rooms: N-TOWN SQUARE
+Exit Rooms: N-Town Square 
