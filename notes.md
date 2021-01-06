@@ -6,3 +6,7 @@
 - tem have weight 
 each item has same weight exceptpt for items that stay in he room 
 each item - weight = 1 unless it is stationalty
+
+
+- NEED TO ADD LOCKED ROOM FUNCTION: 
+- 
