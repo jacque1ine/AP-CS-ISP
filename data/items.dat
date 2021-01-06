@@ -1,0 +1,16 @@
+Item Name: bag
+Item Description: A brown paper bag
+Openable: true
+Room: ATTIC
+Item Name: knife
+Item Description: A sharp knife
+Openable: false
+Room: HALLWAY
+Item Name: lantern
+Item Description: A rusty lantern
+Openable: false
+Room: HALLWAY
+Item Name: pickle
+Item Description: A sour pickle
+Openable: false
+Item: BAG

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+private arra
 
 public class Inventory {
     //have a bunch of items 
@@ -8,7 +9,7 @@ public class Inventory {
   private ArrayList<Item> bag;
   // private Item currentItem; 
 
-  public Inventory(ArrayList<Item> bag){
+  public Inventory(){
     this.bag = bag;
   }
 
