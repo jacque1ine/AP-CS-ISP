@@ -28,6 +28,8 @@ public class Game {
   // Room (assuming you have one).
   private HashMap<String, Room> masterRoomMap;
 
+ 
+
     //do not touch unit rooms
   private void initRooms(String fileName) throws Exception {
     masterRoomMap = new HashMap<String, Room>();
@@ -38,13 +40,15 @@ public class Game {
       while (roomScanner.hasNext()) {
         Room room = new Room();
         // Read the Name
-        String roomName = roomScanner.nextLine();
+        String roomName = getNextLine(roomScanner);
         room.setRoomName(roomName.split(":")[1].trim());
+
         // Read the Description
-        String roomDescription = roomScanner.nextLine();
+        String roomDescription = getNextLine(roomScanner);
         room.setDescription(roomDescription.split(":")[1].replaceAll("<br>", "\n").trim());
+       
         // Read the Exits
-        String roomExits = roomScanner.nextLine();
+        String roomExits = getNextLine(roomScanner);
         // An array of strings in the format E-RoomName
         String[] rooms = roomExits.split(":")[1].split(",");
         HashMap<String, String> temp = new HashMap<String, String>();
@@ -77,6 +81,13 @@ public class Game {
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
+  }
+  private String getNextLine(Scanner roomScanner){
+    String nextLine = roomScanner.nextLine(); 
+    while(nextLine != null && nextLine.trim().equals("")){
+      nextLine = roomScanner.nextLine();
+    }
+    return nextLine;
   }
 
   /**
