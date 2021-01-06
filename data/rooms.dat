@@ -5,11 +5,18 @@ Room Name: Elon Road
 Room Description: More tall buildings surround you on both sides however you see a garage door slightly ajar. 
 Exit Rooms: N-Town Square, W-Garage
 Room Name: Garage
-Room Description: You are in small garage. 
+Room Description: You are in small garage. see telepoter (add more later)
 Exit Rooms: E-Elon Road, W-Oldtown Square
 Room Name: Oldtown Square 
 Room Description:  You are in the familiar main town square of Hill Valley only it looks... much older than you recall. There seems to a newspaper stand. 
 Exit Rooms: N-North Road, S-South Road
+Room Name: South Road
+Room Description: This is south of the town square. nothin much here
+Exit Rooms: N-Oldtown Square, E-Bakery
+Room Name: Bakery 
+Room Description: You are in a bakery. The owner offers you fresh bread 
+Exit Rooms: W-South Road
+Room Name: Library
 Room Name: North Road
 Room Description: There are buildings on your left and right obstructing the path. 
 Exit Rooms: S-Oldtown Square, N-More North Road
@@ -17,21 +24,32 @@ Room Name: More North Road
 Room Description: There are buildings on your left and right obstructing the path. You see a familiar garage only it looks more put together
 Exit Rooms: S-North Road, W-Old Garage
 Room Name: Old Garage 
-Room Description: The garage is much more full then your last visit. There is a clock on the wall, a large shelf, a cabinet, and a desk with some sort of blueprint. (read blueprint and get names)
-Exit Rooms: E-More North Road
-Room Name: South Road
-Room Description: This is south of the town square. 
-Exit Rooms: N-Oldtown Square, E-Bakery, W-Library
-Room Name: Bakery 
-Room Description: You are in a bakery. The owner offers you fresh brread 
-Exit Rooms: W-South Road
-Room Name: Library
+Room Description: The garage is much more full then your last visit. There is a clock on the wall, a large shelf, a cabinet, and a desk with some sort of blueprint. (desk w drawers, look in drawer, item read blueprint and get names)
+Room Name: Old Garage N
+Room Description: You are still in the garage. You see a backdoor.  
+Exit Rooms: W-George Street 
+Room Name: George Street
+Room Description: this street is quiter, west of north and south street 
+Exit Rooms: N-George Street N, S-George Street S
+Room Name: George Street S
+Room Description: (rename) george street continued, not much hear, seems like we reached a dead end 
+Exit Rooms: N-George Street
+Room Name: George Street N
+Room Description: There is not much here on theis small street except for a little library. 
+Exit Rooms: S-George Street, E-Library
 Room Description: You are in a library. There are rows and rows of books. You see a sign.
-Exit Rooms: N-Children Book Section, E-South Road, W-Science Section
+Exit Rooms: N-Children Book Section, E-Science Section, S-History Section, W-George Street N
 Room Name: Children Book Section
 Room Description: Hungry Hungry Caterpiller, Cat and the Hat and more... nostalgia 
 Exit Rooms: S-Library
-Room Name: Science Section
+Room Name: History Section
 Room Description: this is where its at 
-Exit Rooms: E-Library 
+Exit Rooms: N-Library 
+Room Name: Science Section
+Room Description: this is where its at. You see a loose book on the shelf.
+Exit Rooms: E-Library, N-Secret Room
+Room Name: Secret Room
+Room Description: you seem to have discovered a secret room...there are stairs going up
+Exit Rooms: N-Science Section
+
 
