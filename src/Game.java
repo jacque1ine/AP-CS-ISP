@@ -144,7 +144,9 @@ public class Game {
       System.out.println("Do you really think you should be eating at a time like this?");
     }else if (commandWord.equals("yell")){
       yell(command.getSecondWord());
-    }
+    }else if (commandWord.equals("wet")){
+      System.out.println("Don't worry its not raining");
+   }
     return false;
   }
   

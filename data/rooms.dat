@@ -14,8 +14,24 @@ Room Name: North Road
 Room Description: There are buildings on your left and right obstructing the path. 
 Exit Rooms: S-Oldtown Square, N-More North Road
 Room Name: More North Road
-Room Description: There are buildings on your left and right obstructing the path. 
-Exit Rooms: S-North Road
-Room Name: South Road 
-Room Description:  This is south of the town square. 
-Exit Rooms: N-Oldtown Square 
+Room Description: There are buildings on your left and right obstructing the path. You see a familiar garage only it looks more put together
+Exit Rooms: S-North Road, W-Old Garage
+Room Name: Old Garage 
+Room Description: The garage is much more full then your last visit. There is a clock on the wall, a large shelf, a cabinet, and a desk with some sort of blueprint. (read blueprint and get names)
+Exit Rooms: E-More North Road
+Room Name: South Road
+Room Description: This is south of the town square. 
+Exit Rooms: N-Oldtown Square, E-Bakery, W-Library
+Room Name: Bakery 
+Room Description: You are in a bakery. The owner offers you fresh brread 
+Exit Rooms: W-South Road
+Room Name: Library
+Room Description: You are in a library. There are rows and rows of books. You see a sign.
+Exit Rooms: N-Children Book Section, E-South Road, W-Science Section
+Room Name: Children Book Section
+Room Description: Hungry Hungry Caterpiller, Cat and the Hat and more... nostalgia 
+Exit Rooms: S-Library
+Room Name: Science Section
+Room Description: this is where its at 
+Exit Rooms: E-Library 
+
