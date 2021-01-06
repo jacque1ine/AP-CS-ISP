@@ -68,7 +68,17 @@ Exit Rooms: E-Library, N-Secret Room
 
 Room Name: Secret Study
 Room Description: you seem to have discovered a secret room...there are more books here
-Exit Rooms: N-Science Section
+Exit Rooms: N-Secret Study N
+
+Room Name: Secret Study N 
+Room Description: you go further into the study and you see a handle on ceiling. 
+Exit Rooms: U-Attic, S-Secret Study 
+
+Room Name: Attic
+Room Description:You see a table with a blanket covering something 
+Exit Rooms: D-Secret Study N
+
+
 
 
 
