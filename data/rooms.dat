@@ -12,7 +12,10 @@ Room Description:  You are in the familiar main town square of Hill Valley only 
 Exit Rooms: N-North Road, S-South Road
 Room Name: North Road
 Room Description: There are buildings on your left and right obstructing the path. 
-Exit Rooms: S-Oldtown Square
+Exit Rooms: S-Oldtown Square, N-More North Road
+Room Name: More North Road
+Room Description: There are buildings on your left and right obstructing the path. 
+Exit Rooms: S-North Road
 Room Name: South Road 
 Room Description:  This is south of the town square. 
 Exit Rooms: N-Oldtown Square 

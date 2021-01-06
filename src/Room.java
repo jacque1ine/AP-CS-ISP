@@ -84,12 +84,19 @@ public class Room {
       exits.put("southwest", southwest);
   }
 
+
+  public String justDescription(){
+    return "\n\n" + description;
+  }
+
   /**
    * Return the description of the room (the one that was defined in the
    * constructor).
    */
+
+
   public String shortDescription() {
-    return "Room: " + roomName + "\n\n" + description;
+    return "Location: " + roomName + "\n\n" + description;
   }
 
   /**

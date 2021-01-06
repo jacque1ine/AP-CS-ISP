@@ -118,7 +118,7 @@ public class Game {
     System.out.println("You are from 2050. After being chased by bad guys, you run through a special door which turned out to a be a portal...");
     System.out.println("Type 'help' if you need help.");
     System.out.println();
-    System.out.println(currentRoom.longDescription());
+    System.out.println(currentRoom.shortDescription());
   }
 
   /**
@@ -189,10 +189,10 @@ public class Game {
     // Try to leave current room.
     Room nextRoom = currentRoom.nextRoom(direction);
     if (nextRoom == null)
-      System.out.println("There is no door!");
+      System.out.println("You cannot go this way!");
     else {
       currentRoom = nextRoom;
-      System.out.println(currentRoom.longDescription());
+      System.out.println(currentRoom.shortDescription());
     }
   }
 }
