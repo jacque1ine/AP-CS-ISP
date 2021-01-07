@@ -41,27 +41,56 @@ public class Room {
     exits = new HashMap<String, Room>(); // <key(direction), value> 
   }
 
-  public void setExit(String direction, Room r) throws Exception {
+  // public void setExit(String direction, Room r) throws Exception {
+  //   String dir = "";
+  //   if (direction.equals("E"))
+  //     dir = "east";
+  //   else if(direction.equals("W"))
+  //     dir = "west";
+  //   else if(direction.equals("N"))
+  //     dir = "north";
+  //   else if(direction.equals("S"))
+  //     dir = "south";
+  //   else if(direction.equals("U"))
+  //     dir = "up";
+  //   else if(direction.equals("D"))
+  //     dir = "down";
+  //   else if(direction.equals("SW"))
+  //     dir = "southwest";
+  //   else
+  //     throw new Exception("Invalid Direction");
+
+  //   exits.put(dir, r);
+  // }
+
+  public void setExit(char direction, Room r) throws Exception {
     String dir = "";
-    if (direction.equals("E"))
-      dir = "east";
-    else if(direction.equals("W"))
-      dir = "west";
-    else if(direction.equals("N"))
-      dir = "north";
-    else if(direction.equals("S"))
-      dir = "south";
-    else if(direction.equals("U"))
-      dir = "up";
-    else if(direction.equals("D"))
-      dir = "down";
-    else if(direction.equals("SW"))
-      dir = "southwest";
-    else
-      throw new Exception("Invalid Direction");
+    switch (direction) {
+      case 'E':
+        dir = "east";
+        break;
+      case 'W':
+        dir = "west";
+        break;
+      case 'S':
+        dir = "south";
+        break;
+      case 'N':
+        dir = "north";
+        break;
+      case 'U':
+        dir = "up";
+        break;
+      case 'D':
+        dir = "down";
+        break;
+      default:
+        throw new Exception("Invalid Direction");
+    }
 
     exits.put(dir, r);
   }
+
 
   /**
    * Define the exits of this room. Every direction either leads to another room
