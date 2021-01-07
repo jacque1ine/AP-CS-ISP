@@ -74,13 +74,13 @@ class Game {
 			while (roomScanner.hasNext()) {
 				Room room = new Room();
 				// Read the Name
-				String roomName = roomScanner.nextLine();
+				String roomName = getNextLine(roomScanner);
 				room.setRoomName(roomName.split(":")[1].trim());
 				// Read the Description
-				String roomDescription = roomScanner.nextLine();
+				String roomDescription = getNextLine(roomScanner);
 				room.setDescription(roomDescription.split(":")[1].replaceAll("<br>", "\n").trim());
 				// Read the Exits
-				String roomExits = roomScanner.nextLine();
+				String roomExits = getNextLine(roomScanner);
 				// An array of strings in the format E-RoomName
 				String[] rooms = roomExits.split(":")[1].split(",");
 				HashMap<String, String> temp = new HashMap<String, String>();
@@ -117,6 +117,15 @@ class Game {
 			e.printStackTrace();
 		}
 	}
+
+//allows spaces in the room.dat file 
+  private String getNextLine(Scanner roomScanner){
+    String nextLine = roomScanner.nextLine(); 
+    while(nextLine != null && nextLine.trim().equals("")){
+      nextLine = roomScanner.nextLine();
+    }
+    return nextLine;
+  }
 
 	/**
 	 * Create the game and initialise its internal map.
