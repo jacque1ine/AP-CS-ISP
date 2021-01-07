@@ -1,119 +1,68 @@
-// public class Item {
-//     private String description;
-//     private String name; 
-//     private int weight; 
+import javax.management.openmbean.OpenDataException;
 
+public class Item{
+	private String name; 
+	private String description; 
+	private Inventory items; 
+	private boolean isOpenable; 
+	//add weight 
 
-//     public Item(String name, String description, int weight){
-//         this.name = name; 
-//         this.description = description;
-//         this.weight = weight;
-//     }
-
-//     public String getDescription(){
-//         return description;
-//     }
-
-//     public int getWeight(){
-//         return weight;
-//     }
-
-//     public Boolean moveable(){
-//         if(weight==1){
-//             return true;
-//         }
-//         else{
-//             return false; 
-//         }
-//     }
-
-
-// //has name
-// //description
-// //weight -> you can only hold so much 
-
-    
-// }
-
-package com.bayviewglen.zork;
-
-public class Item {
-	private String name;
-	private String description;
-	private Inventory items;
-	private boolean isOpenable;
-	
-	
-	public Item() {
-		
-	}
-	
-
-	public boolean isOpenable() {
-		return isOpenable;
-	}
-
-
-	public void setOpenable(boolean isOpenable) {
-		this.isOpenable = isOpenable;
-		if(isOpenable)
-			this.items = new Inventory(); 
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
-	public Item(String name, String description, boolean isOpenable) {
-		super();
-		this.name = name;
+	public Item(String name, String descirption, Boolean isOpenable){
+		super(); 
+		this.name = name; 
 		this.description = description;
 		this.isOpenable = isOpenable;
-		if(isOpenable)
-			this.items = new Inventory(); 
-	}
+		if(isOpenable){
+			this.items = new Inventory();
+		}
 	
-	public Item(String name, String description) {
-		super();
-		this.name = name;
+	}
+
+	public Item(String name, String descirption){
+		super(); 
+		this.name = name; 
 		this.description = description;
 		this.isOpenable = false;
 	}
 
-	public String getName() {
+	public String getName(){
 		return name;
 	}
 
-	public String getDescription() {
+	public String getDescription(){
 		return description;
 	}
-	
-	public Inventory getContents() {
-		if (!isOpenable) return null;
+
+	public Inventory getContents(){
+		if(!isOpenable) return null;
 		return items;
 	}
-	
-	public boolean addItem(Item item) {
-		if (!isOpenable) return false;
-		return items.addItem(item);
-	}
-	
-	public Item removeItem(String item) {
-		if (!isOpenable) return null;
-		return items.removeItem(item);
-	}
-	
-	public String displayContents() {
-		if (!isOpenable) return null;
 
-		return "The " + name + " contains:\n" + items;
+	public boolean addItem(Item item){
+		if(!isOpenable) return false;
+		return item.addItem(item);
+
+	}
+
+	public Item removeItem(String item){
+		if(!isOpenable) return null;
+		return items.removeItem(item); 
+	}
+
+	public String displayContents(){
+		if(!isOpenable) return null;
+		return "The " + name + "contains: \n" + items;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public void setDescription(String description){
+		this.description = description;
+	}
+
+	public void setOpenable(Boolean openable){
+		this.isOpenable = openable;
 	}
 }
-

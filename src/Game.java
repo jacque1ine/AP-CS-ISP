@@ -134,9 +134,10 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("ATTIC");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("TOWN_SQUARE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
-			initItems("data/items.dat");
+      initItems("data/items.dat");
+      
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -213,7 +214,7 @@ class Game {
 			else
 				dropItem(command.getSecondWord());
 		} else if (commandWord.equals("i")) {
-			System.out.println(inventory);
+			System.out.println("You are carrying the following:" + inventory);
 		} else if (commandWord.equals("open")) {
 			if (!command.hasSecondWord())
 				System.out.println("Open what?");
@@ -230,30 +231,37 @@ class Game {
 			System.out.println(item.displayContents());
 		}else {
 			System.out.println("What is it that you think you have but do not.");
-		}
-		
+        }
+        
 	}
 
 	private void takeItem(String itemName) {
 		Inventory temp = currentRoom.getInventory();
 		
 		Item item = temp.removeItem(itemName);
-		
+    
+    //if null it is not in the room inventory
 		if (item != null) {
 			if (inventory.addItem(item)) {
 				System.out.println("You have taken the " + itemName);
 				
-				if (currentRoom.getRoomName().equals("Hallway") &&  itemName.equals("ball")) {
-					currentRoom = masterRoomMap.get("ATTIC");
-					System.out.println("You seem to be lying on the floor all confused. It seems you have been here for a while.\n");
-					System.out.println(currentRoom.longDescription());
-				}
-			}else {
-				System.out.println("You were unable to take the " + itemName);
-			}
+			// 	if (currentRoom.getRoomName().equals("Hallway") &&  itemName.equals("ball")) {
+			// 		currentRoom = masterRoomMap.get("ATTIC");
+			// 		System.out.println("You seem to be lying on the floor all confused. It seems you have been here for a while.\n");
+			// 		System.out.println(currentRoom.longDescription());
+			// 	}
+			// }else {
+			// 	System.out.println("You were unable to take the " + itemName);
+			// }
 		}else {
-			System.out.println("There is no " + itemName + " here.");
-		}
+			System.out.println("you are unable to take " + itemName + " here.");
+    }
+  
+  }else{
+    System.out.println("There is no " + itemName + " here.");
+  }
+    
+
 	}
 	
 	private void dropItem(String itemName) {

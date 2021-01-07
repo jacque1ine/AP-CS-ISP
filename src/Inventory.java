@@ -1,48 +1,52 @@
 import java.util.ArrayList;
-private arra
 
-public class Inventory {
-    //have a bunch of items 
-    //ArrayList or Hashmap of Item 
-
-
-  private ArrayList<Item> bag;
-  // private Item currentItem; 
+public class Inventory{
+  //collection of Item objects
+  private ArrayList<Item> items; 
 
   public Inventory(){
-    this.bag = bag;
+    items = new ArrayList<Item>(); 
   }
 
-  public void addItem(Item item){
-    bag.add(item);
+
+  public boolean addItem(Item item){
+    return items.add(item); 
   }
 
-  public void removeItem(Item item){
-    bag.remove(item);
-  }
-
- 
-  public void allInventory() {
-    if (bag.size() == 0){
-      System.out.println("There is nothing in your inventory! :)"); 
-    }
-    
-    else if(bag.size()>0){
-      for (int i = 0; i < bag.size(); i++){ 
-        System.out.println(bag.get(i));
+  /* returns the items based on the name given 
+  if the item is not in inventory, return null 
+   */
+  public Item removeItem(String name){
+    for(int i=0; i<items.size(); i++){
+      if (name.equals(items.get(i).getName())){
+        return items.remove(i);
       }
     }
+    return null; 
   }
 
-
-  public int numItems(){
-    return bag.size();
-  }
-
-//maybe add a isinIvnetory to check if a specific item is in inventory 
-
-
-
-
+  public String toString(){
+    if(items.size() ==0){
+      return "is empty";
+    }
     
+    String msg = ""; 
+
+    for(Item i: items){
+      msg+=i.getName() + "\n";
+    }
+    return msg;
+
+  }
+
+  public Item contains(String name){
+    for (int i=0; i<items.size(); i++){
+      if (name.equals(items.get(i).getName())){
+        return items.get(i);
+      }
+    }
+    return null;
+
+  }
+
 }
