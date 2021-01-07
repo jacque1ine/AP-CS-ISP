@@ -1,7 +1,7 @@
 Item Name: bag
 Item Description: A brown paper bag
 Openable: true
-Room: ATTIC
+Room: TOWN_SQUARE
 Item Name: knife
 Item Description: A sharp knife
 Openable: false

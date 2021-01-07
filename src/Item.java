@@ -25,6 +25,9 @@ public class Item{
 		this.isOpenable = false;
 	}
 
+	public Item(){
+	}
+
 	public String getName(){
 		return name;
 	}
