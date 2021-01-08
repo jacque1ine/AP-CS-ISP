@@ -80,7 +80,8 @@ class Game {
 				String roomDescription = getNextLine(roomScanner);
 				room.setDescription(roomDescription.split(":")[1].replaceAll("<br>", "\n").trim());
 				// Read the Exits
-				String roomExits = getNextLine(roomScanner);
+                String roomExits = getNextLine(roomScanner);
+                
 				// An array of strings in the format E-RoomName
 				String[] rooms = roomExits.split(":")[1].split(",");
 				HashMap<String, String> temp = new HashMap<String, String>();
@@ -105,8 +106,9 @@ class Game {
 
 					String roomName2 = tempExits.get(s.trim());
 					Room exitRoom = masterRoomMap.get(roomName2.toUpperCase().replaceAll(" ", "_"));
-          // roomTemp.setExit(s.trim(), exitRoom); //String 
-          roomTemp.setExit(s.trim().charAt(0), exitRoom); //char
+                    
+                    // roomTemp.setExit(s.trim(), exitRoom); //String 
+                    roomTemp.setExit(s.trim().charAt(0), exitRoom); //char
 
 				}
 
@@ -342,11 +344,10 @@ class Game {
 // Try to leave current room.
 		Room nextRoom = currentRoom.nextRoom(direction);
 		if (nextRoom == null)
-			System.out.println("There is no door!");
+			System.out.println("There is something obstructing your path. You cannot go this way!");
 		else {
 			currentRoom = nextRoom;
 			System.out.println(currentRoom.longDescription());
 		}
 	}
-
 }
