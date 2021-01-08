@@ -1,7 +1,7 @@
-Item Name: bag
-Item Description: A brown paper bag
+Item Name: Bag
+Item Description: this is a 
 Openable: true
-Room: TOWN_SQUARE
+Room: OLDTOWN_SQUARE
 Item Name: knife
 Item Description: A sharp knife
 Openable: false

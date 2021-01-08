@@ -7,7 +7,7 @@ public class Item{
 	private boolean isOpenable; 
 	//add weight 
 
-	public Item(String name, String descirption, Boolean isOpenable){
+	public Item(String name, String description, Boolean isOpenable){
 		super(); 
 		this.name = name; 
 		this.description = description;
@@ -18,7 +18,7 @@ public class Item{
 	
 	}
 
-	public Item(String name, String descirption){
+	public Item(String name, String description){
 		super(); 
 		this.name = name; 
 		this.description = description;
