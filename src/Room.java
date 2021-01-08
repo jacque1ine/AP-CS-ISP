@@ -23,6 +23,7 @@ public class Room {
 	private HashMap<String, Room> exits; //stores exits of this room. 
 	// HashMap stores MULTIPLE OBJECTS in a variable. 
 	private Inventory inventory; 
+	private boolean locked;
 	/**
 	 * Create a room described "description". Initially, it has no exits.
 	 * "description" is something like "a kitchen" or "an open court yard".
@@ -39,6 +40,7 @@ public class Room {
 		description = "DEFAULT DESCRIPTION";
 		exits = new HashMap<String, Room>(); // <key(direction), value> 
 		inventory = new Inventory();
+		
 	}
 
 	// public void setExit(String direction, Room r) throws Exception {
@@ -175,6 +177,14 @@ public class Room {
 
 	public Inventory getInventory(){
 		return inventory;
+	}
 
+	public void setLocked(boolean locked){
+		this.locked = locked;
+	}
+
+	public Boolean getLocked(){
+		return locked;
+	
 	}
 }

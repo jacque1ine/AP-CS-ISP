@@ -1,9 +1,9 @@
 Item Name: Bag
-Item Description: this is a 
+Item Description: this is a backpack in your favourite colour that will definitely come in handy later...
 Openable: true
 Room: OLDTOWN_SQUARE
 Item Name: knife
-Item Description: A sharp knife
+Item Description: GARAGE
 Openable: false
 Room: HALLWAY
 Item Name: lantern
