@@ -2,15 +2,7 @@ Item Name: Bag
 Item Description: this is a backpack in your favourite colour that will definitely come in handy later...
 Openable: true
 Room: OLDTOWN_SQUARE
-Item Name: knife
-Item Description: GARAGE
-Openable: false
-Room: HALLWAY
 Item Name: lantern
 Item Description: A rusty lantern
 Openable: false
-Room: HALLWAY
-Item Name: pickle
-Item Description: A sour pickle
-Openable: false
-Item: BAG
+Room: ATTIC

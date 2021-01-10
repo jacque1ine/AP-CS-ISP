@@ -183,7 +183,7 @@ public class Room {
 		this.locked = locked;
 	}
 
-	public Boolean getLocked(){
+	public boolean getLocked(){
 		return locked;
 	
 	}
