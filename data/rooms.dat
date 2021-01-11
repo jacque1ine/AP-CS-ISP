@@ -98,6 +98,11 @@ Room Description:You see a table with a blanket covering something
 Exit Rooms: D-Secret Study N
 Locked: false
 
+Room Name: Theatre
+Room Description: This is a movie theatre 
+Exit Rooms: 
+Locked: true 
+
 
 
 

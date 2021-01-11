@@ -2,7 +2,35 @@ Item Name: Bag
 Item Description: this is a backpack in your favourite colour that will definitely come in handy later...
 Openable: true
 Room: OLDTOWN_SQUARE
+
 Item Name: lantern
 Item Description: A rusty lantern
 Openable: false
 Room: ATTIC
+
+Item Name: watch 
+Item Description: this is a cool watch 
+Openable: true
+Room: OLD GARAGE 
+
+Item Name: blueprint
+Item Description: this is the blueprint to the time machine 
+Openable: false
+Room: GARAGE 
+
+Item Name: Book
+Item Description: this is a special book it seems like theres something in it  
+Openable: true
+Room: LIBRARY
+
+Item Name: time machine part 1 
+Item Description: this part matches the blueprint
+Openable: false
+Room: ATTIC 
+
+Item Name: large bag 
+Item Description:theres something huge inside this bag 
+Openable: true
+Room: ATTIC
+
+

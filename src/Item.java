@@ -1,4 +1,4 @@
-import javax.management.openmbean.OpenDataException;
+// import javax.management.openmbean.OpenDataException;
 
 public class Item{
 	private String name; 
@@ -15,7 +15,6 @@ public class Item{
 		if(isOpenable){
 			this.items = new Inventory();
 		}
-	
 	}
 
 	public Item(String name, String description){
