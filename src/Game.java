@@ -43,16 +43,16 @@ class Game {
 			itemScanner = new Scanner(new File(fileName));
 			while (itemScanner.hasNext()) {
 				Item item = new Item();
-				String itemName = itemScanner.nextLine().split(":")[1].trim();
+				String itemName = getNextLine(itemScanner).split(":")[1].trim();
 				item.setName(itemName);
-				String itemDesc = itemScanner.nextLine().split(":")[1].trim();
+				String itemDesc = getNextLine(itemScanner).split(":")[1].trim();
 				item.setDescription(itemDesc);	
-				Boolean openable = Boolean.valueOf(itemScanner.nextLine().split(":")[1].trim());
+				Boolean openable = Boolean.valueOf(getNextLine(itemScanner).split(":")[1].trim());
 				item.setOpenable(openable);
 				
 				masterItemMap.put(itemName.toUpperCase().replaceAll(" ", "_"), item);
 				
-				String temp = itemScanner.nextLine();
+				String temp = getNextLine(itemScanner);
 				String itemType = temp.split(":")[0].trim();
 				String name = temp.split(":")[1].trim();
 				if (itemType.equals("Room"))
