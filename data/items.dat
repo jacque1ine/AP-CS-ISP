@@ -11,7 +11,7 @@ Room: ATTIC
 Item Name: watch 
 Item Description: this is a cool watch 
 Openable: true
-Room: OLD GARAGE 
+Room: OLD_GARAGE 
 
 Item Name: blueprint
 Item Description: this is the blueprint to the time machine 
@@ -32,5 +32,10 @@ Item Name: large bag
 Item Description:theres something huge inside this bag 
 Openable: true
 Room: ATTIC
+
+Item Name: Generator 
+Item Description: power supply
+Openable: false
+Room: THEATRE
 
 

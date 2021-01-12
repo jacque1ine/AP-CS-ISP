@@ -11,7 +11,7 @@ Locked: false
 Room Name: Garage
 Room Description: You are in small garage. see telepoter (add more later)
 Exit Rooms: E-Elon Road, W-Oldtown Square
-Locked: false
+Locked: true 
 
 Room Name: Oldtown Square 
 Room Description:  You are in the familiar main town square of Hill Valley only it looks... much older than you recall. There seems to a newspaper stand. 
@@ -50,7 +50,7 @@ Locked: false
 
 Room Name: George Street
 Room Description: this street is quiter, west of north and south street 
-Exit Rooms: N-George Street N, S-George Street S
+Exit Rooms: N-George Street N, S-George Street, E-Theatre
 Locked: false
 
 Room Name: George Street S
@@ -95,12 +95,12 @@ Locked: false
 
 Room Name: Attic
 Room Description:You see a table with a blanket covering something 
-Exit Rooms: D-Secret Study N
+Exit Rooms: D-Secret Study
 Locked: false
 
 Room Name: Theatre
 Room Description: This is a movie theatre 
-Exit Rooms: 
+Exit Rooms: E-George Street
 Locked: true 
 
 Room Name: alleyway

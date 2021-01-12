@@ -13,7 +13,6 @@
 	* to the neighbouring room, or null if there is no exit in that direction.
 	*/
 import java.util.Set;
-import javax.lang.model.util.ElementScanner14;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -32,6 +31,7 @@ public class Room {
 		this.description = description;
 		exits = new HashMap<String, Room>();
 		inventory = new Inventory();
+		locked = false;
 	}
 
 	public Room() {
@@ -40,7 +40,7 @@ public class Room {
 		description = "DEFAULT DESCRIPTION";
 		exits = new HashMap<String, Room>(); // <key(direction), value> 
 		inventory = new Inventory();
-		
+		locked = false;
 	}
 
 	// public void setExit(String direction, Room r) throws Exception {
@@ -136,7 +136,8 @@ public class Room {
 	 */
 	public String longDescription() {
 
-		return "Location: " + roomName + "\n\n" + description + "\n" + exitString() + "\n The room contains: \n " + inventory;
+		return "Location: " + roomName + "\n\n" + description + "\n" + exitString() + "\n The room contains: \n " + inventory + 
+		(numLockedRooms()>0?"\n it appears that " + getLockedRooms() + " "+(numLockedRooms()==1?"is": "are")+" locked.":"");
 	}
 
 	/**
@@ -151,6 +152,26 @@ public class Room {
 		return returnString;
 	}
 
+	private int numLockedRooms(){
+		int num = 0; 
+		for (String s: exits.keySet()){ //key - nsew
+			if(exits.get(s).isLocked())
+				num++; 
+		}
+		return num;
+	}
+
+	private String getLockedRooms(){
+		String str = ""; 
+
+		for (String s: exits.keySet()){ //key - nsew
+			Room room = exits.get(s);
+			if(room.isLocked()){
+				str+=room.getRoomName() + ", ";
+			}; 
+		}
+		return str.substring(0,str.length()-2);
+	}
 	/**
 	 * Return the room that is reached if we go from this room in direction
 	 * "direction". If there is no room in that direction, return null.
@@ -183,7 +204,7 @@ public class Room {
 		this.locked = locked;
 	}
 
-	public boolean getLocked(){
+	public boolean isLocked(){
 		return locked;
 	
 	}

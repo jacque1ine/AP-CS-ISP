@@ -168,6 +168,9 @@ class Game {
 		boolean finished = false;
 		while (!finished) {
 			Command command = parser.getCommand();
+		// if(!processCommand(command) || hasWon()){
+		// 	finished = true;
+		// }
 			finished = processCommand(command);
 		}
 		System.out.println("Thank you for playing.  Good bye.");
@@ -204,7 +207,11 @@ class Game {
 				System.out.println("Quit what?");
 			else
 				return true; // signal that we want to quit
-		} else if (commandWord.equals("eat")) {
+		// } else if (currentRoom.getRoomName().equals("GARAGE")){
+		// 	if(command.equals("w") || command.equals("go west")){
+		// 		currentRoom.
+		// 	}
+		}else if (commandWord.equals("eat")) {
 			eat(command.getSecondWord());
 		} else if (commandWord.equals("jump")) {
 			return jump();
@@ -233,7 +240,7 @@ class Game {
 			System.out.println("There are better ways to put things down"); 
 		} else if (commandWord.equals("kill")){
 			System.out.println("sorry, your going to have to do that yourself");
-		}
+		} 
 		return false;
 	}
 
@@ -311,6 +318,15 @@ class Game {
 		return true;
 	}
 
+	// private boolean hasWon(){
+	// 	if (item.getName().equals())
+		
+	// 	if(inventory.contains(generator)){
+	// 		return true;
+	// 	}
+	// 	return false;
+	// }
+
 // implementations of user commands:
 	/**
 	 * Print out some help information. Here we print some stupid, cryptic message
@@ -318,7 +334,6 @@ class Game {
 	 */
 	private void printHelp() {
 		System.out.println("You are lost. You are alone. You wander");
-		System.out.println("around at Monash Uni, Peninsula Campus.");
 		System.out.println();
 		System.out.println("Your command words are:");
 		parser.showCommands();
@@ -356,8 +371,11 @@ class Game {
 		Room nextRoom = currentRoom.nextRoom(direction);
 		if (nextRoom == null)
 			System.out.println("There is something obstructing your path. You cannot go this way!");
-		else {
+		else if (nextRoom.isLocked()) {
+			System.out.println("The door is locked. You need a key to open it.");
+		} else {
 			currentRoom = nextRoom;
+		
 			System.out.println(currentRoom.longDescription());
 		}
 	}
