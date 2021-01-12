@@ -229,6 +229,10 @@ class Game {
 				System.out.println("Open what?");
 			else
 				openItem(command.getSecondWord());
+		} else if (commandWord.equals("throw")){
+			System.out.println("There are better ways to put things down"); 
+		} else if (commandWord.equals("kill")){
+			System.out.println("sorry, your going to have to do that yourself");
 		}
 		return false;
 	}
