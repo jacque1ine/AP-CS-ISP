@@ -103,7 +103,10 @@ Room Description: This is a movie theatre
 Exit Rooms: 
 Locked: true 
 
-
+Room Name: alleyway
+room Description: secret allay way 
+exit rooms: S-George Street
+Locked: true 
 
 
 
