@@ -145,6 +145,7 @@ class Game {
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
 			currentRoom = masterRoomMap.get("TOWN_SQUARE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
+			masterRoomMap.get("GARAGE").setKey("BAG");
       initItems("data/items.dat");
       
 			
@@ -305,12 +306,10 @@ class Game {
 			System.out.println("I don't eat carbs...");
 		else 
 			System.out.println("You are the " + secondWord);
-		
 	}
 
 	private void sit() {
-		System.out.println("You are now sitting. You lazy excuse for a person.");
-		
+		System.out.println("You are now sitting. You lazy excuse for a person.")	
 	}
 
 	private boolean jump() {
@@ -371,12 +370,18 @@ class Game {
 		Room nextRoom = currentRoom.nextRoom(direction);
 		if (nextRoom == null)
 			System.out.println("There is something obstructing your path. You cannot go this way!");
-		else if (nextRoom.isLocked()) {
+		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
 			System.out.println("The door is locked. You need a key to open it.");
 		} else {
 			currentRoom = nextRoom;
 		
 			System.out.println(currentRoom.longDescription());
 		}
+	}
+
+	private boolean hasKey(Room nextRoom) {
+		if ()
+		return false;
+		//check to see have item, 
 	}
 }
