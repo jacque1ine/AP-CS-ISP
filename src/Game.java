@@ -396,12 +396,7 @@ class Game {
 		Room nextRoom = currentRoom.nextRoom(direction);
 		if (nextRoom == null)
 			System.out.println("There is something obstructing your path. You cannot go this way!");
-		else if (nextRoom.isLocked() && !hasKey2(nextRoom)) {
-			// if(nextRoom.getRoomName().equals("OLDTOWN_SQUARE")){
-			// 	if(!inventory.contains("Watch").equals("Watch")){
-			// 		System.out.println("You do have the items to get to the next area");)
-			// 	}
-			// }
+		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
 			System.out.println("The door is locked. You need a key to open it.");
 	
 		
@@ -415,25 +410,10 @@ class Game {
 			System.out.println(currentRoom.longDescription());
 		}
 	}
-
+	/* Has Key: gets the key from a room, and checks if the player's inventory has the corresponding key */
 	private boolean hasKey(Room nextRoom) {
-		if(nextRoom.getRoomName().equals("GARAGE")){
-			if(inventory.contains("BAG").equals("BAG")){
-				System.out.println("You have sucesfully unlocked the next room"); 
-				return true; 
-			}
-		}
-			
-			return false; 
-	}
-
-
-	private boolean hasKey2(Room nextRoom) {
 		String key = nextRoom.getKey();
 		return key != null && inventory.contains(key) != null && inventory.contains(key).getName().equalsIgnoreCase(key);
-			
-		
 	}
-	
 }
-		//check to see have item,
+	
