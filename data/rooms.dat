@@ -1,5 +1,5 @@
 Room Name: Town Square 
-Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere. How peculiar that there is a clock tower covered by screens except for the antique clock face at the top. Who even reads analog clocks anymore? Beneath the clock it says, March 21, 2050
+Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere.<br> How peculiar that there is a clock tower covered by screens except for the antique clock face at the top. Who even reads analog clocks anymore? Beneath the clock it says, March 21, 2050
 Exit Rooms: S-Elon Road
 Locked: false
 Kills: false
@@ -13,13 +13,13 @@ Kills: true
 Room Name: Garage
 Room Description: You are in small garage. see telepoter (add more later)
 Exit Rooms: E-Elon Road, W-Oldtown Square
-Locked: false 
+Locked: true 
 Kills: false
 
 Room Name: Oldtown Square 
 Room Description:  You are in the familiar main town square of Hill Valley only it looks... much older than you recall. There seems to a newspaper stand. 
 Exit Rooms: N-North Road, S-South Road
-Locked:true
+Locked: true
 Kills: false
 
 Room Name: South Road
@@ -72,7 +72,7 @@ Kills: false
 
 Room Name: George Street N
 Room Description: There is not much here on theis small street except for a little library. 
-Exit Rooms: S-George Street, E-Library
+Exit Rooms: S-George Street, E-Library, W-alleyway
 Locked: false
 Kills: false
 
@@ -125,8 +125,8 @@ Locked: true
 Kills: false
 
 Room Name: alleyway
-room Description: secret allay way 
-exit rooms: S-George Street
+Room Description: secret allay way 
+Exit rooms: E-George Street S
 Locked: true 
 Kills: false
 

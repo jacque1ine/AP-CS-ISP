@@ -18,7 +18,7 @@ public class Inventory{
    */
 	public Item removeItem(String name){
     	for(int i=0; i<items.size(); i++){
-      		if (name.equals(items.get(i).getName())){
+      		if (name.equalsIgnoreCase(items.get(i).getName())){
         		return items.remove(i);
       		}
 		}
@@ -38,11 +38,20 @@ public class Inventory{
 
 	public Item contains(String name){
     	for (int i=0; i<items.size(); i++){
-      		if (name.equals(items.get(i).getName())){
+      		if (name.equalsIgnoreCase(items.get(i).getName())){
         		return items.get(i);
       		}
     	}
 		return null;
   }
+
+//   public boolean contains(String name){
+// 	for (int i=0; i<items.size(); i++){
+// 		  if (name.equals(items.get(i).getName())){
+// 			return items.get(i);
+// 		  }
+// 	}
+// 	return null;
+// }
 
 }

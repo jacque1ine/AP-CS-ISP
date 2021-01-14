@@ -153,7 +153,7 @@ class Game {
 			inventory = new Inventory();
 			masterRoomMap.get("GARAGE").setKey("BAG");
 			
-      initItems("data/items.dat");
+      	initItems("data/items.dat");
       
 			
 		} catch (Exception e) {
@@ -180,13 +180,13 @@ class Game {
 			// if(!processCommand(command) || hasWon()){
 			// 	finished = true;
 			// }
-			if (currentRoom.getKill()){
-				message = ("you have wandered to the wrong place...you have died");
-				finished = true;
-			}
-			if(!finished){
+			// if (currentRoom.getKill()){
+			// 	message = ("you have wandered to the wrong place...you have died");
+			// 	finished = true;
+			// }
+			// if(!finished){
 				finished = processCommand(command);
-			}
+			// }
 			
 		}
 		System.out.println(message);
@@ -214,51 +214,51 @@ class Game {
 			return false;
 		}
 		String commandWord = command.getCommandWord();
-		if (commandWord.equals("help"))
+		if (commandWord.equalsIgnoreCase("help"))
 			printHelp();
-		else if (commandWord.equals("go"))
+		else if (commandWord.equalsIgnoreCase("go"))
 			goRoom(command);
-		else if (commandWord.equals("quit")) {
+		else if (commandWord.equalsIgnoreCase("quit")) {
 			if (command.hasSecondWord())
 				System.out.println("Quit what?");
 			else
 				return true; // signal that we want to quit
-		// } else if (currentRoom.getRoomName().equals("GARAGE")){
-		// 	if(command.equals("w") || command.equals("go west")){
+		// } else if (currentRoom.getRoomName().equalsIgnoreCase("GARAGE")){
+		// 	if(command.equalsIgnoreCase("w") || command.equalsIgnoreCase("go west")){
 		// 		currentRoom.
 		// 	}
-		}else if (commandWord.equals("eat")) {
+		}else if (commandWord.equalsIgnoreCase("eat")) {
 			eat(command.getSecondWord());
-		} else if (commandWord.equals("jump")) {
+		} else if (commandWord.equalsIgnoreCase("jump")) {
 			return jump();
-		} else if (commandWord.equals("sit")) {
+		} else if (commandWord.equalsIgnoreCase("sit")) {
 			sit();
 		} else if ("udeswn".indexOf(commandWord) > -1) {
 			goRoom(command);
-		} else if (commandWord.equals("take")) {
+		} else if (commandWord.equalsIgnoreCase("take")) {
 			if (!command.hasSecondWord())
 				System.out.println("Take what?");
 			else
 				takeItem(command.getSecondWord());
-		} else if (commandWord.equals("drop")) {
+		} else if (commandWord.equalsIgnoreCase("drop")) {
 			if (!command.hasSecondWord())
 				System.out.println("Drop what?");
 			else
 				dropItem(command.getSecondWord());
-		} else if (commandWord.equals("i")) {
+		} else if (commandWord.equalsIgnoreCase("i")) {
 			System.out.println("You are carrying the following:" + inventory);
-		} else if (commandWord.equals("open")) {
+		} else if (commandWord.equalsIgnoreCase("open")) {
 			if (!command.hasSecondWord())
 				System.out.println("Open what?");
 			else
 				openItem(command.getSecondWord());
-		} else if (commandWord.equals("throw")){
+		} else if (commandWord.equalsIgnoreCase("throw")){
 			System.out.println("There are better ways to put things down"); 
-		} else if (commandWord.equals("kill")){
+		} else if (commandWord.equalsIgnoreCase("kill")){
 			System.out.println("sorry, your going to have to do that yourself");
-		} else if(commandWord.equals("sleep")){
+		} else if(commandWord.equalsIgnoreCase("sleep")){
 			System.out.println("sleeping is for losers... don't you want to go back home?");
-		} else if(commandWord.equals("pull")){
+		} else if(commandWord.equalsIgnoreCase("pull")){
 			//add of it has second word integrate with pull method
 			if (!command.hasSecondWord()){
 				System.out.println("pull what?");
@@ -291,7 +291,7 @@ class Game {
 			if (inventory.addItem(item)) {
 				System.out.println("You have taken the " + itemName);
 				
-			// 	if (currentRoom.getRoomName().equals("Hallway") &&  itemName.equals("ball")) {
+			// 	if (currentRoom.getRoomName().equalsIgnoreCase("Hallway") &&  itemName.equalsIgnoreCase("ball")) {
 			// 		currentRoom = masterRoomMap.get("ATTIC");
 			// 		System.out.println("You seem to be lying on the floor all confused. It seems you have been here for a while.\n");
 			// 		System.out.println(currentRoom.longDescription());
@@ -325,9 +325,9 @@ class Game {
 	}
 
 	private void eat(String secondWord) {
-		if (secondWord.equals("steak"))
+		if (secondWord.equalsIgnoreCase("steak"))
 			System.out.println("YUMMY");
-		else if (secondWord.equals("bread"))
+		else if (secondWord.equalsIgnoreCase("bread"))
 			System.out.println("I don't eat carbs...");
 		else 
 			System.out.println("You are the " + secondWord);
@@ -344,7 +344,7 @@ class Game {
 	}
 
 	// private boolean hasWon(){
-	// 	if (item.getName().equals())
+	// 	if (item.getName().equalsIgnoreCase())
 		
 	// 	if(inventory.contains(generator)){
 	// 		return true;
@@ -378,17 +378,17 @@ class Game {
 		String direction = command.getSecondWord();
 		if ("udeswn".indexOf(command.getCommandWord()) > -1) {
 			direction = command.getCommandWord();
-			if (direction.equals("u"))
+			if (direction.equalsIgnoreCase("u"))
 				direction = "up";
-			else if (direction.equals("d"))
+			else if (direction.equalsIgnoreCase("d"))
 				direction = "down";
-			else if (direction.equals("e"))
+			else if (direction.equalsIgnoreCase("e"))
 				direction = "east";
-			else if (direction.equals("w"))
+			else if (direction.equalsIgnoreCase("w"))
 				direction = "west";
-			else if (direction.equals("n"))
+			else if (direction.equalsIgnoreCase("n"))
 				direction = "north";
-			else if (direction.equals("s"))
+			else if (direction.equalsIgnoreCase("s"))
 				direction = "south";
 		}
 		
@@ -396,7 +396,7 @@ class Game {
 		Room nextRoom = currentRoom.nextRoom(direction);
 		if (nextRoom == null)
 			System.out.println("There is something obstructing your path. You cannot go this way!");
-		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
+		else if (nextRoom.isLocked() && !hasKey2(nextRoom)) {
 			// if(nextRoom.getRoomName().equals("OLDTOWN_SQUARE")){
 			// 	if(!inventory.contains("Watch").equals("Watch")){
 			// 		System.out.println("You do have the items to get to the next area");)
@@ -417,8 +417,8 @@ class Game {
 	}
 
 	private boolean hasKey(Room nextRoom) {
-		if(nextRoom.getRoomName().equals("OLDTOWN_SQUARE")){
-			if(inventory.contains("WATCH").equals("WATCH")){
+		if(nextRoom.getRoomName().equals("GARAGE")){
+			if(inventory.contains("BAG").equals("BAG")){
 				System.out.println("You have sucesfully unlocked the next room"); 
 				return true; 
 			}
@@ -426,7 +426,14 @@ class Game {
 			
 			return false; 
 	}
-}
-	
 
+
+	private boolean hasKey2(Room nextRoom) {
+		String key = nextRoom.getKey();
+		return key != null && inventory.contains(key) != null && inventory.contains(key).getName().equalsIgnoreCase(key);
+			
+		
+	}
+	
+}
 		//check to see have item,
