@@ -3,6 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import javax.lang.model.util.ElementScanner14;
+
 /**
  * Class Game - the main class of the "Zork" game.
  *
@@ -245,7 +247,7 @@ class Game {
 				System.out.println("Drop what?");
 			else
 				dropItem(command.getSecondWord());
-		} else if (commandWord.equalsIgnoreCase("i")) {
+		} else if (commandWord.equalsIgnoreCase("inventory")) {
 			System.out.println("You are carrying the following:" + inventory);
 		} else if (commandWord.equalsIgnoreCase("open")) {
 			if (!command.hasSecondWord())
@@ -258,7 +260,23 @@ class Game {
 			System.out.println("sorry, your going to have to do that yourself");
 		} else if(commandWord.equalsIgnoreCase("sleep")){
 			System.out.println("sleeping is for losers... don't you want to go back home?");
-		} else if(commandWord.equalsIgnoreCase("pull")){
+
+		
+		// } else if(commandWord.equalsIgnoreCase("i") && command.getSecondWord().equals("am") ){
+		// 	if(command.getThirdWord().equals("confused")){
+		// 		System.out.println(" Hello? Hello? Anybody home? Huh? Think, McFly! Think!");
+		// 	}
+		// 	else if(command.getThirdWord().equals("stuck")){
+		// 		System.out.println("If you put your mind to it you can accomplish anything.! - Doc Brown");
+		// 	}
+		// 	else if(command.getThirdWord().equals("stressed")){
+		// 		System.out.println("“Wait a minute... are you telling me you are stressed from playing a video game");
+		// 	}
+		// 	else{
+		// 		System.out.println("you are what? im listening");
+		// 	}
+			
+		}else if(commandWord.equalsIgnoreCase("pull")){
 			//add of it has second word integrate with pull method
 			if (!command.hasSecondWord()){
 				System.out.println("pull what?");

@@ -59,6 +59,9 @@
         return secondWord;
     }
 
+    public String getThirdWord() {
+        return secondWord;
+    }
   /**
    * Return true if this command was not understood.
    */
