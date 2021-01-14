@@ -38,4 +38,9 @@ Item Description: power supply
 Openable: false
 Room: THEATRE
 
+Item Name: Handle 
+Item Description: this is the handle to the attic door
+Openable: false
+Room: ATTIC
+
 

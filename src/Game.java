@@ -254,7 +254,15 @@ class Game {
 			System.out.println("sorry, your going to have to do that yourself");
 		} else if(commandWord.equals("sleep")){
 			System.out.println("sleeping is for losers... don't you want to go back home?");
+		} else if(commandWord.equals("pull")){
+			//add of it has second word integrate with pull method
+			if (!command.hasSecondWord()){
+				System.out.println("pull what?");
+			}
+			else
+				System.out.println("theres nothing to pull");
 		}
+		
 		return false;
 	}
 
