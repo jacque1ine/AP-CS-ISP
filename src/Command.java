@@ -21,7 +21,7 @@
     public class Command {
         private String commandWord;
         private String secondWord;
-    // private String thirdWord;
+        private String thirdWord;
 
   /**
    * Create a command object. First and second word must be supplied, but either
@@ -35,6 +35,12 @@
     public Command(String firstWord, String secondWord) {
         commandWord = firstWord;
         this.secondWord = secondWord;
+    }
+
+    public Command(String firstWord, String secondWord, String thirdWord) {
+        commandWord = firstWord;
+        this.secondWord = secondWord;
+        this.thirdWord = thirdWord;
     }
 
   /**
@@ -64,6 +70,13 @@
    * Return true if the command has a second word.
    */
     public boolean hasSecondWord() {
+        return (secondWord != null);
+    }
+
+     /**
+   * Return true if the command has a third word.
+   */
+    public boolean hasThirdWord() {
         return (secondWord != null);
     }
 }
