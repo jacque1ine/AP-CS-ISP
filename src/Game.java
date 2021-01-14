@@ -152,6 +152,7 @@ class Game {
 			currentRoom = masterRoomMap.get("TOWN_SQUARE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 			masterRoomMap.get("GARAGE").setKey("BAG");
+			
       initItems("data/items.dat");
       
 			
@@ -176,14 +177,17 @@ class Game {
 		
 		while (!finished) {
 			Command command = parser.getCommand();
-		// if(!processCommand(command) || hasWon()){
-		// 	finished = true;
-		// }
-		if (currentRoom.getKill() == true){
-			message = ("you have wandered to the wrong place...you have died");
-			break;
-		}
-			finished = processCommand(command);
+			// if(!processCommand(command) || hasWon()){
+			// 	finished = true;
+			// }
+			if (currentRoom.getKill()){
+				message = ("you have wandered to the wrong place...you have died");
+				finished = true;
+			}
+			if(!finished){
+				finished = processCommand(command);
+			}
+			
 		}
 		System.out.println(message);
 	}
@@ -393,14 +397,19 @@ class Game {
 		if (nextRoom == null)
 			System.out.println("There is something obstructing your path. You cannot go this way!");
 		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
+			// if(nextRoom.getRoomName().equals("OLDTOWN_SQUARE")){
+			// 	if(!inventory.contains("Watch").equals("Watch")){
+			// 		System.out.println("You do have the items to get to the next area");)
+			// 	}
+			// }
 			System.out.println("The door is locked. You need a key to open it.");
-		} else if(nextRoom.getKill() == true){
+	
+		
+		// } else if(nextRoom.getKill() == true){
 			
-			System.out.println(nextRoom.getDescription());
+		// 	System.out.println(nextRoom.getDescription());
 			
-			
-			
-		} else {
+		}else {
 			currentRoom = nextRoom;
 		
 			System.out.println(currentRoom.longDescription());
@@ -408,10 +417,16 @@ class Game {
 	}
 
 	private boolean hasKey(Room nextRoom) {
-		// if (inventory.get("KEY"))){
-		// 	return true;
-		// }
-		return false;
-		//check to see have item, 
+		if(nextRoom.getRoomName().equals("OLDTOWN_SQUARE")){
+			if(inventory.contains("WATCH").equals("WATCH")){
+				System.out.println("You have sucesfully unlocked the next room"); 
+				return true; 
+			}
+		}
+			
+			return false; 
 	}
 }
+	
+
+		//check to see have item,

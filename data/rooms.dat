@@ -13,13 +13,13 @@ Kills: true
 Room Name: Garage
 Room Description: You are in small garage. see telepoter (add more later)
 Exit Rooms: E-Elon Road, W-Oldtown Square
-Locked: true 
+Locked: false 
 Kills: false
 
 Room Name: Oldtown Square 
 Room Description:  You are in the familiar main town square of Hill Valley only it looks... much older than you recall. There seems to a newspaper stand. 
 Exit Rooms: N-North Road, S-South Road
-Locked: false
+Locked:true
 Kills: false
 
 Room Name: South Road

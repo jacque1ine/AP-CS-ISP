@@ -8,7 +8,7 @@ Item Description: A rusty lantern
 Openable: false
 Room: ATTIC
 
-Item Name: watch 
+Item Name: Watch 
 Item Description: this is a cool watch 
 Openable: true
 Room: OLD_GARAGE 
