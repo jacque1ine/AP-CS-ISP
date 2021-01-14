@@ -24,6 +24,7 @@ public class Room {
 	private Inventory inventory; 
 	private boolean locked;
 	private String key; 
+	private boolean kills;
 	/**
 	 * Create a room described "description". Initially, it has no exits.
 	 * "description" is something like "a kitchen" or "an open court yard".
@@ -33,6 +34,7 @@ public class Room {
 		exits = new HashMap<String, Room>();
 		inventory = new Inventory();
 		locked = false;
+		kills = false;
 	}
 
 	public Room() {
@@ -42,6 +44,7 @@ public class Room {
 		exits = new HashMap<String, Room>(); // <key(direction), value> 
 		inventory = new Inventory();
 		locked = false;
+		kills = false;
 	}
 
 	// public void setExit(String direction, Room r) throws Exception {
@@ -215,6 +218,14 @@ public class Room {
 
 	public String getKey(){
 		return this.key;
+	}
+
+	public void setKill(boolean kills){
+		this.kills = kills;
+	}
+
+	public boolean getKill(){
+		return kills;
 	}
 }
 

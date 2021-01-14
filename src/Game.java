@@ -32,6 +32,8 @@ class Game {
 	// Room (assuming you have one).
 	private HashMap<String, Room> masterRoomMap;
 	private HashMap<String, Item> masterItemMap;
+	private boolean finished;
+	private String message;
 
 
 	private void initItems(String fileName) throws Exception{
@@ -88,6 +90,10 @@ class Game {
 				//Read if room is locked 
 				boolean locked = Boolean.parseBoolean(getNextLine(roomScanner).split(": ")[1].replaceAll("<br>", "\n").trim());
 				room.setLocked(locked);
+
+				//read if room kills you
+				boolean kills = Boolean.parseBoolean(getNextLine(roomScanner).split(": ")[1].replaceAll("<br>", "\n").trim());
+				room.setKill(kills);
 
 				// An array of strings in the format E-RoomName
 				String[] rooms = roomExits.split(":")[1].split(",");
@@ -165,16 +171,21 @@ class Game {
 		printWelcome();
 		// Enter the main command loop.  Here we repeatedly read commands and
 		// execute them until the game is over.
-
-		boolean finished = false;
+		message = ("Thank you for playing.  Good bye.");
+		finished = false;
+		
 		while (!finished) {
 			Command command = parser.getCommand();
 		// if(!processCommand(command) || hasWon()){
 		// 	finished = true;
 		// }
+		if (currentRoom.getKill() == true){
+			message = ("you have wandered to the wrong place...you have died");
+			break;
+		}
 			finished = processCommand(command);
 		}
-		System.out.println("Thank you for playing.  Good bye.");
+		System.out.println(message);
 	}
 
 	/**
@@ -241,7 +252,9 @@ class Game {
 			System.out.println("There are better ways to put things down"); 
 		} else if (commandWord.equals("kill")){
 			System.out.println("sorry, your going to have to do that yourself");
-		} 
+		} else if(commandWord.equals("sleep")){
+			System.out.println("sleeping is for losers... don't you want to go back home?");
+		}
 		return false;
 	}
 
@@ -309,11 +322,12 @@ class Game {
 	}
 
 	private void sit() {
-		System.out.println("You are now sitting. You lazy excuse for a person.")	
+		System.out.println("You are now sitting. You lazy excuse for a person.");	
 	}
 
 	private boolean jump() {
-		System.out.println("You jumped. Ouch you fell. You fell hard. Really hard. You are getting sleepy. Very sleepy! Yuo are dead!");
+		System.out.println("You jumped. Ouch you fell. You fell hard. Really hard." 
+		+"You are getting sleepy. Very sleepy! Yuo are dead!");
 		return true;
 	}
 
@@ -372,6 +386,12 @@ class Game {
 			System.out.println("There is something obstructing your path. You cannot go this way!");
 		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
 			System.out.println("The door is locked. You need a key to open it.");
+		} else if(nextRoom.getKill() == true){
+			
+			System.out.println(nextRoom.getDescription());
+			
+			
+			
 		} else {
 			currentRoom = nextRoom;
 		
@@ -380,7 +400,9 @@ class Game {
 	}
 
 	private boolean hasKey(Room nextRoom) {
-		if ()
+		// if (inventory.get("KEY"))){
+		// 	return true;
+		// }
 		return false;
 		//check to see have item, 
 	}
