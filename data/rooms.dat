@@ -2,111 +2,133 @@ Room Name: Town Square
 Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere. How peculiar that there is a clock tower covered by screens except for the antique clock face at the top. Who even reads analog clocks anymore? Beneath the clock it says, March 21, 2050
 Exit Rooms: S-Elon Road
 Locked: false
+Kills: false
 
 Room Name: Elon Road
 Room Description: More tall buildings surround you on both sides however you see a garage door slightly ajar. 
 Exit Rooms: N-Town Square, W-Garage
 Locked: false
+Kills: true
 
 Room Name: Garage
 Room Description: You are in small garage. see telepoter (add more later)
 Exit Rooms: E-Elon Road, W-Oldtown Square
 Locked: true 
+Kills: false
 
 Room Name: Oldtown Square 
 Room Description:  You are in the familiar main town square of Hill Valley only it looks... much older than you recall. There seems to a newspaper stand. 
 Exit Rooms: N-North Road, S-South Road
 Locked: false
+Kills: false
 
 Room Name: South Road
 Room Description: This is south of the town square. nothin much here
 Exit Rooms: N-Oldtown Square, E-Bakery
 Locked: false
+Kills: false
 
 Room Name: Bakery 
 Room Description: You are in a bakery. The owner offers you fresh bread 
 Exit Rooms: W-South Road
 Locked: false
+Kills: false
 
 Room Name: North Road
 Room Description: There are buildings on your left and right obstructing the path. 
 Exit Rooms: S-Oldtown Square, N-More North Road
 Locked: false
+Kills: false
 
 Room Name: More North Road
 Room Description: There are buildings on your left and right obstructing the path. You see a familiar garage only it looks more put together
 Exit Rooms: S-North Road, W-Old Garage
 Locked: false
+Kills: false
 
 Room Name: Old Garage 
 Room Description: The garage is much more full then your last visit. There is a clock on the wall, a large shelf, a cabinet, and a desk with some sort of blueprint. (desk w drawers, look in drawer, item read blueprint and get names)
 Exit Rooms: E-George Street, N-Old Garage N
 Locked: false
+Kills: false
 
 Room Name: Old Garage N
 Room Description: You are still in the garage. You see a backdoor.  
 Exit Rooms: W-George Street, S-Old Garage
 Locked: false
+Kills: false
 
 Room Name: George Street
 Room Description: this street is quiter, west of north and south street 
 Exit Rooms: N-George Street N, S-George Street, E-Theatre
 Locked: false
+Kills: false
 
 Room Name: George Street S
-Room Description: (rename) george street continued, not much hear, seems like we reached a dead end 
+Room Description: (rename) george street continued, not much here, seems like we reached a dead end 
 Exit Rooms: N-George Street
 Locked: false
+Kills: false
 
 Room Name: George Street N
 Room Description: There is not much here on theis small street except for a little library. 
 Exit Rooms: S-George Street, E-Library
 Locked: false
+Kills: false
 
 Room Name: Library
 Room Description: You are in a library. There are rows and rows of books. You see a sign.
 Exit Rooms: N-Children Book Section, E-Science Section, S-History Section, W-George Street N
 Locked: false
+Kills: false
 
 Room Name: Children Book Section
 Room Description: Hungry Hungry Caterpiller, Cat and the Hat and more... nostalgia 
 Exit Rooms: S-Library
 Locked: false
+Kills: false
 
 Room Name: History Section
 Room Description: this is where its at 
 Exit Rooms: N-Library 
 Locked: false
+Kills: false
 
 Room Name: Science Section
 Room Description: this is where its at. You see a loose book on the shelf.
 Exit Rooms: E-Library, N-Secret Room
 Locked: false
+Kills: false
 
 Room Name: Secret Study
 Room Description: you seem to have discovered a secret room...there are more books here
 Exit Rooms: N-Secret Study N
 Locked: false
+Kills: false
 
 Room Name: Secret Study N 
 Room Description: you go further into the study and you see a handle on ceiling. 
 Exit Rooms: U-Attic, S-Secret Study 
 Locked: false
+Kills: false
 
 Room Name: Attic
 Room Description:You see a table with a blanket covering something 
 Exit Rooms: D-Secret Study
 Locked: false
+Kills: false
 
 Room Name: Theatre
 Room Description: This is a movie theatre 
 Exit Rooms: E-George Street
 Locked: true 
+Kills: false
 
 Room Name: alleyway
 room Description: secret allay way 
 exit rooms: S-George Street
 Locked: true 
+Kills: false
 
 
 
