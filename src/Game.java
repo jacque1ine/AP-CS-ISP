@@ -3,7 +3,6 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import javax.lang.model.util.ElementScanner14;
 
 /**
  * Class Game - the main class of the "Zork" game.
@@ -159,7 +158,6 @@ class Game {
       
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		parser = new Parser();

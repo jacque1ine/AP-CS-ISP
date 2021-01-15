@@ -140,7 +140,7 @@ public class Room {
 	 */
 	public String longDescription() {
 
-		return "Location: " + roomName + "\n\n" + description + "\n" + exitString() + "\n The room contains: \n " + inventory + 
+		return "------------------\nLocation: " + roomName + "\n" + description + "\n\n" + exitString() + "\nItems here:\n" + inventory + 
 		(numLockedRooms()>0?"\n it appears that " + getLockedRooms() + " "+(numLockedRooms()==1?"is": "are")+" locked.":"");
 	}
 
