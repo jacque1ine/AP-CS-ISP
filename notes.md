@@ -16,3 +16,19 @@ TO DO:
 - better descirptions 
 - add newspaper in oldtown square 
 - at end, change game LONGDESCRIPTION() TO SHORT DESCRIPTION OR EVEN JUST DESCIRPTION
+
+
+
+// } else if(commandWord.equalsIgnoreCase("i") && command.getSecondWord().equals("am") ){
+		// 	if(command.getThirdWord().equals("confused")){
+		// 		System.out.println(" Hello? Hello? Anybody home? Huh? Think, McFly! Think!");
+		// 	}
+		// 	else if(command.getThirdWord().equals("stuck")){
+		// 		System.out.println("If you put your mind to it you can accomplish anything.! - Doc Brown");
+		// 	}
+		// 	else if(command.getThirdWord().equals("stressed")){
+		// 		System.out.println("“Wait a minute... are you telling me you are stressed from playing a video game");
+		// 	}
+		// 	else{
+		// 		System.out.println("you are what? im listening");
+		// 	}

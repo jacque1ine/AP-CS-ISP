@@ -257,24 +257,9 @@ class Game {
 		} else if (commandWord.equalsIgnoreCase("throw")){
 			System.out.println("There are better ways to put things down"); 
 		} else if (commandWord.equalsIgnoreCase("kill")){
-			System.out.println("sorry, your going to have to do that yourself");
+			System.out.println("Great Scott!! Why are you so violent");
 		} else if(commandWord.equalsIgnoreCase("sleep")){
 			System.out.println("sleeping is for losers... don't you want to go back home?");
-
-		
-		// } else if(commandWord.equalsIgnoreCase("i") && command.getSecondWord().equals("am") ){
-		// 	if(command.getThirdWord().equals("confused")){
-		// 		System.out.println(" Hello? Hello? Anybody home? Huh? Think, McFly! Think!");
-		// 	}
-		// 	else if(command.getThirdWord().equals("stuck")){
-		// 		System.out.println("If you put your mind to it you can accomplish anything.! - Doc Brown");
-		// 	}
-		// 	else if(command.getThirdWord().equals("stressed")){
-		// 		System.out.println("“Wait a minute... are you telling me you are stressed from playing a video game");
-		// 	}
-		// 	else{
-		// 		System.out.println("you are what? im listening");
-		// 	}
 			
 		}else if(commandWord.equalsIgnoreCase("pull")){
 			//add of it has second word integrate with pull method
@@ -376,7 +361,7 @@ class Game {
 	 * and a list of the command words.
 	 */
 	private void printHelp() {
-		System.out.println("You are lost. You are alone. You wander");
+		System.out.println(" Hello? Hello? Anybody home? Huh? Think, McFly! Think!");
 		System.out.println();
 		System.out.println("Your command words are:");
 		parser.showCommands();
