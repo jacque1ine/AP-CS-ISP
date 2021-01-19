@@ -41,6 +41,7 @@ class Game {
 		Scanner itemScanner;
 		masterItemMap = new HashMap<String, Item>();
 
+		
 		try {
 			itemScanner = new Scanner(new File(fileName));
 			while (itemScanner.hasNext()) {
@@ -233,6 +234,8 @@ class Game {
 		// 	}
 		}else if (commandWord.equalsIgnoreCase("eat")) {
 			eat(command.getSecondWord());
+		} else if (commandWord.equalsIgnoreCase("talk")) {
+			return talk();
 		} else if (commandWord.equalsIgnoreCase("jump")) {
 			return jump();
 		} else if (commandWord.equalsIgnoreCase("sit")) {
@@ -287,7 +290,13 @@ class Game {
 
 //Implementations of user commands:
 
-	private void inspectItem(String itemName) {
+	private boolean talk() {
+		System.out.println("By talking to them, you have messsed up the timeline...YOU NO LONGER EXIST");
+	return true;
+	
+}
+
+private void inspectItem(String itemName) {
 		Item playerItem = inventory.contains(itemName);
 		Item roomItem = currentRoom.getInventory().contains(itemName);
 		

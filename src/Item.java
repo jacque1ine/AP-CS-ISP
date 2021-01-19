@@ -43,7 +43,7 @@ public class Item{
 
 	public boolean addItem(Item item){
 		if(!isOpenable) return false;
-		return item.addItem(item);
+		return items.addItem(item);
 
 	}
 
@@ -65,7 +65,10 @@ public class Item{
 		this.description = description;
 	}
 
-	public void setOpenable(Boolean openable){
-		this.isOpenable = openable;
+	//can store items in it 
+	public void setOpenable(Boolean isOpenable){
+		this.isOpenable = isOpenable;
+		if(isOpenable)
+			this.items = new Inventory();
 	}
 }
