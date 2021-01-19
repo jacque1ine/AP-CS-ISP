@@ -54,7 +54,7 @@ public class Item{
 
 	public String displayContents(){
 		if(!isOpenable) return null;
-		return "The " + name + "contains: \n" + items;
+		return "The " + name + " contains: \n" + items;
 	}
 
 	public void setName(String name){

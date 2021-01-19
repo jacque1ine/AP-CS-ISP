@@ -15,8 +15,8 @@ Room: GARAGE_1
 
 Item Name: letters 
 Item Description: there are letters in the desk. 
-Openable: true
-Item: drawers
+Openable: false
+Item: DRAWERS
 
 Item Name: Watch 
 Item Description: this is a cool watch 

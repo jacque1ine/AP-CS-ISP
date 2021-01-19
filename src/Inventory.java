@@ -27,7 +27,7 @@ public class Inventory{
 
 	public String toString(){
     	if(items.size() ==0){
-     		 return "is empty";
+     		 return "none\n";
     	}
    		String msg = ""; 
     	for(Item i: items){

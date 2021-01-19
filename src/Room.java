@@ -131,7 +131,7 @@ public class Room {
 
 
 	public String shortDescription() {
-		return "Location: " + roomName + "\n\n" + description;
+		return "LOCATION: " + roomName + "\n\n" + description;
 	}
 
 	/**
@@ -140,8 +140,8 @@ public class Room {
 	 */
 	public String longDescription() {
 
-		return "------------------\nLocation: " + roomName + "\n" + description + "\n\n" + exitString() + "\nItems here:\n" + inventory + 
-		(numLockedRooms()>0?"\n it appears that " + getLockedRooms() + " "+(numLockedRooms()==1?"is": "are")+" locked.":"");
+		return "------------------------------------\nLOCATION: " + roomName + "\n" + description + "\n" + "\nITEMS HERE:\n" + inventory + "\n" + exitString() +  
+		(numLockedRooms()>0?"\nIt appears that the " + getLockedRooms() + " "+(numLockedRooms()==1?"is": "are")+" locked.":"");
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class Room {
 	 * ".
 	 */
 	private String exitString() {
-		String returnString = "Exits:";
+		String returnString = "EXITS:";
 		Set keys = exits.keySet();
 		for (Iterator iter = keys.iterator(); iter.hasNext();)
 		returnString += " " + iter.next();

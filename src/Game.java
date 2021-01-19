@@ -154,6 +154,8 @@ class Game {
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
 			currentRoom = masterRoomMap.get("TOWN_SQUARE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
+
+			//Set the kets to each room. setKey() indicates the item needed
 			masterRoomMap.get("GARAGE").setKey("BAG");
 			
       	initItems("data/items.dat");
@@ -274,23 +276,53 @@ class Game {
 				System.out.println("c'mon you have to tell me what to read");
 			else
 				readItem(command.getSecondWord());
+		} else if (commandWord.equalsIgnoreCase("inspect")) {
+			if (!command.hasSecondWord())
+				System.out.println("c'mon you have to tell me what to read");
+			else
+				inspectItem(command.getSecondWord());
 		}
 		return false;
 	}
 
 //Implementations of user commands:
 
-	/*
-	*Open Item: opens the item requested if there is an item in the inventory.
-	*/
-	private void openItem(String itemName) {
-		Item item = inventory.contains(itemName);
+	private void inspectItem(String itemName) {
+		Item playerItem = inventory.contains(itemName);
+		Item roomItem = currentRoom.getInventory().contains(itemName);
 		
-		if(item != null) {
-			System.out.println(item.displayContents());
-		}else {
+		if(playerItem != null) {
+			System.out.println(playerItem.getDescription());
+		}else if(roomItem != null){
+			System.out.println(roomItem.getDescription());
+		}else{
+			System.out.println("I cannot inspect what is not there.");
+		}
+}
+
+/*
+ * Open Item: opens the item requested if there is an item in the inventory.
+ */
+	private void openItem(String itemName) {
+		// Item item = inventory.contains(itemName);
+		
+		// if(item != null) {
+		// 	System.out.println(item.displayContents());
+		// }else {
+		// 	System.out.println("What is it that you think you have but do not.");
+		// }
+		
+		Item playerItem = inventory.contains(itemName);
+		Item roomItem = currentRoom.getInventory().contains(itemName);
+		
+		if(playerItem != null) {
+			System.out.println(playerItem.displayContents());
+		}else if(roomItem != null){
+			System.out.println(roomItem.displayContents());
+		}else{
 			System.out.println("What is it that you think you have but do not.");
-        }
+		}
+	
         
 	}
 
@@ -348,16 +380,22 @@ class Game {
 			if (roomItem.getName().equalsIgnoreCase("letter")||playerItem.getName().equalsIgnoreCase("letter") ){
 				System.out.println("DOC BROWN"); 
 			}
-			else{
-				System.out.println("You can't read this item.");
-			}
+		}else if(playerItem != null){
+
 		}else {
 			System.out.println("You can't read items unless.");
-        }
-
+		}
+		
+		if(playerItem != null) {
+			if (playerItem.getName().equalsIgnoreCase("letter")||playerItem.getName().equalsIgnoreCase("letter") ){
+				System.out.println("DOC BROWN"); 
+			}
+		}else if(roomItem != null){
+			System.out.println(roomItem.getDescription());
+		}else{
+			System.out.println("I cannot inspect what is not there.");
+		}
 	}
-
-
 
 
 	/*
@@ -435,7 +473,7 @@ class Game {
 		return key != null && inventory.contains(key) != null && inventory.contains(key).getName().equalsIgnoreCase(key);
 	}
 
-	//Method for command that just return fun Strings: 
+	//Methods for commands that just return fun Strings: 
 
 	private void eat(String secondWord) {
 		if (secondWord.equalsIgnoreCase("steak"))

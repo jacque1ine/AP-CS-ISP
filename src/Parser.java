@@ -31,7 +31,7 @@ public Command getCommand() {
 	String word1;
 	String word2;
 	String word3;
-	System.out.print("> "); // print prompt
+	System.out.print("\n>> "); // print prompt
 	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	try {
 	inputLine = reader.readLine();
