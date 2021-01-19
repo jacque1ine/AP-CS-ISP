@@ -45,13 +45,13 @@ public class Inventory{
 		return null;
   }
 
-//   public boolean contains(String name){
-// 	for (int i=0; i<items.size(); i++){
-// 		  if (name.equals(items.get(i).getName())){
-// 			return items.get(i);
-// 		  }
-// 	}
-// 	return null;
-// }
+	public boolean hasItem(String itemName) {
+		for(Item i : items){
+            if(i.getName().equals(itemName)){
+                return true;
+            }
+        }
+        return false;
+	}
 
 }

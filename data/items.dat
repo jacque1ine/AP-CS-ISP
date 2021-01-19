@@ -43,4 +43,7 @@ Item Description: this is the handle to the attic door
 Openable: false
 Room: ATTIC
 
-
+Item Name: Plutonium Nuclear Reactor  
+Item Description: this is the final piece
+Openable: false
+Room: ATTIC

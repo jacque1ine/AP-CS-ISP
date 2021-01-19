@@ -177,15 +177,15 @@ class Game {
 		
 		while (!finished) {
 			Command command = parser.getCommand();
-			// if(!processCommand(command) || hasWon()){
-			// 	finished = true;
-			// }
+			if(!processCommand(command) || hasWon()){
+				finished = true;
+			}
 			// if (currentRoom.getKill()){
 			// 	message = ("you have wandered to the wrong place...you have died");
 			// 	finished = true;
 			// }
 			// if(!finished){
-				finished = processCommand(command);
+				// finished = processCommand(command);
 			// }
 			
 		}
@@ -344,14 +344,12 @@ class Game {
 		return true;
 	}
 
-	// private boolean hasWon(){
-	// 	if (item.getName().equalsIgnoreCase())
-		
-	// 	if(inventory.contains(generator)){
-	// 		return true;
-	// 	}
-	// 	return false;
-	// }
+	private boolean hasWon(){
+		if(inventory.hasItem("Plutonium Nuclear Reactor")){
+			return true;
+		}
+		return false;
+	}
 
 // implementations of user commands:
 	/**
