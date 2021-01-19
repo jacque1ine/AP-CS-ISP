@@ -47,7 +47,7 @@ public class Inventory{
 
 	public boolean hasItem(String itemName) {
 		for(Item i : items){
-            if(i.getName().equals(itemName)){
+            if(i.getName().equalsIgnoreCase(itemName)){
                 return true;
             }
         }

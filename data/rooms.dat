@@ -5,14 +5,26 @@ Locked: false
 Kills: false
 
 Room Name: Elon Road
-Room Description: More tall buildings surround you on both sides however you see a garage door slightly ajar. 
+Room Description: More tall buildings surround you on both sides. You see a garage door slightly ajar. 
 Exit Rooms: N-Town Square, W-Garage
 Locked: false
 Kills: true
 
 Room Name: Garage
-Room Description: You are in small garage. see telepoter (add more later)
-Exit Rooms: E-Elon Road, W-Oldtown Square
+Room Description: You are in small garage. The place seems oddly empty...almost if someone has taken everything from this place.<br> On the other side of the room you see an interesting desk, with a picture of a...some weird car. 
+Exit Rooms: E-Elon Road, S-Garage 1
+Locked: true 
+Kills: false
+
+Room Name: Garage 1
+Room Description: You are still in the garage, and now you are in front of a large desk with drawers on both sides.<br> On the wall there is a picture of an modified old car labeled with "DeLorean".<br>It has has been modifed with chunky parts at the back of the car, and tubes all over.<br> 
+Exit Rooms: S-Garage, W-Garage Secret Room
+Locked: false
+Kills: false
+
+Room Name: Garage Secret Room 
+Room Description: You seem to be in a hidden room of the garage...in here you see a large metal door frame, only it is connected to lots of tubes and has blinking lights around the edges. 
+Exit Rooms: E-Garage 1, W-Oldtown Square
 Locked: true 
 Kills: false
 
@@ -23,25 +35,25 @@ Locked: true
 Kills: false
 
 Room Name: South Road
-Room Description: This is south of the town square. nothin much here
+Room Description: You are South of the town square...why are the buildings so short? Where are all the holograms and screens?!
 Exit Rooms: N-Oldtown Square, E-Bakery
 Locked: false
 Kills: false
 
 Room Name: Bakery 
-Room Description: You are in a bakery. The owner offers you fresh bread 
+Room Description: You are in a bakery. Crazy how theres people serving other people...WHATTT. The owner offers you fresh bread 
 Exit Rooms: W-South Road
 Locked: false
 Kills: false
 
 Room Name: North Road
-Room Description: There are buildings on your left and right obstructing the path. 
+Room Description: Wow...this place sure has changed except that once your are on this street don't even think about going left or right for a while...<br>Buidlings...though much shorter....ungulf you on both sides.
 Exit Rooms: S-Oldtown Square, N-More North Road
 Locked: false
 Kills: false
 
 Room Name: More North Road
-Room Description: There are buildings on your left and right obstructing the path. You see a familiar garage only it looks more put together
+Room Description: Now that we have ventured further...FINALLY! Something familiar...the garage only it looks more put together
 Exit Rooms: S-North Road, W-Old Garage
 Locked: false
 Kills: false

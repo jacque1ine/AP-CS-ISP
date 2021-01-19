@@ -8,6 +8,16 @@ Item Description: A rusty lantern
 Openable: false
 Room: ATTIC
 
+Item Name: drawers
+Item Description: these are the drawers to the large desk 
+Openable: true
+Room: GARAGE_1
+
+Item Name: letters 
+Item Description: there are letters in the desk. 
+Openable: true
+Item: drawers
+
 Item Name: Watch 
 Item Description: this is a cool watch 
 Openable: true

@@ -42,14 +42,16 @@ class Game {
 		masterItemMap = new HashMap<String, Item>();
 
 		try {
-			
 			itemScanner = new Scanner(new File(fileName));
 			while (itemScanner.hasNext()) {
+
 				Item item = new Item();
 				String itemName = getNextLine(itemScanner).split(":")[1].trim();
 				item.setName(itemName);
+
 				String itemDesc = getNextLine(itemScanner).split(":")[1].trim();
-				item.setDescription(itemDesc);	
+				item.setDescription(itemDesc);
+
 				Boolean openable = Boolean.valueOf(getNextLine(itemScanner).split(":")[1].trim());
 				item.setOpenable(openable);
 				
@@ -177,7 +179,7 @@ class Game {
 		
 		while (!finished) {
 			Command command = parser.getCommand();
-			if(!processCommand(command) || hasWon()){
+			if(processCommand(command) || hasWon()){
 				finished = true;
 			}
 			// if (currentRoom.getKill()){
@@ -259,18 +261,28 @@ class Game {
 		} else if(commandWord.equalsIgnoreCase("sleep")){
 			System.out.println("sleeping is for losers... don't you want to go back home?");
 			
-		}else if(commandWord.equalsIgnoreCase("pull")){
-			//add of it has second word integrate with pull method
-			if (!command.hasSecondWord()){
-				System.out.println("pull what?");
-			}
-			else
-				System.out.println("theres nothing to pull");
-		}
+		// }else if(commandWord.equalsIgnoreCase("pull")){
+		// 	//add of it has second word integrate with pull method
+		// 	if (!command.hasSecondWord()){
+		// 		System.out.println("pull what?");
+		// 	}
+		// 	else
+		// 		System.out.println("theres nothing to pull");
 		
+		} else if (commandWord.equalsIgnoreCase("read")) {
+			if (!command.hasSecondWord())
+				System.out.println("c'mon you have to tell me what to read");
+			else
+				readItem(command.getSecondWord());
+		}
 		return false;
 	}
 
+//Implementations of user commands:
+
+	/*
+	*Open Item: opens the item requested if there is an item in the inventory.
+	*/
 	private void openItem(String itemName) {
 		Item item = inventory.contains(itemName);
 		
@@ -282,12 +294,14 @@ class Game {
         
 	}
 
+	/*
+	*Take Item: removes item from room inventory and puts it in the player's inventory.
+	*/
 	private void takeItem(String itemName) {
 		Inventory temp = currentRoom.getInventory();
-		
 		Item item = temp.removeItem(itemName);
     
-    //if null it is not in the room inventory
+    	//if null it is not in the room inventory
 		if (item != null) {
 			if (inventory.addItem(item)) {
 				System.out.println("You have taken the " + itemName);
@@ -300,17 +314,18 @@ class Game {
 			// }else {
 			// 	System.out.println("You were unable to take the " + itemName);
 			// }
-		}else {
-			System.out.println("you are unable to take " + itemName + " here.");
-    }
+			}else {
+				System.out.println("you are unable to take " + itemName + " here.");
+    		}	
   
-  }else{
-    System.out.println("There is no " + itemName + " here.");
-  }
-    
-
+		}else{
+			System.out.println("There is no " + itemName + " here.");
+		}
 	}
 	
+	/*
+	* Drop Item: removes item from player's inventory and adds it to the room they are in.
+	*/
 	private void dropItem(String itemName) {
 		Item item = inventory.removeItem(itemName);
 		
@@ -324,6 +339,103 @@ class Game {
 			System.out.println("You are not carrying a " + itemName + ".");
 		}
 	}
+
+	private void readItem(String itemName){
+		Item playerItem = inventory.contains(itemName);
+		Item roomItem = currentRoom.getInventory().contains(itemName);
+		
+		if(roomItem != null || roomItem != null) {
+			if (roomItem.getName().equalsIgnoreCase("letter")||playerItem.getName().equalsIgnoreCase("letter") ){
+				System.out.println("DOC BROWN"); 
+			}
+			else{
+				System.out.println("You can't read this item.");
+			}
+		}else {
+			System.out.println("You can't read items unless.");
+        }
+
+	}
+
+
+
+
+	/*
+	 * HasWon: once a player as the speciifc item, the method will return true. 
+	 */
+	private boolean hasWon(){
+		if(inventory.hasItem("Plutonium Nuclear Reactor")){
+			return true;
+		}
+		return false;
+	}
+
+	/*
+	 * Print Help: Print out some help information. Here we print some stupid, cryptic message
+	 * and a list of the command words.
+	 */
+	private void printHelp() {
+		System.out.println(" Hello? Hello? Anybody home? Huh? Think, McFly! Think!");
+		System.out.println();
+		System.out.println("Your command words are:");
+		parser.showCommands();
+	}
+
+	/*
+	 * Go Room: Try to go to one direction. If there is an exit, enter the new room,
+	 * otherwise print an error message. ]
+	 */
+	private void goRoom(Command command) {
+		if (!command.hasSecondWord() && ("udeswn".indexOf(command.getCommandWord()) < 0)) {
+			// if there is no second word, we don't know where to go...
+			System.out.println("Go where?");
+			return;
+		}
+		//Allows the player to enter short forms for the directions
+		String direction = command.getSecondWord();
+		if ("udeswn".indexOf(command.getCommandWord()) > -1) {
+			direction = command.getCommandWord();
+			if (direction.equalsIgnoreCase("u"))
+				direction = "up";
+			else if (direction.equalsIgnoreCase("d"))
+				direction = "down";
+			else if (direction.equalsIgnoreCase("e"))
+				direction = "east";
+			else if (direction.equalsIgnoreCase("w"))
+				direction = "west";
+			else if (direction.equalsIgnoreCase("n"))
+				direction = "north";
+			else if (direction.equalsIgnoreCase("s"))
+				direction = "south";
+		}
+		
+		// Try to leave current room.
+		Room nextRoom = currentRoom.nextRoom(direction);
+		if (nextRoom == null)
+			System.out.println("There is something obstructing your path. You cannot go this way!");
+		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
+			System.out.println("The door is locked. You need a key to open it.");
+		
+		// } else if(nextRoom.getKill() == true){
+			
+		// 	System.out.println(nextRoom.getDescription());
+			
+		}else {
+			currentRoom = nextRoom;
+			System.out.println(currentRoom.longDescription());
+		}
+	}
+
+
+	/*
+	* Has Key: gets the key from a room, and checks if the player's inventory has the corresponding key
+	*/
+	private boolean hasKey(Room nextRoom) {
+		String key = nextRoom.getKey();
+		return key != null && inventory.contains(key) != null && inventory.contains(key).getName().equalsIgnoreCase(key);
+	}
+
+	//Method for command that just return fun Strings: 
 
 	private void eat(String secondWord) {
 		if (secondWord.equalsIgnoreCase("steak"))
@@ -344,75 +456,5 @@ class Game {
 		return true;
 	}
 
-	private boolean hasWon(){
-		if(inventory.hasItem("Plutonium Nuclear Reactor")){
-			return true;
-		}
-		return false;
-	}
-
-// implementations of user commands:
-	/**
-	 * Print out some help information. Here we print some stupid, cryptic message
-	 * and a list of the command words.
-	 */
-	private void printHelp() {
-		System.out.println(" Hello? Hello? Anybody home? Huh? Think, McFly! Think!");
-		System.out.println();
-		System.out.println("Your command words are:");
-		parser.showCommands();
-	}
-
-	/**
-	 * Try to go to one direction. If there is an exit, enter the new room,
-	 * otherwise print an error message.
-	 */
-	private void goRoom(Command command) {
-		if (!command.hasSecondWord() && ("udeswn".indexOf(command.getCommandWord()) < 0)) {
-			// if there is no second word, we don't know where to go...
-			System.out.println("Go where?");
-			return;
-		}
-		
-		String direction = command.getSecondWord();
-		if ("udeswn".indexOf(command.getCommandWord()) > -1) {
-			direction = command.getCommandWord();
-			if (direction.equalsIgnoreCase("u"))
-				direction = "up";
-			else if (direction.equalsIgnoreCase("d"))
-				direction = "down";
-			else if (direction.equalsIgnoreCase("e"))
-				direction = "east";
-			else if (direction.equalsIgnoreCase("w"))
-				direction = "west";
-			else if (direction.equalsIgnoreCase("n"))
-				direction = "north";
-			else if (direction.equalsIgnoreCase("s"))
-				direction = "south";
-		}
-		
-// Try to leave current room.
-		Room nextRoom = currentRoom.nextRoom(direction);
-		if (nextRoom == null)
-			System.out.println("There is something obstructing your path. You cannot go this way!");
-		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
-			System.out.println("The door is locked. You need a key to open it.");
-	
-		
-		// } else if(nextRoom.getKill() == true){
-			
-		// 	System.out.println(nextRoom.getDescription());
-			
-		}else {
-			currentRoom = nextRoom;
-		
-			System.out.println(currentRoom.longDescription());
-		}
-	}
-	/* Has Key: gets the key from a room, and checks if the player's inventory has the corresponding key */
-	private boolean hasKey(Room nextRoom) {
-		String key = nextRoom.getKey();
-		return key != null && inventory.contains(key) != null && inventory.contains(key).getName().equalsIgnoreCase(key);
-	}
 }
 	
