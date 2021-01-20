@@ -94,3 +94,9 @@ Item Description: this is the final piece
 Openable: false
 Weight: 2
 Room: ATTIC
+
+Item Name: bread
+Item Description: soft fresh bread from the bakery. oh how nice it is that it feels natural. 
+Openable: false
+Weight: 1
+Room: BAKERY

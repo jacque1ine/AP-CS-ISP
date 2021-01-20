@@ -58,7 +58,7 @@ class Game {
 
 				//Read and set description
 				String itemDesc = getNextLine(itemScanner).split(":")[1].trim();
-				item.setDescription(itemDesc);
+				item.setDescription(itemDesc.split(":")[1].replaceAll("<br>", "\n").trim());
 
 				//Read and set whether or not this object has its own inventory or is "openable"
 				Boolean openable = Boolean.valueOf(getNextLine(itemScanner).split(":")[1].trim());
@@ -164,7 +164,7 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("GARAGE_1");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("BAKERY");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
@@ -275,8 +275,13 @@ class Game {
 			System.out.println("Great Scott!! Why are you so violent");
 		} else if(commandWord.equalsIgnoreCase("sleep")){
 			System.out.println("sleeping is for losers... don't you want to go back home?");
-			
-		// }else if(commandWord.equalsIgnoreCase("pull")){
+		} else if (commandWord.equalsIgnoreCase("inspect")) {
+			if (!command.hasSecondWord())
+				System.out.println("c'mon you have to tell me what to inspect");
+			else
+				inspectItem(command.getSecondWord());
+		}
+			// }else if(commandWord.equalsIgnoreCase("pull")){
 		// 	//add of it has second word integrate with pull method
 		// 	if (!command.hasSecondWord()){
 		// 		System.out.println("pull what?");
@@ -284,20 +289,21 @@ class Game {
 		// 	else
 		// 		System.out.println("theres nothing to pull");
 		
-		
-		} else if (commandWord.equalsIgnoreCase("inspect")) {
-			if (!command.hasSecondWord())
-				System.out.println("c'mon you have to tell me what to inspect");
-			else
-				inspectItem(command.getSecondWord());
-		}
 		return false;
 	}
 
 //Implementations of user commands:
 
 	private boolean talk() {
-		System.out.println("By talking to them, you have messsed up the timeline...YOU NO LONGER EXIST");
+		if(currentRoom.getRoomName().equalsIgnoreCase("Bakery")){
+			System.out.println("uh oh...remember what the letter's said: 'DO NOT INTERACT WITH THOSE FROM THE PAST'."+ 
+		"\nThe game actually hasn't happened yet, or the semi-finals, but you revealed the results, and provided lots of detail."+
+		"\nThese two nobodies beleived you, and through betting became super rich.\n YOU CHANGED HISTORY, AND THEREFORE YOU NO LONGER EXISTS");
+		}
+		else{
+			System.out.println("By talking to them, you have messsed up the timeline...YOU NO LONGER EXIST");
+		}
+		
 	return true;
 	
 }
