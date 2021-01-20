@@ -1,5 +1,5 @@
 Item Name: bag
-Item Description: this is a backpack in your favourite colour that will definitely come in handy later...
+Item Description: this is a bag 
 Openable: true
 Weight: 1
 Room: ATTIC
@@ -47,7 +47,7 @@ Weight: 100
 Room: GARAGE_1
 
 Item Name: letters 
-Item Description: there are a lot of letters here, but after carefully looking through them you notice that they all seem to directed towards someone named Dr. Emmett Brown. <br>One of the letters say:<br><br> Dear Dr. Emmett Brown,<br> We are writing to you from the National Defense Commititee and this is a warning that we will be seizing 
+Item Description: there are a lot of letters here, but after carefully looking through them you notice that they all seem to directed towards someone named Dr. Emmett Brown. <br>One of the letters say <br> Dear Dr. Emmett Brown,<br> We are writing to you from the National Defense Commititee and this is a warning that we will be seizing 
 Openable: false
 Weight: 1
 Item: DRAWERS
@@ -64,7 +64,6 @@ Openable: true
 Weight: 1
 Room: OLDTOWN_SQUARE
 
-
 Item Name: Book
 Item Description: this is a special book it seems like theres something in it  
 Openable: true
@@ -78,7 +77,7 @@ Weight: 2
 Room: ATTIC 
 
 Item Name: large bag 
-Item Description:theres something huge inside this bag 
+Item Description: theres something huge inside this bag 
 Openable: true
 Weight: 1
 Room: ATTIC

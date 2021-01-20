@@ -156,8 +156,8 @@ public class Room {
 	 */
 	private String exitString() {
 		String returnString = "EXITS:";
-		Set keys = exits.keySet();
-		for (Iterator iter = keys.iterator(); iter.hasNext();)
+		Set<String> keys = exits.keySet();
+		for (Iterator<String> iter = keys.iterator(); iter.hasNext();)
 		returnString += " " + iter.next();
 		return returnString;
 	}

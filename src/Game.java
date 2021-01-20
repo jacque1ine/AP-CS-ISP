@@ -58,7 +58,7 @@ class Game {
 
 				//Read and set description
 				String itemDesc = getNextLine(itemScanner).split(":")[1].trim();
-				item.setDescription(itemDesc.split(":")[1].replaceAll("<br>", "\n").trim());
+				item.setDescription(itemDesc.replaceAll("<br>", "\n").trim());
 
 				//Read and set whether or not this object has its own inventory or is "openable"
 				Boolean openable = Boolean.valueOf(getNextLine(itemScanner).split(":")[1].trim());
@@ -299,7 +299,6 @@ class Game {
 
 //Implementations of user commands:
 
-// 
 
 private boolean talk() {
 		if(currentRoom.getRoomName().equalsIgnoreCase("Bakery")){
