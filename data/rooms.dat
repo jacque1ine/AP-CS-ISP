@@ -20,7 +20,7 @@ Room Name: Garage
 Room Description: You are in small garage. The place seems oddly empty...almost if someone has taken everything from this place. You see a cupboard, you see some tools, and a couch. For some reason, one of the walls seems a little flimsy<br> 
 Exit Rooms: E-Elon Road, S-Garage 1
 Locked: false
-Kills: true
+Kills: false
 
 Room Name: Garage 1
 Room Description: An other side to the garage is revealed, and now you are in front of a large desk with drawers on both sides.<br> On the wall there is a picture of an modified old car labeled with "DeLorean".<br>It has has been modifed with chunky parts at the back of the car, and tubes all over.<br> 

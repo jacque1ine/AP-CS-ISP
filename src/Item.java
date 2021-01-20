@@ -121,9 +121,6 @@ public class Item{
 	}
 
 	public boolean canPickUp(){
-		if(weight <= 3){
-			return true;
-		}
-		return false;
+		return weight<=3;
 	}
 }

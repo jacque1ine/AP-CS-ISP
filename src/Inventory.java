@@ -75,10 +75,6 @@ public class Inventory{
 	}
 	
 	public boolean canHold(int num){
-	  int weight = getInvWeight() + num; 
-	  if (weight>15){
-		  return false;
-	  }
-	  return true; 
+		return getInvWeight() + num <=15;
     }
 }

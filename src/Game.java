@@ -162,7 +162,7 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("TOWN_SQUARE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("GARAGE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
@@ -349,17 +349,30 @@ private void inspectItem(String itemName) {
 		Item item = roomInventory.removeItem(itemName);
 
     	//if item is in room inventory
-		if (item != null) {
-			if(item.getWeight() <= 3 && inventory.addItem(item)){
-				System.out.println("You have taken the " + itemName);
-					// if(currentRoom.getRoomName().equalsIgnoreCase("GARAGE") && itemName.equalsIgnoreCase("blueprint")){
+		if (item != null){
+
+			if(item.canPickUp()){
+				if(inventory.getInvWeight()<=1){
+					if(inventory.addItem(item)){
+						System.out.println("You have taken the " + itemName);
+					}
+				}else{
+					System.out.println("There is no room in your inventory"); 
+					currentRoom.getInventory().justAddItem(item); 
+				}
+			}else{
+				System.out.println(itemName + " is too heavy to pickup");
+				currentRoom.getInventory().justAddItem(item);
+			}
+					
+				
+		// if(currentRoom.getRoomName().equalsIgnoreCase("GARAGE") && itemName.equalsIgnoreCase("blueprint")){
 					// 	System.out.print("WHOOSH one of the walls just slide open revealing an extension of the garage.");
-					// }
-				}
-				else{
-					System.out.println(itemName + " is too heavy to pickup"); 
-					currentRoom.getInventory().justAddItem(item);
-				}
+		// 			// }
+		// else{
+		// 	System.out.println(itemName + " is not this room"); 
+		// 	currentRoom.getInventory().justAddItem(item);
+				
 		}else{
 			 //go through the player's inventory to see if requested item is within any items that can contain other items
 			for (int i=0; i<roomInventory.getNumItems(); i++){
