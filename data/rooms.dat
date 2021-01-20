@@ -1,5 +1,5 @@
 Room Name: Town Square 
-Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere.<br>There are screens EVERYWHERE. Beside you there are roaming robots, and holograms.<br>There is a clock tower covered by screens except for the antique clock face at the top.<br>Who even reads analog clocks anymore?<br>Beneath the clock it says, April 9, 2050
+Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere.<br>There are screens EVERYWHERE. Beside you there are roaming robots, and holograms.<br>There is a clock tower covered by screens except for the antique clock face at the top.<br>Who even reads analog clocks anymore?<br>Beneath the clock it says, April 7, 2050
 Exit Rooms: S-Elon Road
 Locked: false
 Kills: false
@@ -41,7 +41,7 @@ Locked: false
 Kills: false
 
 Room Name: Bakery 
-Room Description: You are in a bakery. Crazy how theres people serving other people...WHATTT.<br>The owner offers you fresh bread and you overhear some two people talking about the famous 1950 Stanely Cup Final.<br>They ask what do you think about the game. 
+Room Description: You are in a bakery. Crazy how theres people serving other people...WHATTT.<br>The owner offers you fresh bread and you overhear some two people talking about the famous 1750 Stanely Cup Final.<br>They ask what do you think about the game. 
 Exit Rooms: W-South Road
 Locked: false
 Kills: false
@@ -58,20 +58,20 @@ Exit Rooms: S-North Road, W-Old Garage
 Locked: false
 Kills: false
 
-Room Name: Old Garage 
-Room Description: The garage is much more full then your last visit. There is a clock on the wall, a large shelf, a cabinet, and a desk with some sort of blueprint. (desk w drawers, look in drawer, item read blueprint and get names)
+Room Name: Old Garage
+Room Description: The garage is much more full then your last visit.<br>There are a bunch of weird contraptions everywhere. Cat food dispensers, can crushers...who even knows what these things do?<br>In front of you there is a large table with some sort of blueprint.
 Exit Rooms: E-George Street, N-Old Garage N
 Locked: false
 Kills: false
 
 Room Name: Old Garage N
-Room Description: You are still in the garage. You see a backdoor.  
+Room Description: You are still in the garage. On a small table in the corner you see a metal box. You see a backdoor.  
 Exit Rooms: W-George Street, S-Old Garage
 Locked: false
 Kills: false
 
 Room Name: George Street
-Room Description: this street is quiter, west of north and south street 
+Room Description: this street is quiter, much fewer people.
 Exit Rooms: N-George Street N, S-George Street, E-Theatre
 Locked: false
 Kills: false

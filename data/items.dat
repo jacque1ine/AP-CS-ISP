@@ -23,13 +23,19 @@ Weight: 1
 Item: CUPBOARD
 
 Item Name: blueprint
-Item Description: this is the blueprint to the time machine 
+Item Description: this is the blueprint to the time machine
+Openable: false
+Weight: 1
+Room: OLD_GARAGE
+
+Item Name: wires
+Item Description: This is just an assortment of random wires
 Openable: false
 Weight: 1
 Item: CUPBOARD
 
-Item Name: Wires
-Item Description: This is just an assortment of random wires
+Item Name: remote
+Item Description: this is a remote who knows what the buttons do
 Openable: false
 Weight: 1
 Item: CUPBOARD

@@ -164,11 +164,11 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("BAKERY");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("GARAGE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
-			masterRoomMap.get("GARAGE_1").setKey("BLUEPRINT");
+			masterRoomMap.get("GARAGE_1").setKey("REMOTE");
 			masterRoomMap.get("GARAGE_SECRET_ROOM").setKey("WATCH");
 			
       		initItems("data/items.dat");
@@ -262,6 +262,11 @@ class Game {
 				System.out.println("Drop what?");
 			else
 				dropItem(command.getSecondWord());
+		// }else if (commandWord.equalsIgnoreCase("read")) {
+		// 	if (!command.hasSecondWord())
+		// 		System.out.println("Read what?");
+		// 	else
+		// 		read(command.getSecondWord());
 		} else if (commandWord.equalsIgnoreCase("inventory")) {
 			System.out.println("You are carrying the following:" + inventory);
 		} else if (commandWord.equalsIgnoreCase("open")) {
@@ -275,9 +280,9 @@ class Game {
 			System.out.println("Great Scott!! Why are you so violent");
 		} else if(commandWord.equalsIgnoreCase("sleep")){
 			System.out.println("sleeping is for losers... don't you want to go back home?");
-		} else if (commandWord.equalsIgnoreCase("inspect")) {
+		} else if (commandWord.equalsIgnoreCase("inspect") || commandWord.equalsIgnoreCase("read")){
 			if (!command.hasSecondWord())
-				System.out.println("c'mon you have to tell me what to inspect");
+				System.out.println("c'mon you have to tell me what to specfically look at");
 			else
 				inspectItem(command.getSecondWord());
 		}
@@ -294,7 +299,9 @@ class Game {
 
 //Implementations of user commands:
 
-	private boolean talk() {
+// 
+
+private boolean talk() {
 		if(currentRoom.getRoomName().equalsIgnoreCase("Bakery")){
 			System.out.println("uh oh...remember what the letter's said: 'DO NOT INTERACT WITH THOSE FROM THE PAST'."+ 
 		"\nThe game actually hasn't happened yet, or the semi-finals, but you revealed the results, and provided lots of detail."+
@@ -560,5 +567,11 @@ private void inspectItem(String itemName) {
 			System.out.println("I cannot inspect what is not there.");
 		}
 	}
+
+		private void read(String itemName) {
+// 		if (itemName.equalsIgnoreCase("newspaper")){
+// 			System.out.println("Valley Gazette\nAPRIL 7 1950\n");
+// 		}
+// }
 */
 	
