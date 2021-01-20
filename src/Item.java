@@ -44,8 +44,10 @@ public class Item{
 	public boolean addItem(Item item){
 		if(!isOpenable) return false;
 		return items.addItem(item);
-
 	}
+
+
+
 
 	public Item removeItem(String item){
 		if(!isOpenable) return null;

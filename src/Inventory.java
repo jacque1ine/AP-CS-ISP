@@ -11,7 +11,11 @@ public class Inventory{
 
 	public boolean addItem(Item item){
     	return items.add(item); 
-  }
+	}
+	
+	public void justAddItem(Item item){
+    	items.add(item); 
+	}
 
   /* returns the items based on the name given 
   if the item is not in inventory, return null 
@@ -52,6 +56,14 @@ public class Inventory{
             }
         }
         return false;
+	}
+
+	public ArrayList<Item> getInventory(){
+        return items;
+	}
+	
+	public int getNumItems(){
+		return items.size();
 	}
 
 }

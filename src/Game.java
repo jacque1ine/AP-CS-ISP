@@ -339,12 +339,12 @@ private void inspectItem(String itemName) {
 	*Take Item: removes item from room inventory and puts it in the player's inventory.
 	*/
 	private void takeItem(String itemName) {
-		Inventory temp = currentRoom.getInventory();
-		Item item = temp.removeItem(itemName);
+		Inventory roomInventory = currentRoom.getInventory();
+		Item item = roomInventory.removeItem(itemName);
+		boolean isInItem = false; 
     
-    	//if null it is not in the room inventory
-		if (item != null) {
-			if (inventory.addItem(item)) {
+    	//if null, it is not in the room inventory
+		if (item != null && inventory.addItem(item)) {
 				System.out.println("You have taken the " + itemName);
 				
 			// 	if (currentRoom.getRoomName().equalsIgnoreCase("Hallway") &&  itemName.equalsIgnoreCase("ball")) {
@@ -355,15 +355,39 @@ private void inspectItem(String itemName) {
 			// }else {
 			// 	System.out.println("You were unable to take the " + itemName);
 			// }
-			}else {
-				System.out.println("you are unable to take " + itemName + " here.");
-    		}	
-  
 		}else{
-			System.out.println("There is no " + itemName + " here.");
+			 //go through the player's inventory to see if requested item is within any items that can contain other items
+			for (int i=0; i<roomInventory.getNumItems(); i++){
+
+				 //accessing the items arrayList of room inventory and getting one of the indexes, and getting the contents of that item. 
+        		Inventory itemInventory = roomInventory.getInventory().get(i).getContents(); 
+				
+				//if the current item has is openable/ has an inventory...
+				if (itemInventory != null){ 
+					
+					/*
+					try to remove the item in the item, and store it. 
+					if the target item is there, removed Item will store it. but if it is not removedItem will be null  
+					*/
+					Item removedItem = itemInventory.removeItem(itemName);
+
+					//if removedItem is NOT null, we have found our target item
+           			if (removedItem != null){
+						inventory.justAddItem(removedItem);
+						isInItem = true;
+					}
+				}
+					
+			}
+
+			if (isInItem){
+				System.out.println("You have taken the " + itemName);
+        	}else{
+				System.out.println("You were unable to take the " + itemName + " here."); 
+			}
 		}
 	}
-	
+
 	/*
 	* Drop Item: removes item from player's inventory and adds it to the room they are in.
 	*/
@@ -392,7 +416,7 @@ private void inspectItem(String itemName) {
 		}else if(playerItem != null){
 
 		}else {
-			System.out.println("You can't read items unless.");
+			System.out.println("You can't read items unless you have them.");
 		}
 		
 		if(playerItem != null) {
