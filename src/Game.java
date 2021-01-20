@@ -350,7 +350,13 @@ private void inspectItem(String itemName) {
     
     	//if null, it is not in the room inventory
 		if (item != null && inventory.addItem(item)) {
-				System.out.println("You have taken the " + itemName);
+				if(item.canPickUp(item)){
+					System.out.println("You have taken the " + itemName);
+				}
+				else{
+					System.out.println(itemName + " is too heavy to pickup"); 
+				}
+				
 				
 			// 	if (currentRoom.getRoomName().equalsIgnoreCase("Hallway") &&  itemName.equalsIgnoreCase("ball")) {
 			// 		currentRoom = masterRoomMap.get("ATTIC");
@@ -465,7 +471,7 @@ private void inspectItem(String itemName) {
 		if (nextRoom == null)
 			System.out.println("There is something obstructing your path. You cannot go this way!");
 		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
-			System.out.println("The door is locked. You need a key to open it.");
+			System.out.println("The door is locked. You do not have the neccessary items to pass.");
 		
 		// } else if(nextRoom.getKill() == true){
 			
