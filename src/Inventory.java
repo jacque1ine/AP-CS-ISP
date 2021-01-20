@@ -67,11 +67,11 @@ public class Inventory{
 	}
 
 	public int getInvWeight(){
-        int total = 0;
+        int sum = 0;
         for (int i=0; i<items.size(); i++){
-            total+= items.get(i).getWeight();
+           sum+= items.get(i).getWeight();
         }
-        return total;
+        return sum;
 	}
 	
 	public boolean canHold(int num){
