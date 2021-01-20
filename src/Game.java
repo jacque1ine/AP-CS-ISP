@@ -33,9 +33,7 @@ class Game {
 	// Room (assuming you have one).
 	private HashMap<String, Room> masterRoomMap;
 	private HashMap<String, Item> masterItemMap;
-	private boolean finished;
-	private String message;
-
+	boolean finished; 
 
 	/*
 	initItems: creates items from the items.dat file, puts the items into their inventories,
@@ -113,8 +111,8 @@ class Game {
 				room.setLocked(locked);
 
 				//read if room kills you
-				boolean kills = Boolean.parseBoolean(getNextLine(roomScanner).split(": ")[1].replaceAll("<br>", "\n").trim());
-				room.setKill(kills);
+				boolean isKiller = Boolean.parseBoolean(getNextLine(roomScanner).split(": ")[1].replaceAll("<br>", "\n").trim());
+				room.setKill(isKiller);
 
 				// An array of strings in the format E-RoomName
 				String[] rooms = roomExits.split(":")[1].split(",");
@@ -164,7 +162,7 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("GARAGE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("TOWN_SQUARE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
@@ -184,26 +182,26 @@ class Game {
 	 */
 	public void play() {
 		printWelcome();
+
+		
 		// Enter the main command loop.  Here we repeatedly read commands and
 		// execute them until the game is over.
-		message = ("Thank you for playing.  Good bye.");
+		String message = "";
 		finished = false;
 		
 		while (!finished) {
 			Command command = parser.getCommand();
-			if(processCommand(command) || hasWon()){
+			if(processCommand(command) || hasWon() || currentRoom.isKiller()){
 				finished = true;
 			}
-			// if (currentRoom.getKill()){
-			// 	message = ("you have wandered to the wrong place...you have died");
-			// 	finished = true;
-			// }
-			// if(!finished){
-				// finished = processCommand(command);
-			// }
-			
+				
 		}
-		System.out.println(message);
+		if (currentRoom.isKiller()){
+			message=("You have died.Try again.");
+		} else if(hasWon()){
+			message=("CONGRATS!!! You have arrived safely back home.\nHopefully you had fun in the past even though it might have beenjust a little scary.bye");
+		}
+		System.out.println(message + "\nThank you for playing.  Good bye.");
 	}
 
 	/*
@@ -350,9 +348,9 @@ private void inspectItem(String itemName) {
 		Inventory roomInventory = currentRoom.getInventory();
 		Item item = roomInventory.removeItem(itemName);
 
-    	//if null, it is not in the room inventory
+    	//if item is in room inventory
 		if (item != null) {
-			if(item.canPickUp(item) && inventory.addItem(item)){
+			if(item.getWeight() <= 3 && inventory.addItem(item)){
 				System.out.println("You have taken the " + itemName);
 					// if(currentRoom.getRoomName().equalsIgnoreCase("GARAGE") && itemName.equalsIgnoreCase("blueprint")){
 					// 	System.out.print("WHOOSH one of the walls just slide open revealing an extension of the garage.");
@@ -459,10 +457,9 @@ private void inspectItem(String itemName) {
 		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
 			System.out.println("The area is locked. You do not have the neccessary items to pass.");
 		
-		// } else if(nextRoom.getKill() == true){
-			
-		// 	System.out.println(nextRoom.getDescription());
-		
+		} else if(nextRoom.isKiller()){
+			currentRoom = nextRoom;
+			System.out.println("you walked straight into danger and made a bad decision");
 		}else {
 			if (nextRoom.isLocked() && hasKey(nextRoom)){
 				System.out.println("You have unlocked this area");

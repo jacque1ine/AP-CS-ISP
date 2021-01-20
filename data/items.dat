@@ -19,7 +19,7 @@ Room: GARAGE
 Item Name: flashlight 
 Item Description: this is a simple flashlight 
 Openable: false
-Weight: 1
+Weight: 14
 Item: CUPBOARD
 
 Item Name: blueprint
