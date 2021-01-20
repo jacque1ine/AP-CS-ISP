@@ -6,7 +6,7 @@ Room: TOWN_SQUARE
 Item Name: lantern
 Item Description: A rusty lantern
 Openable: false
-Room: ATTIC
+Item: BAG
 
 Item Name: drawers
 Item Description: these are the drawers to the large desk 
