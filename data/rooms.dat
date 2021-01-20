@@ -5,10 +5,16 @@ Locked: false
 Kills: false
 
 Room Name: Elon Road
-Room Description: More tall buildings surround you on both sides. You see a garage door slightly ajar. 
-Exit Rooms: N-Town Square, W-Garage
+Room Description: More tall buildings surround you on both sides. You see a garage door slightly ajar on you west side and a dark alleyway on your east.  
+Exit Rooms: N-Town Square, W-Garage, E-Alleyway
 Locked: false
 Kills: false
+
+Room Name: Alleyway
+Room Description: this is an alley
+Exit Rooms: W-alleyway
+Locked: false
+Kills: true
 
 Room Name: Garage
 Room Description: You are in small garage. The place seems oddly empty...almost if someone has taken everything from this place. You see a cupboard, you see some tools, and a couch. For some reason, one of the walls seems a little flimsy<br> 
@@ -84,7 +90,7 @@ Kills: false
 
 Room Name: George Street N
 Room Description: There is not much here on theis small street except for a little library. 
-Exit Rooms: S-George Street, E-Library, W-alleyway
+Exit Rooms: S-George Street, E-Library, W-Secret Trail
 Locked: false
 Kills: false
 
@@ -136,8 +142,8 @@ Exit Rooms: E-George Street
 Locked: true 
 Kills: false
 
-Room Name: alleyway
-Room Description: secret allay way 
+Room Name: Secret Trail
+Room Description: narrow trail 
 Exit rooms: E-George Street S
 Locked: true 
 Kills: false

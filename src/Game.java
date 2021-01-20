@@ -459,7 +459,12 @@ private void inspectItem(String itemName) {
 		
 		} else if(nextRoom.isKiller()){
 			currentRoom = nextRoom;
-			System.out.println("you walked straight into danger and made a bad decision");
+			if(currentRoom.getRoomName().equalsIgnoreCase("Alleyway")){
+				System.out.println("you walked straight into some thugs, and you have nothing to protect yourself. You were killed because you saw something you shouldn't have");
+			} else{
+				System.out.println("you walked straight into danger and made a bad decision");
+			}
+		
 		}else {
 			if (nextRoom.isLocked() && hasKey(nextRoom)){
 				System.out.println("You have unlocked this area");
