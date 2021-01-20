@@ -66,4 +66,19 @@ public class Inventory{
 		return items.size();
 	}
 
+	public int getInvWeight(){
+        int total = 0;
+        for (int i=0; i<items.size(); i++){
+            total+= items.get(i).getWeight();
+        }
+        return total;
+	}
+	
+	public boolean canHold(int num){
+	  int weight = getInvWeight() + num; 
+	  if (weight>15){
+		  return false;
+	  }
+	  return true; 
+    }
 }

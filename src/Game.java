@@ -331,14 +331,6 @@ private void inspectItem(String itemName) {
  *Open Item: opens the item requested if there is an item in the inventory.
  */
 	private void openItem(String itemName) {
-		// Item item = inventory.contains(itemName);
-		
-		// if(item != null) {
-		// 	System.out.println(item.displayContents());
-		// }else {
-		// 	System.out.println("What is it that you think you have but do not.");
-		// }
-		
 		Item playerItem = inventory.contains(itemName);
 		Item roomItem = currentRoom.getInventory().contains(itemName);
 		
@@ -347,10 +339,8 @@ private void inspectItem(String itemName) {
 		}else if(roomItem != null){
 			System.out.println(roomItem.displayContents());
 		}else{
-			System.out.println("What is it that you think you have but do not.");
+			System.out.println("You cannot open " + itemName);
 		}
-	
-        
 	}
 
 	/*
@@ -359,29 +349,19 @@ private void inspectItem(String itemName) {
 	private void takeItem(String itemName) {
 		Inventory roomInventory = currentRoom.getInventory();
 		Item item = roomInventory.removeItem(itemName);
-		boolean isInItem = false; 
-    
+
     	//if null, it is not in the room inventory
-		if (item != null && inventory.addItem(item)) {
-				if(item.canPickUp(item)){
-					System.out.println("You have taken the " + itemName);
+		if (item != null) {
+			if(item.canPickUp(item) && inventory.addItem(item)){
+				System.out.println("You have taken the " + itemName);
 					// if(currentRoom.getRoomName().equalsIgnoreCase("GARAGE") && itemName.equalsIgnoreCase("blueprint")){
 					// 	System.out.print("WHOOSH one of the walls just slide open revealing an extension of the garage.");
 					// }
 				}
 				else{
 					System.out.println(itemName + " is too heavy to pickup"); 
+					currentRoom.getInventory().justAddItem(item);
 				}
-				
-				
-			// 	if (currentRoom.getRoomName().equalsIgnoreCase("Hallway") &&  itemName.equalsIgnoreCase("ball")) {
-			// 		currentRoom = masterRoomMap.get("ATTIC");
-			// 		System.out.println("You seem to be lying on the floor all confused. It seems you have been here for a while.\n");
-			// 		System.out.println(currentRoom.longDescription());
-			// 	}
-			// }else {
-			// 	System.out.println("You were unable to take the " + itemName);
-			// }
 		}else{
 			 //go through the player's inventory to see if requested item is within any items that can contain other items
 			for (int i=0; i<roomInventory.getNumItems(); i++){
@@ -389,28 +369,18 @@ private void inspectItem(String itemName) {
 				 //accessing the items arrayList of room inventory and getting one of the indexes, and getting the contents of that item. 
         		Inventory itemInventory = roomInventory.getInventory().get(i).getContents(); 
 				
-				//if the current item has is openable/ has an inventory...
-				if (itemInventory != null){ 
+				//if the current itemam has an invetory which contains the target item
+				if (itemInventory != null && itemInventory.hasItem(itemName)){ 
 					
-					/*
-					try to remove the item in the item, and store it. 
-					if the target item is there, removed Item will store it. but if it is not removedItem will be null  
-					*/
+					//try to remove the item in the item, and store it. 
 					Item removedItem = itemInventory.removeItem(itemName);
-
-					//if removedItem is NOT null, we have found our target item
-           			if (removedItem != null){
-						inventory.justAddItem(removedItem);
-						isInItem = true;
-					}
+					inventory.justAddItem(removedItem);
+					System.out.println("You have taken the " + itemName + "\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory.");
+				}
+				else{
+					System.out.println("You were unable to take the " + itemName + " here.\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory."); 
 				}
 					
-			}
-
-			if (isInItem){
-				System.out.println("You have taken the " + itemName);
-        	}else{
-				System.out.println("You were unable to take the " + itemName + " here."); 
 			}
 		}
 	}
