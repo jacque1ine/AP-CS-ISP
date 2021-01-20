@@ -203,7 +203,8 @@ class Game {
 	private void printWelcome() {
 		System.out.println();
 		System.out.println("Welcome to Timequest");
-		System.out.println("Timequest draws from elements of Back to the Future, and is set in 2050. ");
+		System.out.println("Timequest is a fun text-based adventure game which draws from elements of Back to the Future.\n" + 
+		" You will see that in this game some areas are locked, while some are not. Once you have a certain item in your inventory the areas will unlock");
 		System.out.println("Type 'help' if you need help.");
 		System.out.println();
 		System.out.println(currentRoom.longDescription());
