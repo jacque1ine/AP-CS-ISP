@@ -1,59 +1,71 @@
 Item Name: bag
 Item Description: this is a backpack in your favourite colour that will definitely come in handy later...
 Openable: true
+Weight: 1
 Room: TOWN_SQUARE
 
 Item Name: lantern
 Item Description: A rusty lantern
 Openable: false
+Weight: 1
 Item: BAG
 
 Item Name: drawers
 Item Description: these are the drawers to the large desk 
 Openable: true
+Weight: 100
 Room: GARAGE_1
 
 Item Name: letters 
 Item Description: there are a lot of letters here, but after carefully looking through them you notice that they all seem to directed towards someone named Dr. Emmett Brown. <br>One of the letters say:<br><br> Dear Dr. Emmett Brown,<br> We are writing to you from the National Defense Commititee and this is a warning that we will be seizing 
 Openable: false
+Weight: 1
 Item: DRAWERS
 
 Item Name: Watch 
 Item Description: this is a cool watch 
 Openable: true
+Weight: 1
 Room: OLD_GARAGE 
 
 Item Name: blueprint
 Item Description: this is the blueprint to the time machine 
 Openable: false
+Weight: 1
 Room: GARAGE 
 
 Item Name: Book
 Item Description: this is a special book it seems like theres something in it  
 Openable: true
+Weight: 1
 Room: LIBRARY
 
 Item Name: time machine part 1 
 Item Description: this part matches the blueprint
 Openable: false
+Weight: 2
 Room: ATTIC 
 
 Item Name: large bag 
 Item Description:theres something huge inside this bag 
 Openable: true
+Weight: 1
 Room: ATTIC
 
 Item Name: Generator 
 Item Description: power supply
 Openable: false
+Weight: 2
 Room: THEATRE
 
 Item Name: Handle 
 Item Description: this is the handle to the attic door
 Openable: false
+Weight: 1
 Room: ATTIC
 
 Item Name: Plutonium Nuclear Reactor  
 Item Description: this is the final piece
 Openable: false
+Weight: 2
 Room: ATTIC
