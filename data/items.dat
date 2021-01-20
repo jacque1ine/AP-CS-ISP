@@ -14,7 +14,7 @@ Openable: true
 Room: GARAGE_1
 
 Item Name: letters 
-Item Description: there are letters in the desk. 
+Item Description: there are a lot of letters here, but after carefully looking through them you notice that they all seem to directed towards someone named Dr. Emmett Brown. <br>One of the letters say:<br><br> Dear Dr. Emmett Brown,<br> We are writing to you from the National Defense Commititee and this is a warning that we will be seizing 
 Openable: false
 Item: DRAWERS
 

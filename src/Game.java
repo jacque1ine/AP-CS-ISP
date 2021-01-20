@@ -202,8 +202,8 @@ class Game {
 	 */
 	private void printWelcome() {
 		System.out.println();
-		System.out.println("Welcome to Zork!");
-		System.out.println("Zork is a new, incredibly boring adventure game.");
+		System.out.println("Welcome to Timequest");
+		System.out.println("Timequest draws from elements of Back to the Future, and is set in 2050. ");
 		System.out.println("Type 'help' if you need help.");
 		System.out.println();
 		System.out.println(currentRoom.longDescription());
@@ -274,14 +274,10 @@ class Game {
 		// 	else
 		// 		System.out.println("theres nothing to pull");
 		
-		} else if (commandWord.equalsIgnoreCase("read")) {
-			if (!command.hasSecondWord())
-				System.out.println("c'mon you have to tell me what to read");
-			else
-				readItem(command.getSecondWord());
+		
 		} else if (commandWord.equalsIgnoreCase("inspect")) {
 			if (!command.hasSecondWord())
-				System.out.println("c'mon you have to tell me what to read");
+				System.out.println("c'mon you have to tell me what to inspect");
 			else
 				inspectItem(command.getSecondWord());
 		}
@@ -405,31 +401,6 @@ private void inspectItem(String itemName) {
 		}
 	}
 
-	private void readItem(String itemName){
-		Item playerItem = inventory.contains(itemName);
-		Item roomItem = currentRoom.getInventory().contains(itemName);
-		
-		if(roomItem != null || roomItem != null) {
-			if (roomItem.getName().equalsIgnoreCase("letter")||playerItem.getName().equalsIgnoreCase("letter") ){
-				System.out.println("DOC BROWN"); 
-			}
-		}else if(playerItem != null){
-
-		}else {
-			System.out.println("You can't read items unless you have them.");
-		}
-		
-		if(playerItem != null) {
-			if (playerItem.getName().equalsIgnoreCase("letter")||playerItem.getName().equalsIgnoreCase("letter") ){
-				System.out.println("DOC BROWN"); 
-			}
-		}else if(roomItem != null){
-			System.out.println(roomItem.getDescription());
-		}else{
-			System.out.println("I cannot inspect what is not there.");
-		}
-	}
-
 
 	/*
 	 * HasWon: once a player as the speciifc item, the method will return true. 
@@ -528,4 +499,35 @@ private void inspectItem(String itemName) {
 	}
 
 }
+
+//METHODS NOT IN USE: 
+
+//READ METHOD- REPLACED WITH INSPECT 
+
+	/*
+	private void readItem(String itemName){
+		Item playerItem = inventory.contains(itemName);
+		Item roomItem = currentRoom.getInventory().contains(itemName);
+		
+		if(roomItem != null || roomItem != null) {
+			if (roomItem.getName().equalsIgnoreCase("letter")||playerItem.getName().equalsIgnoreCase("letter") ){
+				System.out.println("DOC BROWN"); 
+			}
+		}else if(playerItem != null){
+
+		}else {
+			System.out.println("You can't read items unless you have them.");
+		}
+		
+		if(playerItem != null) {
+			if (playerItem.getName().equalsIgnoreCase("letter")||playerItem.getName().equalsIgnoreCase("letter") ){
+				System.out.println("DOC BROWN"); 
+			}
+		}else if(roomItem != null){
+			System.out.println(roomItem.getDescription());
+		}else{
+			System.out.println("I cannot inspect what is not there.");
+		}
+	}
+*/
 	

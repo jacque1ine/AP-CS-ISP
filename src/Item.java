@@ -6,7 +6,7 @@ public class Item{
 	private Inventory items; 
 	private boolean isOpenable; 
 	//add weight 
-	private int weight;
+	// private int weight;
 
 	public Item(String name, String description, Boolean isOpenable){
 		super(); 
