@@ -164,11 +164,12 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("TOWN_SQUARE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("GARAGE_1");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
-			masterRoomMap.get("GARAGE").setKey("BAG");
+			masterRoomMap.get("GARAGE_1").setKey("BLUEPRINT");
+			masterRoomMap.get("GARAGE_SECRET_ROOM").setKey("WATCH");
 			
       		initItems("data/items.dat");
 		} catch (Exception e) {
@@ -352,6 +353,9 @@ private void inspectItem(String itemName) {
 		if (item != null && inventory.addItem(item)) {
 				if(item.canPickUp(item)){
 					System.out.println("You have taken the " + itemName);
+					// if(currentRoom.getRoomName().equalsIgnoreCase("GARAGE") && itemName.equalsIgnoreCase("blueprint")){
+					// 	System.out.print("WHOOSH one of the walls just slide open revealing an extension of the garage.");
+					// }
 				}
 				else{
 					System.out.println(itemName + " is too heavy to pickup"); 
@@ -471,13 +475,19 @@ private void inspectItem(String itemName) {
 		if (nextRoom == null)
 			System.out.println("There is something obstructing your path. You cannot go this way!");
 		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
-			System.out.println("The door is locked. You do not have the neccessary items to pass.");
+			System.out.println("The area is locked. You do not have the neccessary items to pass.");
 		
 		// } else if(nextRoom.getKill() == true){
 			
 		// 	System.out.println(nextRoom.getDescription());
-			
+		
 		}else {
+			if (nextRoom.isLocked() && hasKey(nextRoom)){
+				System.out.println("You have unlocked this area");
+			}else if(currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room") && nextRoom.getRoomName().equalsIgnoreCase("oldtown square")){
+				currentRoom.setLocked(true);
+				System.out.println("\nYOU FEEL A SERIES OF JOLTS, COLOURS EVERYWEHRE!\nYOU ARE VERY DIZZY, WHAT IS HAPPENING?!!\nAfter a series of zaps...you open your eyes and find yourself in...");
+			}
 			currentRoom = nextRoom;
 			System.out.println(currentRoom.longDescription());
 		}

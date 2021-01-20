@@ -1,5 +1,5 @@
 Room Name: Town Square 
-Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere.<br>There is a clock tower covered by screens except for the antique clock face at the top.<br>Who even reads analog clocks anymore?<br>Beneath the clock it says, March 21, 2050
+Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere.<br>There are screens EVERYWHERE. Beside you there are roaming robots, and holograms.<br>There is a clock tower covered by screens except for the antique clock face at the top.<br>Who even reads analog clocks anymore?<br>Beneath the clock it says, April 9, 2050
 Exit Rooms: S-Elon Road
 Locked: false
 Kills: false
@@ -11,19 +11,19 @@ Locked: false
 Kills: true
 
 Room Name: Garage
-Room Description: You are in small garage. The place seems oddly empty...almost if someone has taken everything from this place.<br> On the other side of the room you see an interesting desk, with a picture of a...some weird car. 
+Room Description: You are in small garage. The place seems oddly empty...almost if someone has taken everything from this place. You see a cupboard, you see some tools, and a couch. For some reason, one of the walls seems a little flimsy<br> 
 Exit Rooms: E-Elon Road, S-Garage 1
-Locked: true 
-Kills: false
-
-Room Name: Garage 1
-Room Description: You are still in the garage, and now you are in front of a large desk with drawers on both sides.<br> On the wall there is a picture of an modified old car labeled with "DeLorean".<br>It has has been modifed with chunky parts at the back of the car, and tubes all over.<br> 
-Exit Rooms: S-Garage, W-Garage Secret Room
 Locked: false
 Kills: false
 
+Room Name: Garage 1
+Room Description: An other side to the garage is revealed, and now you are in front of a large desk with drawers on both sides.<br> On the wall there is a picture of an modified old car labeled with "DeLorean".<br>It has has been modifed with chunky parts at the back of the car, and tubes all over.<br> 
+Exit Rooms: S-Garage, W-Garage Secret Room
+Locked: true 
+Kills: false
+
 Room Name: Garage Secret Room 
-Room Description: You seem to be in a hidden room of the garage...in here you see a large metal door frame, only it is connected to lots of tubes and has blinking lights around the edges. 
+Room Description: You seem to be in a hidden room of the garage...in here you see a large metal door frame, only it is connected to lots of tubes and has blinking lights around the edges.<br>By going west, you will be going through the strange door.
 Exit Rooms: E-Garage 1, W-Oldtown Square
 Locked: true 
 Kills: false
@@ -31,7 +31,7 @@ Kills: false
 Room Name: Oldtown Square 
 Room Description:  You are in the familiar main town square of Hill Valley only it looks... much older than you recall. There seems to a newspaper stand. 
 Exit Rooms: N-North Road, S-South Road
-Locked: true
+Locked: false
 Kills: false
 
 Room Name: South Road

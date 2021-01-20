@@ -139,10 +139,16 @@ public class Room {
 	 * Exits: north west
 	 */
 	public String longDescription() {
+		return "------------------------------------\nLOCATION: " + roomName + "\n" + description + "\n" + "\nITEMS HERE:\n" + inventory + "\n" + exitString();
+	}
 
+
+	public String longestDescription() {
 		return "------------------------------------\nLOCATION: " + roomName + "\n" + description + "\n" + "\nITEMS HERE:\n" + inventory + "\n" + exitString() +  
 		(numLockedRooms()>0?"\nIt appears that the " + getLockedRooms() + " "+(numLockedRooms()==1?"is": "are")+" locked.":"");
 	}
+
+	
 
 	/**
 	 * Return a string describing the room's exits, for example "Exits: north west

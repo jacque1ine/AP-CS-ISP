@@ -2,13 +2,37 @@ Item Name: bag
 Item Description: this is a backpack in your favourite colour that will definitely come in handy later...
 Openable: true
 Weight: 1
-Room: TOWN_SQUARE
+Room: ATTIC
 
 Item Name: lantern
 Item Description: A rusty lantern
 Openable: false
 Weight: 1
 Item: BAG
+
+Item Name: cupboard
+Item Description: this is tall grey cupboard. In here, there are a few random things. 
+Openable: true
+Weight: 100
+Room: GARAGE
+
+Item Name: flashlight 
+Item Description: this is a simple flashlight 
+Openable: false
+Weight: 1
+Item: CUPBOARD
+
+Item Name: blueprint
+Item Description: this is the blueprint to the time machine 
+Openable: false
+Weight: 1
+Item: CUPBOARD
+
+Item Name: Wires
+Item Description: This is just an assortment of random wires
+Openable: false
+Weight: 1
+Item: CUPBOARD
 
 Item Name: drawers
 Item Description: these are the drawers to the large desk 
@@ -22,17 +46,18 @@ Openable: false
 Weight: 1
 Item: DRAWERS
 
-Item Name: Watch 
-Item Description: this is a cool watch 
+Item Name: watch 
+Item Description: This is a smart watch. It can project holograms, and it has many buttons and lights.<br>One of the lights seem to be glowing the closer you move it to the locked door. 
 Openable: true
 Weight: 1
-Room: OLD_GARAGE 
+Item: DRAWERS
 
-Item Name: blueprint
-Item Description: this is the blueprint to the time machine 
-Openable: false
+Item Name: newspaper
+Item Description: well isn't this new? reading something on paper!<br>Across the top it says, April 9, 2020
+Openable: true
 Weight: 1
-Room: GARAGE 
+Room: OLDTOWN_SQUARE
+
 
 Item Name: Book
 Item Description: this is a special book it seems like theres something in it  
