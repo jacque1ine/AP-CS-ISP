@@ -4,21 +4,21 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 
-/**
- * Class Game - the main class of the "Zork" game.
+/*
+ *Class Game - the main class of the "Zork" game.
  *
- * Author: Michael Kolling Version: 1.1 Date: March 2000
- * 
- * This class is the main class of the "Zork" application. Zork is a very
- * simple, text based adventure game. Users can walk around some scenery. That's
- * all. It should really be extended to make it more interesting!
- * 
- * To play this game, create an instance of this class and call the "play"
- * routine.
- * 
- * This main class creates and initialises all the others: it creates all rooms,
- * creates the parser and starts the game. It also evaluates the commands that
- * the parser returns.
+ *Author: Michael Kolling Version: 1.1 Date: March 2000
+ *
+ *This class is the main class of the "Zork" application. Zork is a very
+ *simple, text based adventure game. Users can walk around some scenery. That's
+ *all. It should really be extended to make it more interesting!
+ *
+ *To play this game, create an instance of this class and call the "play"
+ *routine.
+ *
+ *This main class creates and initialises all the others: it creates all rooms,
+ *creates the parser and starts the game. It also evaluates the commands that
+ *the parser returns.
  */
 class Game {
 	private Parser parser;
@@ -37,27 +37,41 @@ class Game {
 	private String message;
 
 
+	/*
+	initItems: creates items from the items.dat file, puts the items into their inventories,
+	and puts items into hashmap
+	*/
 	private void initItems(String fileName) throws Exception{
 		Scanner itemScanner;
 		masterItemMap = new HashMap<String, Item>();
-
 		
 		try {
 			itemScanner = new Scanner(new File(fileName));
 			while (itemScanner.hasNext()) {
 
+				//Create new item
 				Item item = new Item();
+
+				//Read and set name
 				String itemName = getNextLine(itemScanner).split(":")[1].trim();
 				item.setName(itemName);
 
+				//Read and set description
 				String itemDesc = getNextLine(itemScanner).split(":")[1].trim();
 				item.setDescription(itemDesc);
 
+				//Read and set whether or not this object has its own inventory or is "openable"
 				Boolean openable = Boolean.valueOf(getNextLine(itemScanner).split(":")[1].trim());
 				item.setOpenable(openable);
+
+				//Read and set weight
+				int weight = Integer.parseInt(itemScanner.nextLine().split(":")[1].trim()); 
+        		item.setWeight(weight); 
 				
+				//Puts into hashmap
 				masterItemMap.put(itemName.toUpperCase().replaceAll(" ", "_"), item);
 				
+				//Adding items into the inventories of their respective rooms or within other items 
 				String temp = getNextLine(itemScanner);
 				String itemType = temp.split(":")[0].trim();
 				String name = temp.split(":")[1].trim();
@@ -70,7 +84,10 @@ class Game {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/*
+	initRooms: creates room objects from the room.dat file, and ensures that each room has exits
+	*/
 	private void initRooms(String fileName) throws Exception {
 		masterRoomMap = new HashMap<String, Room>();
 		Scanner roomScanner;
@@ -110,45 +127,39 @@ class Game {
 
 				// This puts the room we created (Without the exits in the masterMap)
 				masterRoomMap.put(roomName.toUpperCase().substring(10).trim().replaceAll(" ", "_"), room);
-
-				// Now we better set the exits.
 			}
-
+			
+			//Set the exits.
 			for (String key : masterRoomMap.keySet()) {
 				Room roomTemp = masterRoomMap.get(key);
 				HashMap<String, String> tempExits = exits.get(key);
-				for (String s : tempExits.keySet()) {
-					// s = direction
-					// value is the room.
-
+				for (String s : tempExits.keySet()) {// s = direction
 					String roomName2 = tempExits.get(s.trim());
 					Room exitRoom = masterRoomMap.get(roomName2.toUpperCase().replaceAll(" ", "_"));
-                    
-                    // roomTemp.setExit(s.trim(), exitRoom); //String 
-                    roomTemp.setExit(s.trim().charAt(0), exitRoom); //char
-
+                    roomTemp.setExit(s.trim().charAt(0), exitRoom); 
 				}
-
 			}
+		roomScanner.close();
 
-			roomScanner.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
 
-//allows spaces in the room.dat file 
-  private String getNextLine(Scanner roomScanner){
-    String nextLine = roomScanner.nextLine(); 
-    while(nextLine != null && nextLine.trim().equals("")){
-      nextLine = roomScanner.nextLine();
-    }
-    return nextLine;
-  }
+	/*
+	getNextLine: ignores empty lines. Allows for blank lines in .dat files. 
+	*/
+	private String getNextLine(Scanner roomScanner){
+    	String nextLine = roomScanner.nextLine(); 
+    	while(nextLine != null && nextLine.trim().equals("")){
+      		nextLine = roomScanner.nextLine();
+    	}
+    	return nextLine;
+  	}
 
-	/**
-	 * Create the game and initialise its internal map.
-	 */
+	/*
+	Game Constructor: creates the game and initialise its internal map.
+	*/
 	public Game() {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
@@ -159,9 +170,7 @@ class Game {
 			//Set the kets to each room. setKey() indicates the item needed
 			masterRoomMap.get("GARAGE").setKey("BAG");
 			
-      	initItems("data/items.dat");
-      
-			
+      		initItems("data/items.dat");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -169,9 +178,8 @@ class Game {
 	}
 
 	
-
-	/**
-	 * Main play routine. Loops until end of play.
+	/*
+	 *Main play routine. Loops until end of play.
 	 */
 	public void play() {
 		printWelcome();
@@ -197,8 +205,8 @@ class Game {
 		System.out.println(message);
 	}
 
-	/**
-	 * Print out the opening message for the player.
+	/*
+	 *Print out the opening message for the player.
 	 */
 	private void printWelcome() {
 		System.out.println();
@@ -210,9 +218,9 @@ class Game {
 		System.out.println(currentRoom.longDescription());
 	}
 
-	/**
-	 * Given a command, process (that is: execute) the command. If this command ends
-	 * the game, true is returned, otherwise false is returned.
+	/*
+	 *Given a command, process (that is: execute) the command. If this command ends
+	 *the game, true is returned, otherwise false is returned.
 	 */
 	private boolean processCommand(Command command) {
 		if (command.isUnknown()) {
@@ -307,7 +315,7 @@ private void inspectItem(String itemName) {
 }
 
 /*
- * Open Item: opens the item requested if there is an item in the inventory.
+ *Open Item: opens the item requested if there is an item in the inventory.
  */
 	private void openItem(String itemName) {
 		// Item item = inventory.contains(itemName);
@@ -386,7 +394,7 @@ private void inspectItem(String itemName) {
 	}
 
 	/*
-	* Drop Item: removes item from player's inventory and adds it to the room they are in.
+	*Drop Item: removes item from player's inventory and adds it to the room they are in.
 	*/
 	private void dropItem(String itemName) {
 		Item item = inventory.removeItem(itemName);
@@ -404,7 +412,7 @@ private void inspectItem(String itemName) {
 
 
 	/*
-	 * HasWon: once a player as the speciifc item, the method will return true. 
+	 *HasWon: once a player as the speciifc item, the method will return true. 
 	 */
 	private boolean hasWon(){
 		if(inventory.hasItem("Plutonium Nuclear Reactor")){
@@ -414,8 +422,8 @@ private void inspectItem(String itemName) {
 	}
 
 	/*
-	 * Print Help: Print out some help information. Here we print some stupid, cryptic message
-	 * and a list of the command words.
+	 *Print Help: Print out some help information. Here we print some stupid, cryptic message
+	 *and a list of the command words.
 	 */
 	private void printHelp() {
 		System.out.println(" Hello? Hello? Anybody home? Huh? Think, McFly! Think!");
@@ -425,8 +433,8 @@ private void inspectItem(String itemName) {
 	}
 
 	/*
-	 * Go Room: Try to go to one direction. If there is an exit, enter the new room,
-	 * otherwise print an error message. ]
+	 *Go Room: Try to go to one direction. If there is an exit, enter the new room,
+	 *otherwise print an error message. ]
 	 */
 	private void goRoom(Command command) {
 		if (!command.hasSecondWord() && ("udeswn".indexOf(command.getCommandWord()) < 0)) {
@@ -471,7 +479,7 @@ private void inspectItem(String itemName) {
 
 
 	/*
-	* Has Key: gets the key from a room, and checks if the player's inventory has the corresponding key
+	*Has Key: gets the key from a room, and checks if the player's inventory has the corresponding key
 	*/
 	private boolean hasKey(Room nextRoom) {
 		String key = nextRoom.getKey();
