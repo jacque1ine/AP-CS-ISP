@@ -162,7 +162,7 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("GARAGE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("TOWN_SQUARE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
@@ -364,27 +364,18 @@ private void inspectItem(String itemName) {
 			}else{
 				System.out.println(itemName + " is too heavy to pickup");
 				currentRoom.getInventory().justAddItem(item);
-			}
-			
-				
-		// if(currentRoom.getRoomName().equalsIgnoreCase("GARAGE") && itemName.equalsIgnoreCase("blueprint")){
-					// 	System.out.print("WHOOSH one of the walls just slide open revealing an extension of the garage.");
-		// 			// }
-		// else{
-		// 	System.out.println(itemName + " is not this room"); 
-		// 	currentRoom.getInventory().justAddItem(item);
-				
+			}	
 		}else{
+
 			 //go through the player's inventory to see if requested item is within any items that can contain other items
 			for (int i=0; i<roomInventory.getNumItems(); i++){
 
 				 //accessing the items arrayList of room inventory and getting one of the indexes, and getting the contents of that item. 
         		Inventory itemInventory = roomInventory.getInventory().get(i).getContents(); 
 				
-				//if the current itemam has an invetory which contains the target item
+				//if the current item has an invetory which contains the target item
 				if (itemInventory != null && itemInventory.hasItem(itemName)){ 
 					Item removedItem = itemInventory.removeItem(itemName);
-
 					if(removedItem.canPickUp()){
 						if(inventory.getInvWeight()<=15){
 							if(inventory.addItem(removedItem)){
@@ -399,20 +390,6 @@ private void inspectItem(String itemName) {
 						System.out.println(itemName + " is too heavy to pickup");
 						itemInventory.getInventory().get(i).addItem(removedItem); 
 					}
-			
-
-
-
-
-					// if(inventory.canHold(removedItem.getWeight())){
-					// 	inventory.addItem(removedItem);
-					// 	System.out.println("You have taken the " + itemName + "\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory.");
-					// } else{
-					// 	itemInventory.addItem(removedItem);
-					// 	System.out.println(itemName + " is there but you do not have space. Drop some items and try again");
-					// }
-					//try to remove the item in the item, and store it. 
-					
 				}
 				else{
 					System.out.println("You were unable to take the " + itemName + " here.\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory."); 

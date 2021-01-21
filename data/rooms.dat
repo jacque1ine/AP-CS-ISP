@@ -1,17 +1,23 @@
 Room Name: Town Square 
-Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere.<br>There are screens EVERYWHERE. Beside you there are roaming robots, and holograms.<br>There is a clock tower covered by screens except for the antique clock face at the top.<br>Who even reads analog clocks anymore?<br>Beneath the clock it says, April 7, 2050
+Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere.<br>There are screens EVERYWHERE. Beside you there are roaming robots, and holograms.<br>There is a clock tower covered by screens except for the antique clock face at the top.<br>Who even reads analog clocks anymore?<br>Beneath the clock it says, April 7, 2050.<br>
 Exit Rooms: S-Elon Road
 Locked: false
 Kills: false
 
 Room Name: Elon Road
-Room Description: More tall buildings surround you on both sides. You see a garage door slightly ajar on you west side and a dark alleyway on your east.  
-Exit Rooms: N-Town Square, W-Garage, E-Alleyway
+Room Description: There are more tall buildings around you. You see a garage door slightly ajar on you west side and a dark alleyway on your east.  
+Exit Rooms: N-Town Square, W-Garage, E-Alleyway, S-Elon Road End 
+Locked: false
+Kills: false
+
+Room Name: Elon Road End 
+Room Description: BORINGGG. Just more high rise, funky shaped buildings which surround you. This is dead end. 
+Exit Rooms: N-Elon Road End
 Locked: false
 Kills: false
 
 Room Name: Alleyway
-Room Description: this is an alley
+Room Description: this is an alley which kills you 
 Exit Rooms: W-alleyway
 Locked: false
 Kills: true
