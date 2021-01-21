@@ -360,13 +360,14 @@ class Game {
     	//if item is in room inventory
 		if (item != null){
 			/**
-			 * take item if the object can be picked up, when the inventory weight is 
+			 * take item if the object can be picked up, when the inventory weight is less than 
+			 * threshold.
 			 */
 			if(item.canPickUp()){
 				if((inventory.getInvWeight() + item.getWeight())<=15){
-					if(inventory.addItem(item)){
-						System.out.println("You have taken the " + itemName);
-					}
+					inventory.addItem(item);
+					System.out.println("You have taken the " + itemName);
+					
 				}else{
 					System.out.println(itemName + " is there but you do not have space. Drop some items and try again"+
 					"\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory."); 
@@ -402,11 +403,11 @@ class Game {
 						}else{
 							System.out.println(itemName + " is there but you do not have space. Drop some items and try again"+
 							"\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory."); 
-							itemInventory.getInventory().get(i).addItem(removedItem); 
+							itemInventory.addItem(removedItem); 
 						}
 					}else{
 						System.out.println(itemName + " is too heavy to pickup");
-						itemInventory.getInventory().get(i).addItem(removedItem); 
+						itemInventory.addItem(removedItem); 
 					}
 				}
 				else{
