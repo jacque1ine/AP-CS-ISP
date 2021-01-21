@@ -161,7 +161,7 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("GARAGE_SECRET_ROOM");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("OLD_GARAGE_N");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
@@ -232,10 +232,12 @@ class Game {
 				System.out.println("Quit what?");
 			else
 				return true; // signal that we want to quit
+		
 		}else if (commandWord.equalsIgnoreCase("eat")) {
 			eat(command.getSecondWord());
 		} else if (commandWord.equalsIgnoreCase("talk")) {
 			return talk();
+		
 		} else if (commandWord.equalsIgnoreCase("jump")) {
 			return jump();
 		} else if (commandWord.equalsIgnoreCase("sit")) {
@@ -245,28 +247,36 @@ class Game {
 		} else if (commandWord.equalsIgnoreCase("take")) {
 			if (!command.hasSecondWord())
 				System.out.println("Take what?");
+			else if(command.hasSecondWord() && command.hasThirdWord())
+				takeItem(command.getSecondWord() + " " + command.getThirdWord());
 			else
 				takeItem(command.getSecondWord());
 		} else if (commandWord.equalsIgnoreCase("drop")) {
 			if (!command.hasSecondWord())
 				System.out.println("Drop what?");
+			else if(command.hasSecondWord() && command.hasThirdWord())
+				dropItem(command.getSecondWord() + " " + command.getThirdWord());
 			else
 				dropItem(command.getSecondWord());
-		} else if (commandWord.equalsIgnoreCase("wear")) {
+		} else if (commandWord.equalsIgnoreCase("inspect") || commandWord.equalsIgnoreCase("read")){
+			if (!command.hasSecondWord())
+				System.out.println("c'mon you have to tell me what to specfically look at");
+			else if(command.hasSecondWord() && command.hasThirdWord())
+				inspectItem(command.getSecondWord() + " " + command.getThirdWord());
+			else
+				inspectItem(command.getSecondWord());
+		}else if (commandWord.equalsIgnoreCase("wear")) {
 				if (!command.hasSecondWord())
 					System.out.println("Wear what?");
 				else
 					wearItem(command.getSecondWord());
-		// }else if (commandWord.equalsIgnoreCase("read")) {
-		// 	if (!command.hasSecondWord())
-		// 		System.out.println("Read what?");
-		// 	else
-		// 		read(command.getSecondWord());
 		} else if (commandWord.equalsIgnoreCase("inventory")) {
-			System.out.println("You are carrying the following:" + inventory);
+			System.out.println("You are carrying the following:\n" + inventory);
 		} else if (commandWord.equalsIgnoreCase("open")) {
 			if (!command.hasSecondWord())
 				System.out.println("Open what?");
+			else if(command.hasSecondWord() && command.hasThirdWord())
+				openItem(command.getSecondWord() + " " + command.getThirdWord());
 			else
 				openItem(command.getSecondWord());
 		} else if (commandWord.equalsIgnoreCase("throw")){
@@ -275,12 +285,7 @@ class Game {
 			System.out.println("Great Scott!! Why are you so violent");
 		} else if(commandWord.equalsIgnoreCase("sleep")){
 			System.out.println("sleeping is for losers... don't you want to go back home?");
-		} else if (commandWord.equalsIgnoreCase("inspect") || commandWord.equalsIgnoreCase("read")){
-			if (!command.hasSecondWord())
-				System.out.println("c'mon you have to tell me what to specfically look at");
-			else
-				inspectItem(command.getSecondWord());
-		}
+		} 
 			// }else if(commandWord.equalsIgnoreCase("pull")){
 		// 	//add of it has second word integrate with pull method
 		// 	if (!command.hasSecondWord()){
@@ -358,13 +363,13 @@ class Game {
 		if (item != null){
 
 			if(item.canPickUp()){
-				if(inventory.getInvWeight()<=10){
+				if(inventory.getInvWeight()<=15){
 					if(inventory.addItem(item)){
 						System.out.println("You have taken the " + itemName);
 					}
 				}else{
 					System.out.println(itemName + " is there but you do not have space. Drop some items and try again"+
-					"\nYou have have " + inventory.getInvWeight() + "/10 slots filled in your inventory."); 
+					"\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory."); 
 					currentRoom.getInventory().justAddItem(item); 
 				}
 			}else{
@@ -383,13 +388,13 @@ class Game {
 				if (itemInventory != null && itemInventory.hasItem(itemName)){ 
 					Item removedItem = itemInventory.removeItem(itemName);
 					if(removedItem.canPickUp()){
-						if(inventory.getInvWeight()<=10){
+						if(inventory.getInvWeight()<=15){
 							if(inventory.addItem(removedItem)){
 								System.out.println("You have taken the " + itemName);
 							}
 						}else{
 							System.out.println(itemName + " is there but you do not have space. Drop some items and try again"+
-							"\nYou have have " + inventory.getInvWeight() + "/10 slots filled in your inventory."); 
+							"\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory."); 
 							itemInventory.getInventory().get(i).addItem(removedItem); 
 						}
 					}else{
@@ -398,7 +403,7 @@ class Game {
 					}
 				}
 				else{
-					System.out.println("You were unable to take the " + itemName + " here.\nYou have have " + inventory.getInvWeight() + "/10 slots filled in your inventory."); 
+					System.out.println("You were unable to take the " + itemName + " here.\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory."); 
 				}
 					
 			}

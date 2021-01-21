@@ -30,7 +30,7 @@ public Command getCommand() {
 	String inputLine = ""; // will hold the full input line
 	String word1;
 	String word2;
-	// String word3;
+	String word3;
 	System.out.print("\n>> "); // print prompt
 	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	try {
@@ -53,24 +53,25 @@ public Command getCommand() {
 	word2 = null;
 
 	//gets third word 
-	// if (tokenizer.hasMoreTokens())
-	// word3 = tokenizer.nextToken().toLowerCase(); //get third word
-	// else
-	// word3 = null;
+	if (tokenizer.hasMoreTokens())
+	word3 = tokenizer.nextToken().toLowerCase(); //get third word
+	else
+	word3 = null;
+
 	// note: we just ignore the rest of the input line.
 	// Now check whether this word is known. If so, create a command
 	// with it. If not, create a "nil" command (for unknown command).
 
 	//for three word commands 
-	// if (commands.isCommand(word1))
-	// return new Command(word1, word2, word3);
-	// else
-	// return new Command(null, word2, word3);
-
 	if (commands.isCommand(word1))
-	return new Command(word1, word2);
+	return new Command(word1, word2, word3);
 	else
-	return new Command(null, word2);
+	return new Command(null, word2, word3);
+
+	// if (commands.isCommand(word1))
+	// return new Command(word1, word2);
+	// else
+	// return new Command(null, word2);
 
 	
 }

@@ -70,6 +70,18 @@ Openable: false
 Weight: 1
 Room: OLDTOWN_SQUARE
 
+Item Name: Metal Box
+Item Description: this is a metal box. When you shake it seems like something is inside.
+Openable: true
+Weight: 100
+Room: OLD_GARAGE_N
+
+Item Name: Blinker
+Item Description: PIECE OF TIME MACHINE<br> 
+Openable: true
+Weight: 2
+Item: METAL_BOX
+
 Item Name: Book
 Item Description: this is a special book it seems like theres something in it  
 Openable: true

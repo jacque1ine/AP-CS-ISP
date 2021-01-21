@@ -47,27 +47,6 @@ public class Room {
 		isKiller = false;
 	}
 
-	// public void setExit(String direction, Room r) throws Exception {
-	//   String dir = "";
-	//   if (direction.equals("E"))
-	//     dir = "east";
-	//   else if(direction.equals("W"))
-	//     dir = "west";
-	//   else if(direction.equals("N"))
-	//     dir = "north";
-	//   else if(direction.equals("S"))
-	//     dir = "south";
-	//   else if(direction.equals("U"))
-	//     dir = "up";
-	//   else if(direction.equals("D"))
-	//     dir = "down";
-	//   else if(direction.equals("SW"))
-	//     dir = "southwest";
-	//   else
-	//     throw new Exception("Invalid Direction");
-
-	//   exits.put(dir, r);
-	// }
 
 	public void setExit(char direction, Room r) throws Exception {
 		String dir = "";
@@ -145,6 +124,11 @@ public class Room {
 
 	public String longestDescription() {
 		return "------------------------------------\nLOCATION: " + roomName + "\n" + description + "\n" + "\nITEMS HERE:\n" + inventory + "\n" + exitString() +  
+		(numLockedRooms()>0?"\nIt appears that the " + getLockedRooms() + " "+(numLockedRooms()==1?"is": "are")+" locked.":"");
+	}
+
+	public String lookAround(){ 
+		return "\nITEMS HERE:\n" + inventory + "\n" + exitString() +  
 		(numLockedRooms()>0?"\nIt appears that the " + getLockedRooms() + " "+(numLockedRooms()==1?"is": "are")+" locked.":"");
 	}
 
