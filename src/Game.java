@@ -34,10 +34,10 @@ class Game {
 	private HashMap<String, Room> masterRoomMap;
 	private HashMap<String, Item> masterItemMap;
 
-	/*
-	initItems: creates items from the items.dat file, puts the items into their inventories,
-	and puts items into hashmap
-	*/
+	/**
+	 * initItems: creates items from the items.dat file, puts the items into their inventories,
+	 * and puts items into hashmap
+	 */
 	private void initItems(String fileName) throws Exception{
 		Scanner itemScanner;
 		masterItemMap = new HashMap<String, Item>();
@@ -82,9 +82,9 @@ class Game {
 		}
 	}
 
-	/*
-	initRooms: creates room objects from the room.dat file, and ensures that each room has exits
-	*/
+	/**
+	 * initRooms: creates room objects from the room.dat file, and ensures that each room has exits
+	 */
 	private void initRooms(String fileName) throws Exception {
 		masterRoomMap = new HashMap<String, Room>();
 		Scanner roomScanner;
@@ -120,6 +120,7 @@ class Game {
 					temp.put(s.split("-")[0].trim(), s.split("-")[1]);
 				}
 
+				//replaces spaces with underscore 
 				exits.put(roomName.substring(10).trim().toUpperCase().replaceAll(" ", "_"), temp);
 
 				// This puts the room we created (Without the exits in the masterMap)
@@ -143,8 +144,8 @@ class Game {
 		}
 	}
 
-	/*
-	getNextLine: ignores empty lines. Allows for blank lines in .dat files. 
+	/**
+	 *getNextLine: ignores empty lines. Allows for blank lines in .dat files. 
 	*/
 	private String getNextLine(Scanner roomScanner){
     	String nextLine = roomScanner.nextLine(); 
@@ -154,14 +155,14 @@ class Game {
     	return nextLine;
   	}
 
-	/*
-	Game Constructor: creates the game and initialise its internal map.
+	/**
+	 * Game Constructor: creates the game and initialise its internal map.
 	*/
 	public Game() {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("ATTIC_CONTINUED");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("TOWN_SQUARE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
@@ -196,7 +197,7 @@ class Game {
 		if (currentRoom.isKiller()){
 			message=("You have died. Try again.");
 		}else if(hasWon()){
-			message=("CONGRATS!!! You have arrived safely back home.\nHopefully you had fun in the past even though it might have beena little scary.bye");
+			message=("CONGRATS!!! You have arrived safely back home.\nHopefully you had fun in the past even though it might have been a little scary.bye");
 		}
 		System.out.println(message + "\nThank you for playing.  Good bye.");
 	}
@@ -208,11 +209,11 @@ class Game {
 		System.out.println();
 		System.out.println("Welcome to Timequest");
 		System.out.println("Timequest is a fun text-based adventure game which draws from elements of Back to the Future.\n" + 
-							"You will see that in this game some areas are locked, while some are not." +
-							" Once you have a certain item in your inventory the areas will unlock");
+							"You will see that in this game some areas are locked, while some are not.\n" +
+							"Once you have a certain item in your inventory the areas will unlock");
 		System.out.println("Type 'help' if you need help.");
 		System.out.println();
-		System.out.println(currentRoom.longDescription());
+		System.out.println(currentRoom.shortDescription());
 	}
 
 	/*
@@ -220,6 +221,8 @@ class Game {
 	 *the game, true is returned, otherwise false is returned.
 	 */
 	private boolean processCommand(Command command) {
+
+		//will print this message if inputed word is not a command word 
 		if (command.isUnknown()) {
 			System.out.println("I don't know what you mean...");
 			return false;
@@ -240,12 +243,20 @@ class Game {
 			eat(command.getSecondWord());
 		} else if (commandWord.equalsIgnoreCase("talk")) {
 			return talk();
-		} else if (commandWord.equalsIgnoreCase("look")) {
+		} else if (commandWord.equalsIgnoreCase("parts")) {
+			partCount();
+		}else if (commandWord.equalsIgnoreCase("look")) {
 			System.out.println(currentRoom.lookAround());
 		} else if (commandWord.equalsIgnoreCase("jump")) {
 			return jump();
-		} else if (commandWord.equalsIgnoreCase("play")) {
-			playGame();
+		} else if (commandWord.equalsIgnoreCase("play") ||commandWord.equalsIgnoreCase("shoot")) {
+			if (!command.hasSecondWord())
+				System.out.println("play what?");
+			else if(command.hasSecondWord() && command.hasThirdWord())
+				System.out.println("please choose one game to play");
+			else{
+				playGame(command.getSecondWord());
+			}
 		} else if (commandWord.equalsIgnoreCase("sit")) {
 			sit();
 		}else if (commandWord.equalsIgnoreCase("assemble")) {
@@ -298,52 +309,6 @@ class Game {
 	}
 
 //Implementations of user commands:
-
-
-	private void playGame() {
-		int num = (int)(Math.random()*2) +1;
-		if(num==1){
-			System.out.println("Yay! You won"); 
-		}else{
-			System.out.println("awww you lost:(");
-		}
-	}
-
-private void assemble() {
-		if (inventory.hasItem("flux capacitor") && inventory.hasItem("wires")){
-			if(inventory.hasItem("control panel") && inventory.hasItem("blinker")){
-				Item portal = new Item("portal","this will get you back home" );
-				System.out.println("You have succesfully built the portal.");
-				inventory.addItem(portal);
-			}
-		}
-		else{
-			System.out.println("You don't have everything you need to");
-		}
-	}
-		
-
-	private void wearItem(String itemName) {
-		if(currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room") && itemName.equalsIgnoreCase("helmet")){
-			System.out.println("Yay! You now are protected"); 
-		}
-		else{
-			System.out.println("fashion star"); 
-		}
-	}
-
-	private boolean talk() {
-			if(currentRoom.getRoomName().equalsIgnoreCase("Bakery")){
-				System.out.println("Uh oh...remember what the letter's said: 'BE CAREFUL WITH WHEN YOU INTERACT WITH THOSE FROM THE PAST'."+ 
-			"\nThe game actually hasn't happened yet, or the semi-finals, but you revealed the results, and provided lots of detail."+
-			"\nThese two nobodies beleived you, and through betting became super rich.\nYOU CHANGED HISTORY, AND THEREFORE YOU NO LONGER EXISTS");
-			}
-			else{
-				System.out.println("By talking to them, you have messsed up the timeline...YOU NO LONGER EXIST");
-			}
-		return true;
-		
-	}
 	/**
 	 * inspectItem: prints description of item in player or room inventory
 	 */
@@ -366,6 +331,7 @@ private void assemble() {
 			}
 			System.out.println(description);
 	}
+
 	/*
 	*Open Item: opens the item requested if there is an item in the inventory.
 	*/
@@ -407,7 +373,6 @@ private void assemble() {
 				currentRoom.getInventory().justAddItem(item);
 			}	
 		}else{
-
 			 //iterate through the player's inventory to see if target item is within any items that can contain other items
 			for (int i=0; i<roomInventory.getNumItems(); i++){
 
@@ -472,11 +437,51 @@ private void assemble() {
 		}else {
 			System.out.println("You are not carrying a " + itemName + ".");
 		}
+
+		if(currentRoom.getRoomName().equalsIgnoreCase("Parts Shop")){
+			if(itemName.equals("trophy")){
+				inventory.addItem(currentRoom.getInventory().removeItem("frame"));
+				System.out.println("You have been given the frame");
+			}
+		}
 	}
 
+	/**
+	 * assemble: will create the portal object if 4 parts of the time machine are in the player's inventory
+	 */
+	private void assemble() {
+		if (inventory.hasItem("flux capacitor") && inventory.hasItem("wires")){
+			if(inventory.hasItem("control panel") && inventory.hasItem("blinker")){
+				if(inventory.hasItem("frame")){
+					Item portal = new Item("portal","this will get you back home" );
+					System.out.println("You have succesfully built the portal.");
+					inventory.addItem(portal);
+				}
+			}
+		}
+		else{
+			System.out.println("You don't have everything you need");
+		}
+	}
 
-	/*
-	 *HasWon: once a player as the speciifc item, the method will return true. 
+	private void partCount(){
+		int score = 0; 
+		if(inventory.hasItem("flux capacitor")){
+			score++;
+		} else if(inventory.hasItem("wires")){
+			score++;
+		} else if(inventory.hasItem("frame")){
+			score++;
+		}else if(inventory.hasItem("blinker")){
+			score++;
+		}else if(inventory.hasItem("control panel")){
+			score++;
+		}
+		System.out.println("You have " +score + "/5 parts to build the time machine");
+	}
+
+	/**
+	 * HasWon: once a player as the portal object, the method will return true.  
 	 */
 	private boolean hasWon(){
 		if(inventory.hasItem("Portal")){
@@ -485,7 +490,7 @@ private void assemble() {
 		return false;
 	}
 
-	/*
+	/**
 	 *Print Help: Print out some help information. Here we print some stupid, cryptic message
 	 *and a list of the command words.
 	 */
@@ -496,8 +501,31 @@ private void assemble() {
 		parser.showCommands();
 	}
 
-	/*
-	 *Go Room: Try to go to one direction. If there is an exit, enter the new room,
+	/**
+	 *  Has Key: gets the key from a room, and checks if the player's inventory has the corresponding key
+	 */
+	private boolean hasKey(Room nextRoom) {
+		String key = nextRoom.getKey();
+		return key != null && inventory.contains(key) != null && inventory.contains(key).getName().equalsIgnoreCase(key);
+	}
+	/**
+	 * talk: if you talk to anyone in the game, it automatically results in death.
+	 */
+
+	private boolean talk() {
+		if(currentRoom.getRoomName().equalsIgnoreCase("Bakery")){
+			System.out.println("Uh oh...remember what the letter's said: 'BE CAREFUL WITH WHEN YOU INTERACT WITH THOSE FROM THE PAST'."+ 
+		"\nThe game actually hasn't happened yet, or the semi-finals, but you revealed the results, and provided lots of detail."+
+		"\nThese two nobodies beleived you, and through betting became super rich.\nYOU CHANGED HISTORY, AND THEREFORE YOU NO LONGER EXISTS");
+		}
+		else{
+			System.out.println("By talking to them, you have messsed up the timeline...YOU NO LONGER EXIST");
+		}
+	return true;
+
+}
+	/**
+	 * Go Room: Try to go to one direction. If there is an exit, enter the new room,
 	 *otherwise print an error message. ]
 	 */
 	private void goRoom(Command command) {
@@ -526,25 +554,26 @@ private void assemble() {
 		
 		// Try to leave current room.
 		Room nextRoom = currentRoom.nextRoom(direction);
-		if (nextRoom == null)
+
+		if (nextRoom == null) //no room in requested direction
 			System.out.println("There is something obstructing your path. You cannot go this way!");
 		else if (!hasKey(nextRoom) && nextRoom.getRoomName().equalsIgnoreCase("Attic Continued")){
 			System.out.println("You need something bright. It is too dark here");
 		}
-		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
+		else if (nextRoom.isLocked() && !hasKey(nextRoom)) { //when next room is locked and player does not have key
 			System.out.println("The area is locked. You do not have the neccessary items to pass.");
 		} else if(currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room") && nextRoom.getRoomName().equalsIgnoreCase("oldtown square")){
-			if(inventory.hasItem("helmet")){
+			if(inventory.hasItem("helmet")){ //if player has helmet they won't die
 				nextRoom.setKill(false);
 				currentRoom.setLocked(true);
 				System.out.println("\nYOU FEEL A SERIES OF JOLTS, COLOURS EVERYWEHRE!\nYOU ARE VERY DIZZY, WHAT IS HAPPENING?!!\nAfter a series of zaps...you open your eyes and find yourself in...");
 				currentRoom = nextRoom;
-				System.out.println(currentRoom.longDescription());
+				System.out.println(currentRoom.shortDescription());
 			}else{
 				System.out.println("You were not protected from the harmful radiation of the portal");
 				currentRoom=nextRoom;
 			}
-		} else if(nextRoom.isKiller()){
+		} else if(nextRoom.isKiller()){ //die in next room
 			currentRoom = nextRoom;
 			if(currentRoom.getRoomName().equalsIgnoreCase("Alleyway")){
 				System.out.println("you walked straight into some thugs, and you have nothing to protect yourself. You were killed because you saw something you shouldn't have");
@@ -555,29 +584,19 @@ private void assemble() {
 			}else{
 				System.out.println("you walked straight into danger and made a bad decision");
 			}
-		}else{
+		}else{ 
 			if (nextRoom.isLocked() && hasKey(nextRoom)){
 				System.out.println("You have unlocked this area");
-			}else if(currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room") && nextRoom.getRoomName().equalsIgnoreCase("oldtown square")){
-				currentRoom.setLocked(true);
-				System.out.println("\nYOU FEEL A SERIES OF JOLTS, COLOURS EVERYWEHRE!\nYOU ARE VERY DIZZY, WHAT IS HAPPENING?!!\nAfter a series of zaps...you open your eyes and find yourself in...");
 			}
-			currentRoom = nextRoom;
-			System.out.println(currentRoom.longDescription());
+			currentRoom = nextRoom; //move on to next room
+			System.out.println(currentRoom.shortDescription());
 		}
 	}
 
-
-	/*
-	*Has Key: gets the key from a room, and checks if the player's inventory has the corresponding key
-	*/
-	private boolean hasKey(Room nextRoom) {
-		String key = nextRoom.getKey();
-		return key != null && inventory.contains(key) != null && inventory.contains(key).getName().equalsIgnoreCase(key);
-	}
-
 	//Methods for commands that just return fun Strings: 
-
+	/**
+	 * eat: prints fun string based on different second command words 
+	 */
 	private void eat(String secondWord) {
 		if (secondWord.equalsIgnoreCase("steak"))
 			System.out.println("YUMMY");
@@ -587,52 +606,62 @@ private void assemble() {
 			System.out.println("You are the " + secondWord);
 	}
 
+	/**
+	 * sit: prints fun String 
+	 */
 	private void sit() {
 		System.out.println("You are now sitting. You lazy excuse for a person.");	
 	}
 
+	/**
+	 * jump: prints string and returns true
+	 * (when used in process comand, true = death)
+	 */
+
 	private boolean jump() {
 		System.out.println("You jumped. Ouch you fell. You fell hard. Really hard." 
-		+"You are getting sleepy. Very sleepy! Yuo are dead!");
+		+"You are getting sleepy. Very sleepy! You are dead!");
 		return true;
 	}
 
-}
-
-//METHODS NOT IN USE: 
-
-//READ METHOD- REPLACED WITH INSPECT 
-
-	/*
-	private void readItem(String itemName){
-		Item playerItem = inventory.contains(itemName);
-		Item roomItem = currentRoom.getInventory().contains(itemName);
-		
-		if(roomItem != null || roomItem != null) {
-			if (roomItem.getName().equalsIgnoreCase("letter")||playerItem.getName().equalsIgnoreCase("letter") ){
-				System.out.println("DOC BROWN"); 
+	/**
+	 * playGame: mini game that randomly returns a result
+	 */
+	private void playGame(String secondWord) {
+		int num = (int)(Math.random()*2) +1;
+		if(num==1){
+			if(secondWord.equals("basketball")){
+				System.out.println("he shoots and he scores");
+			}else if(secondWord.equals("claw")){
+				System.out.println("you got the toy!");
+			}else{
+				System.out.println("You won and got a highscore");
 			}
-		}else if(playerItem != null){
-
-		}else {
-			System.out.println("You can't read items unless you have them.");
-		}
-		
-		if(playerItem != null) {
-			if (playerItem.getName().equalsIgnoreCase("letter")||playerItem.getName().equalsIgnoreCase("letter") ){
-				System.out.println("DOC BROWN"); 
-			}
-		}else if(roomItem != null){
-			System.out.println(roomItem.getDescription());
+			Item trophy = new Item("trophy", "this is a shiny trophy", true, 1);
+			System.out.println("a shiny trophy has just been added to your inventory");
+			inventory.addItem(trophy);
 		}else{
-			System.out.println("I cannot inspect what is not there.");
+			if(secondWord.equals("basketball")){
+				System.out.println("he shoots and...AIRBALL");
+			}else if(secondWord.equals("claw")){
+				System.out.println("you missed the toy...completely");
+			}else{
+				System.out.println("You lost");
+			}
 		}
 	}
 
-		private void read(String itemName) {
-// 		if (itemName.equalsIgnoreCase("newspaper")){
-// 			System.out.println("Valley Gazette\nAPRIL 7 1950\n");
-// 		}
-// }
-*/
-	
+	/**
+	 * wearItem: prints out special string if called in "Garage Secret Room"
+	 * if not than prints out fun Stirng 
+	 */
+	private void wearItem(String itemName) {
+		if(currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room") && itemName.equalsIgnoreCase("helmet")){
+			System.out.println("Yay! You now are protected"); 
+		}
+		else{
+			System.out.println(itemName + "looks good on you"); 
+		}
+	}
+}
+

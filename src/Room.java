@@ -113,7 +113,7 @@ public class Room {
 	 * shortDescription: return the name and description of room
 	 */
 	public String shortDescription() {
-		return "LOCATION: " + roomName + "\n\n" + description;
+		return "------------------------------------\nLOCATION: " + roomName + "\n\n" + description;
 	}
 
 	/**

@@ -23,7 +23,7 @@ Weight: 1
 Item: CUPBOARD
 
 Item Name: blueprint
-Item Description:--Portal Time Machine--<br>Derived from DMC DeLorean<br><br>KEY PARTS<br>1)Wires<br>2)Blinker<br>3)Control Panel<br>4)Flux Capicitor
+Item Description:--Portal Time Machine--<br>Derived from DMC DeLorean<br><br>KEY PARTS<br>1)Wires<br>2)Blinker<br>3)Control Panel<br>4)Flux Capicitor<br>5)frame
 Openable: false
 Weight: 1
 Room: OLD_GARAGE
@@ -41,7 +41,7 @@ Weight: 100
 Room: GARAGE_1
 
 Item Name: letters 
-Item Description: there are a lot of letters here, but after carefully looking through them you notice that they all seem to directed towards someone named Dr. Emmett Brown.<br>One of the letters peak your interest.<br><br>THE TIME TRAVELLERS CODE<br>1)BE CAREFUL WITH WHEN YOU INTERACT WITH THOSE FROM THE PAST. Under no circumstances should you interact with yourself, anyone who knows you, or any relatives.<br>2)Do not fall in love with anyone from the past or future<br>3)Beware of the butterfly effect. One small change in the past can have exponential effects on the future.<br>4) Do not travel to a time less than one week ago in the past.<br>5.)Do not expose yourself as a time traveller<br>...
+Item Description: there are a lot of letters here, but after carefully looking through them you notice that they all seem to directed towards someone named Dr. Emmett Brown.<br>One of the letters peak your interest.<br><br>THE TIME TRAVELLERS CODE<br>1)BE CAREFUL WITH WHEN YOU INTERACT WITH THOSE FROM THE PAST.<br>Under no circumstances should you interact with yourself, anyone who knows you, or any relatives.<br>2)Do not fall in love with anyone from the past or future<br>3)Beware of the butterfly effect. One small change in the past can have exponential effects on the future.<br>4)Do not travel to a time less than one week ago in the past.<br>5)Do not expose yourself as a time traveller<br>6)Beware of the Time Hunters...
 Openable: false
 Weight: 1
 Item: DRAWERS
@@ -134,7 +134,7 @@ Item Name: broken machine
 Item Description: This is a broken arcade machine.
 Openable: true
 Weight: 100
-Room: ARCADE
+Room: CLAW_SECTION
 
 Item Name: Control Panel
 Item Description: This is a part of the time machine. Refer back to blueprint.
@@ -153,3 +153,15 @@ Item Description: PIECE OF TIME MACHINE<br>
 Openable: true
 Weight: 2
 Item: METAL_BOX
+
+Item Name: popcorn sample
+Item Description: yummy buttery popcorn
+Openable: false
+Weight: 1
+Room: POPCORN_STAND
+
+Item Name: frame
+Item Description: frame for time machine
+Openable: false
+Weight: 2
+Room: PARTS_SHOP

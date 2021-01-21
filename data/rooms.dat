@@ -1,16 +1,16 @@
 Room Name: Town Square 
-Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere.<br>There are screens EVERYWHERE. Beside you there are roaming robots, and holograms.<br>There is a clock tower covered by screens except for the antique clock face at the top.<br>Who even reads analog clocks anymore?<br>Beneath the clock it says, April 7, 2050.<br>
+Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere.<br>There are screens EVERYWHERE. Beside you there are roaming robots, and holograms.<br>There is a clock tower covered by screens except for the antique clock face at the top.<br>Who even reads analog clocks anymore?<br>Beneath the clock it says, June 25, 2050.<br>
 Exit Rooms: S-Elon Road
 Locked: false
 Kills: false
 
 Room Name: Elon Road
-Room Description: There are more tall buildings around you. You see a garage door slightly ajar on you west side and a dark alleyway on your east.  
-Exit Rooms: N-Town Square, W-Garage, E-Alleyway, S-Elon Road End 
+Room Description: There are more tall buildings around you.<br>You see a garage door slightly ajar on your west side and a dark alleyway on your east.  
+Exit Rooms: N-Town Square, W-Garage, E-Alleyway, S-Elon Road End
 Locked: false
 Kills: false
 
-Room Name: Elon Road End 
+Room Name: Elon Road End
 Room Description: BORINGGG. Just more high rise, funky shaped buildings which surround you. This is dead end. 
 Exit Rooms: N-Elon Road
 Locked: false
@@ -59,7 +59,7 @@ Locked: false
 Kills: false
 
 Room Name: North Road
-Room Description: Wow...this place sure has changed except that once your are on this street don't even think about going left or right for a while...<br>Buidlings...though much shorter....ungulf you on both sides.
+Room Description: Wow...this place sure has changed except that once your are on this street don't even think about going left or right for a while...<br>Buidlings though much shorter ungulf you on both sides.
 Exit Rooms: S-Oldtown Square, N-North Road Continued
 Locked: false
 Kills: false
@@ -84,19 +84,31 @@ Kills: false
 
 Room Name: George Street
 Room Description: Wow huge difference, this street is much quiter. let's explore this area
-Exit Rooms: N-George Street N, S-George Street S, E-Theatre
+Exit Rooms: N-George Street N, S-George Street S, E-Old Garage N
 Locked: false
 Kills: false
 
 Room Name: George Street S
-Room Description: (rename) george street continued, not much here, seems like we reached a dead end 
-Exit Rooms: N-George Street
+Room Description: You are in the south part of George Street, there are flowers eveywhere and it is a beautiful place. You see a theatre.
+Exit Rooms: N-George Street, W-Theatre Lobby
 Locked: false
 Kills: false
 
 Room Name: George Street N
 Room Description: There is not much here. It's a small street but there seems to be a little library to the east. 
 Exit Rooms: S-George Street, E-Library, W-Secret Trail
+Locked: false
+Kills: false
+
+Room Name: Theatre Lobby
+Room Description: You are in the lobby of the theatre. 
+Exit Rooms: E-George Street S, S-Popcorn Stand 
+Locked: false
+Kills: false
+
+Room Name: Popcorn Stand 
+Room Description: This is the popcorn stand. They are offering free samples  
+Exit Rooms: N-Theatre
 Locked: false
 Kills: false
 
@@ -132,7 +144,7 @@ Kills: false
 
 Room Name: Secret Study E
 Room Description: you go further into the study and you see stairs going up 
-Exit Rooms: U-Attic, W-Secret Study 
+Exit Rooms: U-Attic, W-Secret Study
 Locked: false
 Kills: false
 
@@ -168,13 +180,37 @@ Kills: true
 
 Room Name: John Street
 Room Description: Now you are on another street...I know so many streets. There seems to be an arcade near here.
-Exit Rooms: S-Flower Shop, E-Arcade
+Exit Rooms: S-Flower Shop, E-Arcade, W-Parts Shop
 Locked: false
 Kills: false
 
 Room Name: Arcade
-Room Description: Welcome to the Arcade. There are claw machines, pinball machines, and basketball games. There seems to be a broken claw machine. 
-Exit Rooms: W-John Street
+Room Description: Welcome to the Arcade.<br> North - claw machines || South - pinball machines || West - basketball games. 
+Exit Rooms: W-John Street, N-Claw Section, S-Pinball Section, W-Basketball Section
+Locked: false
+Kills: false
+
+Room Name: Claw Section
+Room Description: This is the claw machines section of the arcade. There seems to be a broken machine here. 
+Exit Rooms: S-Arcade
+Locked: false
+Kills: false
+
+Room Name: Pinball Section
+Room Description: This is the pinball section of the arcade. 
+Exit Rooms: N-Arcade
+Locked: false
+Kills: false
+
+Room Name: Basketball Section
+Room Description: This is the basketball section of the arcade. 
+Exit Rooms: E-Arcade
+Locked: false
+Kills: false
+
+Room Name: Parts Shop
+Room Description: Here there are engineers and mechanics working hard to build and fix things. They have agreed to help you build a frame for your portal if we give them a trophy. 
+Exit Rooms: E-John Street
 Locked: false
 Kills: false
 
