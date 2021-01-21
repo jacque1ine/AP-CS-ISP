@@ -1,12 +1,9 @@
 ## Zork
 
-This a simple text adventure game
+Welcome to Time Quest. A simple text-adventure game in vain of zork
 
 
 
 
 ## Getting Started
 
-this is a simple text-based game 
-
-I am now making  change 
