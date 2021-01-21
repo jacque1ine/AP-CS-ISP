@@ -370,11 +370,11 @@ class Game {
 				}else{
 					System.out.println(itemName + " is there but you do not have space. Drop some items and try again"+
 					"\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory."); 
-					currentRoom.getInventory().justAddItem(item); 
+					roomInventory.addItem(item); 
 				}
 			}else{
 				System.out.println(itemName + " is too heavy to pickup");
-				currentRoom.getInventory().justAddItem(item);
+				roomInventory.addItem(item); 
 			}	
 		}else{
 			 //iterate through the player's inventory to see if target item is within any items that can contain other items
@@ -391,7 +391,7 @@ class Game {
 					Item removedItem = itemInventory.removeItem(itemName);
 
 					/**
-					 * add item to player inventory if removedItem weight is small enouhh
+					 * add item to player inventory if removedItem weight is small enough
 					 * to be picked up and the inventory has space.
 					*/
 					if(removedItem.canPickUp()){
