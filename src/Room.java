@@ -37,8 +37,10 @@ public class Room {
 		isKiller = false;
 	}
 
+	/**
+	 * default constructor
+	 */
 	public Room() {
-		// default constructor.
 		roomName = "DEFAULT ROOM";
 		description = "DEFAULT DESCRIPTION";
 		exits = new HashMap<String, Room>(); // <key(direction), value> 
@@ -47,7 +49,9 @@ public class Room {
 		isKiller = false;
 	}
 
-
+	/**
+	 * setExit: sets room exits based on direction. 
+	 */
 	public void setExit(char direction, Room r) throws Exception {
 		String dir = "";
 		switch (direction) {
@@ -98,43 +102,52 @@ public class Room {
 		exits.put("southwest", southwest);
 	}
 
-
+	/**
+	 * justDescriprion: returns just the description of the room 
+	 */
 	public String justDescription(){
 		return "\n\n" + description;
 	}
 
 	/**
-	 * Return the description of the room (the one that was defined in the
-	 * constructor).
+	 * shortDescription: return the name and description of room
 	 */
-
-
 	public String shortDescription() {
 		return "LOCATION: " + roomName + "\n\n" + description;
 	}
 
 	/**
-	 * Return a long description of this room, on the form: You are in the kitchen.
-	 * Exits: north west
+	 * longDescription: returns a long description of this room's
+	 * name, description, inventory and exits 
 	 */
 	public String longDescription() {
-		return "------------------------------------\nLOCATION: " + roomName + "\n" + description + "\n" + "\nITEMS HERE:\n" + inventory + "\n" + exitString();
+		return "------------------------------------\nLOCATION: " + roomName + "\n" +
+		description + "\n" + "\nITEMS HERE:\n" + inventory + "\n" + exitString();
 	}
 
+	/**
+	 * fullDescription: returns room's name, descirption, inventory, exits, and
+	 * which one of the next rooms are locked. 
+	 */
 
-	public String longestDescription() {
-		return "------------------------------------\nLOCATION: " + roomName + "\n" + description + "\n" + "\nITEMS HERE:\n" + inventory + "\n" + exitString() +  
-		(numLockedRooms()>0?"\nIt appears that the " + getLockedRooms() + " "+(numLockedRooms()==1?"is": "are")+" locked.":"");
+	public String fullDescription() {
+		return "------------------------------------\nLOCATION: " + roomName + "\n"
+		+ description + "\n" + "\nITEMS HERE:\n" + inventory + "\n" + exitString() +  
+		(numLockedRooms()>0?"\nIt appears that the " + getLockedRooms() + " "+
+		(numLockedRooms()==1?"is": "are")+" locked.":"");
 	}
 
+	/**
+	 * lookAround: returns the inventory, exits, and which
+	 * of the next rooms are locked 
+	 */
 	public String lookAround(){ 
 		return "\nITEMS HERE:\n" + inventory + "\n" + exitString() +  
 		(numLockedRooms()>0?"\nIt appears that the " + getLockedRooms() + " may be locked.":"");
 	}
 
-	
 	/**
-	 * Return a string describing the room's exits, for example "Exits: north west
+	 * exitString: returns a string describing the room's exits, for example "Exits: north west
 	 * ".
 	 */
 	private String exitString() {
@@ -145,6 +158,9 @@ public class Room {
 		return returnString;
 	}
 
+	/**
+	 * numLockedRooms: returns the number of locked rooms
+	 */
 	private int numLockedRooms(){
 		int num = 0; 
 		for (String s: exits.keySet()){ //key - nsew
@@ -154,6 +170,10 @@ public class Room {
 		return num;
 	}
 
+	/**
+	 * getLockedRooms: returns which rooms are locked
+	 * out of the rooms that are exits to current room
+	 */
 	private String getLockedRooms(){
 		String str = ""; 
 
@@ -165,54 +185,90 @@ public class Room {
 		}
 		return str.substring(0,str.length()-2);
 	}
+
 	/**
-	 * Return the room that is reached if we go from this room in direction
+	 * nextRoom: returns the room that is reached if we go from this room in direction
 	 * "direction". If there is no room in that direction, return null.
 	 */
 	public Room nextRoom(String direction) {
 		return (Room) exits.get(direction);
 	}
-
+	
+	/**
+	 * getRoomName: returns room name 
+	 */
 	public String getRoomName() {
 		return roomName;
 	}
 
+	/**
+	 * setRoomName: allows to change room name
+	 */
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
-
+	/**
+	 * getDescription: returns the desciption of room
+	 */
 	public String getDescription() {
 		return description;
 	}
 
+	/**
+	 * setDescription: set a new description for room
+	 * @param description
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+	/**
+	 * getInventory: returns the inventory
+	 */
 	public Inventory getInventory(){
 		return inventory;
 	}
 
+	/**
+	 * setLocked: allows you to set room as locked or not
+	 */
 	public void setLocked(boolean locked){
 		this.locked = locked;
 	}
 
+	/**
+	 * isLocked: returns true if room is locked. 
+	 * false if room is not locked. 
+	 */
 	public boolean isLocked(){
 		return locked;
 	}
 	
+	/**
+	 * setKey: allow you to set the key of room
+	 */
 	public void setKey(String key){
 		this.key = key; 
 	}
 
+	/**
+	 * getKey: returns the key of room
+	 */
 	public String getKey(){
 		return this.key;
 	}
 
+	/**
+	 * setKill: set room as true if it kills the player. 
+	 * false if it does not based on inputed boolean.
+	 */
 	public void setKill(boolean isKiller){
 		this.isKiller = isKiller;
 	}
 
+	/**
+	 * isKiller: returns whether or not room kills the player.
+	 */
 	public boolean isKiller(){
 		return isKiller;
 	}

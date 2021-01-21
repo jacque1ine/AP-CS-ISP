@@ -3,14 +3,14 @@ import java.util.ArrayList;
 public class Inventory{
 	private ArrayList<Item> items; 
 
-	/**
+   /**
 	* Constructor which creates an ArrayList of item objects
 	*/
 	public Inventory(){
 		  items = new ArrayList<Item>(); 
   	}
 
-	/**
+  /**
    * addItem: adds item and will return true 
    * if item has been added 
    */
@@ -18,14 +18,14 @@ public class Inventory{
     	return items.add(item); 
 	}
 	
-	/**
+  /**
    * justAddItem: adds item and does not return anything 
    */
 	public void justAddItem(Item item){
     	items.add(item); 
 	}
 
-	/**removeItem: will remove item from inventory, 
+   /**removeItem: will remove item from inventory, 
 	* based on the name and will return the object.
   	* if the item is not in inventory, return null 
    	*/
@@ -38,7 +38,7 @@ public class Inventory{
     	return null; 
 	  }
 	  
-	/**
+   /**
 	* toString: will return a list of the names 
 	*of all items in inventory. If inventory is empty, 
 	* then it will return a string indicating so
@@ -54,7 +54,7 @@ public class Inventory{
     	return msg;
 	}
 	
-	/**
+   /**
 	* contains: returns the item from inventory based on item name 
 	* If it is not found, it returns null
 	*/
@@ -67,7 +67,7 @@ public class Inventory{
 		return null;
 	  }
 	  
-	/**
+   /**
 	* hasItem: return true if inventory has the given item based on name 
 	* return false if the inventory does not have the item
 	*/
@@ -80,21 +80,21 @@ public class Inventory{
         return false;
 	}
 
-	/**
+   /**
 	* getInventory: returns ArrayList of items
 	*/
 	public ArrayList<Item> getInventory(){
         return items;
 	}
-	
-	/**
+
+   /**
 	* getNumItems: returns number of items in inventory
 	*/
 	public int getNumItems(){
 		return items.size();
 	}
 
-	/**
+   /**
 	* getInvItems: returns the total weight of inventory
 	*/
 	public int getInvWeight(){
@@ -105,7 +105,7 @@ public class Inventory{
         return sum;
 	}
 	
-	/**
+   /**
 	* canHold: returns true if there is space in inventory 
 	* to hold a new item based on weight. 
 	* returns false if there is no more space.

@@ -17,71 +17,71 @@
 	*/
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-	import java.util.StringTokenizer;
+import java.util.StringTokenizer;
 
 public class Parser {
 private CommandWords commands; // holds all valid command words
 
-public Parser() {
-	commands = new CommandWords();
-}
-
-public Command getCommand() {
-	String inputLine = ""; // will hold the full input line
-	String word1;
-	String word2;
-	String word3;
-	System.out.print("\n>> "); // print prompt
-	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-	try {
-	inputLine = reader.readLine();
-	} catch (java.io.IOException exc) {
-	System.out.println("There was an error during reading: " + exc.getMessage());
+/**
+ * Constructor which creates a CommandWords object
+ *  which holds all the valid command words
+ */
+	public Parser() {
+		commands = new CommandWords();
 	}
-	StringTokenizer tokenizer = new StringTokenizer(inputLine);
 
-	//gets first word 
-	if (tokenizer.hasMoreTokens())
-	word1 = tokenizer.nextToken().toLowerCase(); // get first word
-	else
-	word1 = null;
+   /**
+	* getCommand: gets command from input line
+	*/
+	public Command getCommand() {
+		String inputLine = ""; 
+		String word1;
+		String word2;
+		String word3;
+		System.out.print("\n>> "); // print prompt
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		try {
+		inputLine = reader.readLine();
+		} catch (java.io.IOException exc) {
+		System.out.println("There was an error during reading: " + exc.getMessage());
+		}
+		StringTokenizer tokenizer = new StringTokenizer(inputLine);
 
-	//gets second word 
-	if (tokenizer.hasMoreTokens())
-	word2 = tokenizer.nextToken().toLowerCase(); 
-	else
-	word2 = null;
+		//gets first word 
+		if (tokenizer.hasMoreTokens())
+			word1 = tokenizer.nextToken().toLowerCase(); // get first word
+		else
+			word1 = null;
 
-	//gets third word 
-	if (tokenizer.hasMoreTokens())
-	word3 = tokenizer.nextToken().toLowerCase(); //get third word
-	else
-	word3 = null;
+		//gets second word 
+		if (tokenizer.hasMoreTokens())
+			word2 = tokenizer.nextToken().toLowerCase(); 
+		else
+			word2 = null;
 
-	// note: we just ignore the rest of the input line.
-	// Now check whether this word is known. If so, create a command
-	// with it. If not, create a "nil" command (for unknown command).
+		//gets third word 
+		if (tokenizer.hasMoreTokens())
+			word3 = tokenizer.nextToken().toLowerCase(); //get third word
+		else
+			word3 = null;
 
-	//for three word commands 
-	if (commands.isCommand(word1))
-	return new Command(word1, word2, word3);
-	else
-	return new Command(null, word2, word3);
+		// note: we just ignore the rest of the input line.
+		// Now check whether this word is known. If so, create a command
+		// with it. If not, create a "nil" command (for unknown command).
 
-	// if (commands.isCommand(word1))
-	// return new Command(word1, word2);
-	// else
-	// return new Command(null, word2);
-
-	
-}
+		//for three word commands 
+		if (commands.isCommand(word1))
+			return new Command(word1, word2, word3);
+		else
+			return new Command(null, word2, word3);
+	}
 
 
 	/**
-	 * Print out a list of valid command words.
+	 * showCommands: prints out a list of valid command words.
 	 */
 	public void showCommands() {
 		commands.showAll();
 	}
-	}
+}
 
