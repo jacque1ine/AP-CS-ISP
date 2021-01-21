@@ -1,5 +1,5 @@
 Room Name: Town Square
-Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere.<br>There are screens EVERYWHERE. Beside you there are roaming robots, and holograms.<br>There is a clock tower covered by screens except for the antique clock face at the top.<br>Who even reads analog clocks anymore?<br>Beneath the clock it says, June 25, 2050.<br>
+Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings are everywhere.<br>There are screens EVERYWHERE. Beside you there are roaming robots, and holograms.<br>There is a clock tower covered by screens except for the antique clock face at the top.<br>Beneath the clock it says, June 25, 2050.<br>
 Exit Rooms: S-Elon Road
 Locked: false
 Kills: false
@@ -41,7 +41,7 @@ Locked: true
 Kills: false
 
 Room Name: Oldtown Square
-Room Description:  You are in the familiar main town square of Hill Valley only it looks... much older than you recall. There seems to a newspaper stand. 
+Room Description:  You are in the familiar main town square of Hill Valley only it looks... much older than you recall. You recognize that clock face but the screens are all gone. There seems to a newspaper stand. 
 Exit Rooms: N-North Road, S-South Road
 Locked: false
 Kills: true
@@ -59,7 +59,7 @@ Locked: false
 Kills: false
 
 Room Name: North Road
-Room Description: Wow...this place sure has changed except that once your are on this street don't even think about going left or right for a while...<br>Buidlings though much shorter ungulf you on both sides.
+Room Description: Wow...this place sure has changed except that once your are on this street don't even think about going left or right for a while...<br>Buildings though much shorter ungulf you on both sides.
 Exit Rooms: S-Oldtown Square, N-North Road Continued
 Locked: false
 Kills: false

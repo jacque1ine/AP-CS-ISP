@@ -162,7 +162,7 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("THEATRE_LOBBY");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("TOWN_SQUARE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
@@ -240,6 +240,8 @@ class Game {
 				return true; // signal that we want to quit
 		
 		}else if (commandWord.equalsIgnoreCase("eat")) {
+			if (!command.hasSecondWord())
+				System.out.println("eat what?");
 			eat(command.getSecondWord());
 		} else if (commandWord.equalsIgnoreCase("talk")) {
 			return talk();
@@ -357,9 +359,11 @@ class Game {
 
     	//if item is in room inventory
 		if (item != null){
-
+			/**
+			 * take item if the object can be picked up, when the inventory weight is 
+			 */
 			if(item.canPickUp()){
-				if(inventory.getInvWeight()<=15){
+				if((inventory.getInvWeight() + item.getWeight())<=15){
 					if(inventory.addItem(item)){
 						System.out.println("You have taken the " + itemName);
 					}
@@ -391,7 +395,7 @@ class Game {
 					 * to be picked up and the inventory has space.
 					*/
 					if(removedItem.canPickUp()){
-						if(inventory.getInvWeight()<=15){
+						if((inventory.getInvWeight() + removedItem.getWeight())<=15){
 							if(inventory.addItem(removedItem)){
 								System.out.println("You have taken the " + itemName);
 							}
@@ -466,17 +470,16 @@ class Game {
 
 	private void partCount(){
 		int score = 0; 
-		if(inventory.hasItem("flux capacitor")){
+		if(inventory.hasItem("flux capacitor"))
 			score++;
-		} else if(inventory.hasItem("wires")){
+		if(inventory.hasItem("wires"))
 			score++;
-		} else if(inventory.hasItem("frame")){
+		if(inventory.hasItem("frame"))
 			score++;
-		}else if(inventory.hasItem("blinker")){
+		if(inventory.hasItem("blinker"))
 			score++;
-		}else if(inventory.hasItem("control panel")){
+		if(inventory.hasItem("control panel"))
 			score++;
-		}
 		System.out.println("You have " +score + "/5 parts to build the time machine");
 	}
 
@@ -639,7 +642,12 @@ class Game {
 			}
 			Item trophy = new Item("trophy", "this is a shiny trophy", true, 1);
 			System.out.println("a shiny trophy has just been added to your inventory");
-			inventory.addItem(trophy);
+			if (inventory.getInvWeight()<15){
+				inventory.addItem(trophy);
+			}else{
+				System.out.println("you inventory is too full. drop items and play again.");
+			}
+		
 		}else{
 			if(secondWord.equals("basketball")){
 				System.out.println("he shoots and...AIRBALL");
@@ -660,7 +668,7 @@ class Game {
 			System.out.println("Yay! You now are protected"); 
 		}
 		else{
-			System.out.println(itemName + "looks good on you"); 
+			System.out.println(itemName + " looks good on you"); 
 		}
 	}
 }
