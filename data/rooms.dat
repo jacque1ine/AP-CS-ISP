@@ -125,7 +125,7 @@ Locked: false
 Kills: false
 
 Room Name: Secret Study
-Room Description: You have discovered a secret room...there are more books here
+Room Description: You have discovered a secret room...there are more books here and a lantern. 
 Exit Rooms: N-History Section, E-Secret Study E
 Locked: true
 Kills: false
@@ -137,8 +137,20 @@ Locked: false
 Kills: false
 
 Room Name: Attic
-Room Description:You see a table with a blanket covering something. There are also stairs that are not the same as 
-Exit Rooms: D-Secret Study
+Room Description: you see a lot of garbage here and a door to another room that is extremly dark.
+Exit Rooms: D-Secret Study, N-Attic Continued
+Locked: false
+Kills: false
+
+Room Name: Attic Continued
+Room Description: You see a large chest here and stairs doing down 
+Exit Rooms: D-House, S-Attic
+Locked: true
+Kills: false
+
+Room Name: House
+Room Description: this rooms kills you
+Exit Rooms: U-Attic Continued
 Locked: false
 Kills: false
 

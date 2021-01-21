@@ -161,13 +161,14 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("LIBRARY");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("SECRET_STUDY");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
 			masterRoomMap.get("GARAGE_1").setKey("REMOTE");
 			masterRoomMap.get("GARAGE_SECRET_ROOM").setKey("WATCH");
 			masterRoomMap.get("SECRET_STUDY").setKey("KEYCARD");
+			masterRoomMap.get("ATTIC_CONTINUED").setKey("LANTERN");
 			
       		initItems("data/items.dat");
 		} catch (Exception e) {
@@ -492,6 +493,9 @@ class Game {
 		Room nextRoom = currentRoom.nextRoom(direction);
 		if (nextRoom == null)
 			System.out.println("There is something obstructing your path. You cannot go this way!");
+		else if (!hasKey(nextRoom) && nextRoom.getRoomName().equalsIgnoreCase("Attic Continued")){
+			System.out.println("You need something bright. It is too dark here");
+		}
 		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
 			System.out.println("The area is locked. You do not have the neccessary items to pass.");
 		} else if(currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room") && nextRoom.getRoomName().equalsIgnoreCase("oldtown square")){

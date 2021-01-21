@@ -129,11 +129,10 @@ public class Room {
 
 	public String lookAround(){ 
 		return "\nITEMS HERE:\n" + inventory + "\n" + exitString() +  
-		(numLockedRooms()>0?"\nIt appears that the " + getLockedRooms() + " "+(numLockedRooms()==1?"is": "are")+" locked.":"");
+		(numLockedRooms()>0?"\nIt appears that the " + getLockedRooms() + " may be locked.":"");
 	}
 
 	
-
 	/**
 	 * Return a string describing the room's exits, for example "Exits: north west
 	 * ".

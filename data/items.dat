@@ -100,35 +100,35 @@ Openable: false
 Weight: 1
 Item: BOOK
 
-Item Name: time machine part 1 
-Item Description: this part matches the blueprint
+Item Name: lantern
+Item Description: this will come in handy when its dark
 Openable: false
-Weight: 2
-Room: ATTIC 
-
-Item Name: large bag 
-Item Description: theres something huge inside this bag 
-Openable: true
 Weight: 1
-Room: ATTIC
+Room: SECRET_STUDY
 
-Item Name: Generator 
+Item Name: chest 
+Item Description: This is a large chest 
+Openable: true
+Weight: 100
+Room: ATTIC_CONTINUED
+
+Item Name: painting
+Item Description: this is a painting of a flower
+Openable: false
+Weight: 1
+Item: CHEST
+
+Item Name: flux capicitor
 Item Description: power supply
 Openable: false
 Weight: 2
-Room: THEATRE
+Item: CHEST
 
-Item Name: Handle 
-Item Description: this is the handle to the attic door
-Openable: false
-Weight: 1
-Room: ATTIC
-
-Item Name: Plutonium Nuclear Reactor  
-Item Description: this is the final piece
+Item Name: gold
+Item Description: Some gold bars
 Openable: false
 Weight: 2
-Room: ATTIC
+Item: CHEST
 
 Item Name: bread
 Item Description: soft fresh bread from the bakery. oh how nice it is that it feels natural. 
