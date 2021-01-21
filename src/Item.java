@@ -113,6 +113,10 @@ public class Item{
 			this.items = new Inventory();
 	}
 
+	public boolean isOpenable(){
+		return isOpenable;
+	}
+
 	public void setWeight(int weight){
 		this.weight = weight; 
 	}

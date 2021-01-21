@@ -161,12 +161,13 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("OLD_GARAGE_N");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("LIBRARY");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
 			masterRoomMap.get("GARAGE_1").setKey("REMOTE");
 			masterRoomMap.get("GARAGE_SECRET_ROOM").setKey("WATCH");
+			masterRoomMap.get("SECRET_STUDY").setKey("ACCESS_CARD");
 			
       		initItems("data/items.dat");
 		} catch (Exception e) {
@@ -209,7 +210,7 @@ class Game {
 		" You will see that in this game some areas are locked, while some are not. Once you have a certain item in your inventory the areas will unlock");
 		System.out.println("Type 'help' if you need help.");
 		System.out.println();
-		System.out.println(currentRoom.longDescription());
+		System.out.println(currentRoom.shortDescription());
 	}
 
 	/*
@@ -237,7 +238,8 @@ class Game {
 			eat(command.getSecondWord());
 		} else if (commandWord.equalsIgnoreCase("talk")) {
 			return talk();
-		
+		} else if (commandWord.equalsIgnoreCase("look")) {
+			System.out.println(currentRoom.lookAround());
 		} else if (commandWord.equalsIgnoreCase("jump")) {
 			return jump();
 		} else if (commandWord.equalsIgnoreCase("sit")) {
@@ -345,10 +347,10 @@ class Game {
 			
 			if(playerItem != null) {
 				System.out.println(playerItem.displayContents());
-			}else if(roomItem != null){
+			}else if(roomItem != null ){
 				System.out.println(roomItem.displayContents());
 			}else{
-				System.out.println("You cannot open " + itemName);
+				System.out.println("you can't open this item.");
 			}
 		}
 
@@ -410,6 +412,12 @@ class Game {
 		}
 		if(itemName.equalsIgnoreCase("helmet") && currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room")){
 			System.out.println("You are now protected"); 
+		}else if(itemName.equalsIgnoreCase("watch") && currentRoom.getRoomName().equalsIgnoreCase("Garage 1")){
+			System.out.println("You hear a click, and the locked door to your west clicks open");
+		}else if(itemName.equalsIgnoreCase("access card") && currentRoom.getRoomName().equalsIgnoreCase("Science Section")){
+			System.out.println("You have unlocked something, but what is it?");
+		}else if(itemName.equalsIgnoreCase("remote") && currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room")){
+			System.out.println("You know that flimsy wall you were suspicious about? Well it seems like by taking the remote that wall slide open and revealed a new part of the garage");
 		}
 	}
 
@@ -492,7 +500,7 @@ class Game {
 				currentRoom.setLocked(true);
 				System.out.println("\nYOU FEEL A SERIES OF JOLTS, COLOURS EVERYWEHRE!\nYOU ARE VERY DIZZY, WHAT IS HAPPENING?!!\nAfter a series of zaps...you open your eyes and find yourself in...");
 				currentRoom = nextRoom;
-				System.out.println(currentRoom.longDescription());
+				System.out.println(currentRoom.shortDescription());
 			}else{
 				System.out.println("You were not protected from the harmful radiation of the portal");
 				currentRoom=nextRoom;
@@ -513,7 +521,7 @@ class Game {
 				System.out.println("\nYOU FEEL A SERIES OF JOLTS, COLOURS EVERYWEHRE!\nYOU ARE VERY DIZZY, WHAT IS HAPPENING?!!\nAfter a series of zaps...you open your eyes and find yourself in...");
 			}
 			currentRoom = nextRoom;
-			System.out.println(currentRoom.longDescription());
+			System.out.println(currentRoom.shortDescription());
 		}
 	}
 

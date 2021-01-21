@@ -84,7 +84,7 @@ Kills: false
 
 Room Name: George Street
 Room Description: Wow huge difference, this street is much quiter. let's explore this area
-Exit Rooms: N-George Street N, S-George Street, E-Theatre
+Exit Rooms: N-George Street N, S-George Street S, E-Theatre
 Locked: false
 Kills: false
 
@@ -95,13 +95,13 @@ Locked: false
 Kills: false
 
 Room Name: George Street N
-Room Description: There is not much here on theis small street except for a little library. 
+Room Description: There is not much here. It's a small street but there seems to be a little library to the east. 
 Exit Rooms: S-George Street, E-Library, W-Secret Trail
 Locked: false
 Kills: false
 
 Room Name: Library
-Room Description: You are in a library. There are rows and rows of books. You see a sign.
+Room Description: You are in the lobby of the library. In 2050, there are no more of these...you have only read about these places online.<br>There are rows and rows of books. You see a sign.
 Exit Rooms: N-Children Book Section, E-Science Section, S-History Section, W-George Street N
 Locked: false
 Kills: false
@@ -120,14 +120,14 @@ Kills: false
 
 Room Name: Science Section
 Room Description: this is where its at. You see a loose book on the shelf.
-Exit Rooms: E-Library, N-Secret Room
+Exit Rooms: W-Library, N-Secret Room
 Locked: false
 Kills: false
 
 Room Name: Secret Study
 Room Description: you seem to have discovered a secret room...there are more books here
 Exit Rooms: N-Secret Study N
-Locked: false
+Locked: true
 Kills: false
 
 Room Name: Secret Study N 

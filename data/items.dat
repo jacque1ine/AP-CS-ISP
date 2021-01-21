@@ -70,23 +70,35 @@ Openable: false
 Weight: 1
 Room: OLDTOWN_SQUARE
 
-Item Name: Metal Box
+Item Name: metal box
 Item Description: this is a metal box. When you shake it seems like something is inside.
 Openable: true
 Weight: 100
 Room: OLD_GARAGE_N
 
-Item Name: Blinker
+Item Name: blinker
 Item Description: PIECE OF TIME MACHINE<br> 
 Openable: true
 Weight: 2
 Item: METAL_BOX
 
-Item Name: Book
+Item Name: sign
+Item Description: --Welcome to Hill Valley Library--<br>  NORTH - Children's Books<br>  EAST - Science Section<br>  SOUTH - History Section<br>  WEST - Exit
+Openable: false
+Weight: 100
+Room: LIBRARY
+
+Item Name: book
 Item Description: this is a special book it seems like theres something in it  
 Openable: true
 Weight: 1
-Room: LIBRARY
+Room: SCIENCE_SECTION
+
+Item Name: access card
+Item Description: this unlocks the secret study  
+Openable: true
+Weight: 1
+Item: BOOK
 
 Item Name: time machine part 1 
 Item Description: this part matches the blueprint
