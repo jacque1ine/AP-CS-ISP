@@ -1,4 +1,4 @@
-Room Name: Town Square 
+Room Name: Town Square
 Room Description: Ah, its great to stand the bustling town square of Hill Valley. High-rise buildings surrouding everywhere.<br>There are screens EVERYWHERE. Beside you there are roaming robots, and holograms.<br>There is a clock tower covered by screens except for the antique clock face at the top.<br>Who even reads analog clocks anymore?<br>Beneath the clock it says, June 25, 2050.<br>
 Exit Rooms: S-Elon Road
 Locked: false
@@ -18,15 +18,9 @@ Kills: false
 
 Room Name: Alleyway
 Room Description: this is an alley which kills you 
-Exit Rooms: W-alleyway
+Exit Rooms: W-Elon Road
 Locked: false
 Kills: true
-
-Room Name: Garage
-Room Description: You are in small garage. The place seems oddly empty...almost if someone has taken everything from this place. You see a cupboard, you see some tools, and a couch. For some reason, one of the walls seems a little flimsy<br> 
-Exit Rooms: E-Elon Road, S-Garage 1
-Locked: false
-Kills: false
 
 Room Name: Garage 1
 Room Description: An other side to the garage is revealed, and now you are in front of a large desk with drawers on both sides.<br>On the wall there is a picture of an modified old car labeled with "DeLorean".<br>It has has been modifed with chunky parts at the back of the car, and tubes all over.<br> 
@@ -34,7 +28,13 @@ Exit Rooms: N-Garage, W-Garage Secret Room
 Locked: true 
 Kills: false
 
-Room Name: Garage Secret Room 
+Room Name: Garage
+Room Description: You are in small garage. The place seems oddly empty...almost if someone has taken everything from this place. You see a cupboard, you see some tools, and a couch. For some reason, one of the walls seems a little flimsy<br> 
+Exit Rooms: E-Elon Road, S-Garage 1
+Locked: false
+Kills: false
+
+Room Name: Garage Secret Room
 Room Description: You seem to be in a hidden room of the garage...<br>in here you see a large metal door frame, only it is connected to lots of tubes and has blinking lights around the edges.<br>There is a helmet on the wall. By going west, you will be going through the strange door.
 Exit Rooms: E-Garage 1, W-Oldtown Square
 Locked: true 
@@ -52,7 +52,7 @@ Exit Rooms: N-Oldtown Square, E-Bakery
 Locked: false
 Kills: false
 
-Room Name: Bakery 
+Room Name: Bakery
 Room Description: You are in a bakery. Crazy how theres people serving other people...WHATTT.<br>The owner offers you fresh bread and you overhear some two people talking about the famous 1950 Stanely Cup.<br>They ask who do you think will win. 
 Exit Rooms: W-South Road
 Locked: false
@@ -102,13 +102,13 @@ Kills: false
 
 Room Name: Theatre Lobby
 Room Description: You are in the lobby of the theatre. 
-Exit Rooms: E-George Street S, S-Popcorn Stand 
+Exit Rooms: E-George Street S, S-Popcorn Stand
 Locked: false
 Kills: false
 
-Room Name: Popcorn Stand 
+Room Name: Popcorn Stand
 Room Description: This is the popcorn stand. They are offering free samples  
-Exit Rooms: N-Theatre
+Exit Rooms: N-Theatre Lobby
 Locked: false
 Kills: false
 
@@ -185,7 +185,7 @@ Locked: false
 Kills: false
 
 Room Name: Arcade
-Room Description: Welcome to the Arcade.<br> North - claw machines || South - pinball machines || West - basketball games. 
+Room Description: Welcome to the Arcade.<br>North - claw machines || South - pinball machines || West - basketball games. 
 Exit Rooms: W-John Street, N-Claw Section, S-Pinball Section, W-Basketball Section
 Locked: false
 Kills: false
