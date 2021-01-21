@@ -1,14 +1,14 @@
-Item Name: bag
-Item Description: this is a bag 
+Item Name: Box
+Item Description: this is a box
 Openable: true
 Weight: 1
 Room: ATTIC
 
-Item Name: lantern
-Item Description: A rusty lantern
+Item Name: Toy
+Item Description: This is a useless toy
 Openable: false
 Weight: 1
-Item: BAG
+Item: BOX
 
 Item Name: cupboard
 Item Description: this is tall grey cupboard. In here, there are a few random things. 
@@ -16,10 +16,10 @@ Openable: true
 Weight: 100
 Room: GARAGE
 
-Item Name: flashlight 
-Item Description: this is a simple flashlight 
+Item Name: lighter
+Item Description: this is a simple lighter
 Openable: false
-Weight: 14
+Weight: 1
 Item: CUPBOARD
 
 Item Name: blueprint
@@ -106,6 +106,12 @@ Openable: false
 Weight: 1
 Room: SECRET_STUDY
 
+Item Name: sand jar
+Item Description: this is a jar of sand
+Openable: false
+Weight: 1
+Room: SECRET_STUDY
+
 Item Name: chest 
 Item Description: This is a large chest 
 Openable: true
@@ -118,7 +124,7 @@ Openable: false
 Weight: 1
 Item: CHEST
 
-Item Name: flux capicitor
+Item Name: flux capacitor
 Item Description: power supply
 Openable: false
 Weight: 2

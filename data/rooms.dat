@@ -12,7 +12,7 @@ Kills: false
 
 Room Name: Elon Road End 
 Room Description: BORINGGG. Just more high rise, funky shaped buildings which surround you. This is dead end. 
-Exit Rooms: N-Elon Road End
+Exit Rooms: N-Elon Road
 Locked: false
 Kills: false
 
@@ -29,7 +29,7 @@ Locked: false
 Kills: false
 
 Room Name: Garage 1
-Room Description: An other side to the garage is revealed, and now you are in front of a large desk with drawers on both sides.<br> On the wall there is a picture of an modified old car labeled with "DeLorean".<br>It has has been modifed with chunky parts at the back of the car, and tubes all over.<br> 
+Room Description: An other side to the garage is revealed, and now you are in front of a large desk with drawers on both sides.<br>On the wall there is a picture of an modified old car labeled with "DeLorean".<br>It has has been modifed with chunky parts at the back of the car, and tubes all over.<br> 
 Exit Rooms: N-Garage, W-Garage Secret Room
 Locked: true 
 Kills: false
@@ -47,7 +47,7 @@ Locked: false
 Kills: true
 
 Room Name: South Road
-Room Description: You are South of the town square...why are the buildings so short? Where are all the holograms and screens?!
+Room Description: You are South of the town square...why are the buildings so short? Where are all the holograms and screens?! There is a bakery nearby.
 Exit Rooms: N-Oldtown Square, E-Bakery
 Locked: false
 Kills: false
@@ -72,7 +72,7 @@ Kills: false
 
 Room Name: Old Garage
 Room Description: The garage is much more full then your last visit.<br>There are a bunch of weird contraptions everywhere. Cat food dispensers, can crushers...who even knows what these things do?<br>In front of you there is a large table with some sort of blueprint.
-Exit Rooms: E-George Street, N-Old Garage N
+Exit Rooms: E-North Road Continued, N-Old Garage N
 Locked: false
 Kills: false
 
@@ -143,28 +143,38 @@ Locked: false
 Kills: false
 
 Room Name: Attic Continued
-Room Description: You see a large chest here and stairs doing down 
-Exit Rooms: D-House, S-Attic
+Room Description: You see a large chest here and different stiars going down
+Exit Rooms: D-Flower Shop, S-Attic
 Locked: true
 Kills: false
 
-Room Name: House
-Room Description: this rooms kills you
-Exit Rooms: U-Attic Continued
+Room Name: Flower Shop
+Room Description: You are in a strange flower shop...you hear dogs barking in the west direction. You hear people in the east direction. 
+Exit Rooms: U-Attic Continued, W-Pound, N-John Street, E-Death
 Locked: false
 Kills: false
 
-Room Name: Theatre
-Room Description: This is a movie theatre 
-Exit Rooms: E-George Street
-Locked: true 
+Room Name: Pound
+Room Description: Dogs kill you.
+Exit Rooms: E-Flower Shop
+Locked: false
+Kills: true
+
+Room Name: Death
+Room Description: time hunters 
+Exit Rooms: W-Flower Shop
+Locked: false
+Kills: true
+
+Room Name: John Street
+Room Description: Now you are on another street...I know so many streets. There seems to be an arcade near here.
+Exit Rooms: S-Flower Shop, E-Arcade
+Locked: false
 Kills: false
 
-Room Name: Secret Trail
-Room Description: narrow trail 
-Exit rooms: E-George Street S
-Locked: true 
+Room Name: Arcade
+Room Description: This is the arcade. There are huge gaming stations everywhere. 
+Exit Rooms: W-Arcade
+Locked: false
 Kills: false
-
-
 
