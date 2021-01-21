@@ -101,7 +101,7 @@ Locked: false
 Kills: false
 
 Room Name: Library
-Room Description: You are in the lobby of the library. In 2050, there are no more of these...you have only read about these places online.<br>There are rows and rows of books. You see a sign.
+Room Description: You are in the lobby of the library. How incredible! In 2050, there are no more of these...you have only read about these places online.<br>There are rows and rows of books. You see a sign.
 Exit Rooms: N-Children Book Section, E-Science Section, S-History Section, W-George Street N
 Locked: false
 Kills: false
@@ -113,26 +113,26 @@ Locked: false
 Kills: false
 
 Room Name: History Section
-Room Description: this is where its at 
-Exit Rooms: N-Library 
+Room Description: From the Babylonians to the Romans, to the Covid-19 Pandemic...Wow they have so much. But why does one bookshelf seem to be kind of loose? 
+Exit Rooms: N-Library, S-Secret Study
 Locked: false
 Kills: false
 
 Room Name: Science Section
-Room Description: this is where its at. You see a loose book on the shelf.
-Exit Rooms: W-Library, N-Secret Room
+Room Description: Cosmos, A Brief History of Time, The Edge of Physics...amazing. As you scan through the books one loose book on the shelf catches your eye.
+Exit Rooms: W-Library
 Locked: false
 Kills: false
 
 Room Name: Secret Study
-Room Description: you seem to have discovered a secret room...there are more books here
-Exit Rooms: N-Secret Study N
+Room Description: You have discovered a secret room...there are more books here
+Exit Rooms: N-History Section, E-Secret Study E
 Locked: true
 Kills: false
 
-Room Name: Secret Study N 
-Room Description: you go further into the study and you see a handle on ceiling. 
-Exit Rooms: U-Attic, S-Secret Study 
+Room Name: Secret Study E
+Room Description: you go further into the study and you see stairs going up 
+Exit Rooms: U-Attic, W-Secret Study 
 Locked: false
 Kills: false
 

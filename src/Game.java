@@ -167,7 +167,7 @@ class Game {
 			//Set the kets to each room. setKey() indicates the item needed
 			masterRoomMap.get("GARAGE_1").setKey("REMOTE");
 			masterRoomMap.get("GARAGE_SECRET_ROOM").setKey("WATCH");
-			masterRoomMap.get("SECRET_STUDY").setKey("ACCESS_CARD");
+			masterRoomMap.get("SECRET_STUDY").setKey("KEYCARD");
 			
       		initItems("data/items.dat");
 		} catch (Exception e) {
@@ -414,7 +414,7 @@ class Game {
 			System.out.println("You are now protected"); 
 		}else if(itemName.equalsIgnoreCase("watch") && currentRoom.getRoomName().equalsIgnoreCase("Garage 1")){
 			System.out.println("You hear a click, and the locked door to your west clicks open");
-		}else if(itemName.equalsIgnoreCase("access card") && currentRoom.getRoomName().equalsIgnoreCase("Science Section")){
+		}else if(itemName.equalsIgnoreCase("keycard") && currentRoom.getRoomName().equalsIgnoreCase("Science Section")){
 			System.out.println("You have unlocked something, but what is it?");
 		}else if(itemName.equalsIgnoreCase("remote") && currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room")){
 			System.out.println("You know that flimsy wall you were suspicious about? Well it seems like by taking the remote that wall slide open and revealed a new part of the garage");

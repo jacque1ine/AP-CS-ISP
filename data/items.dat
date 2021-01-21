@@ -94,9 +94,9 @@ Openable: true
 Weight: 1
 Room: SCIENCE_SECTION
 
-Item Name: access card
+Item Name: keycard
 Item Description: this unlocks the secret study  
-Openable: true
+Openable: false
 Weight: 1
 Item: BOOK
 
