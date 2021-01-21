@@ -23,16 +23,10 @@ Weight: 1
 Item: CUPBOARD
 
 Item Name: blueprint
-Item Description:--Portal Time Machine--<br>Derived from DMC DeLorean<br><br>KEY PARTS<br>1)Frame<br>2)Wires<br>3)Blinker<br>4)Control Panel<br>5)Flux Capicitor
+Item Description:--Portal Time Machine--<br>Derived from DMC DeLorean<br><br>KEY PARTS<br>1)Wires<br>2)Blinker<br>3)Control Panel<br>4)Flux Capicitor
 Openable: false
 Weight: 1
 Room: OLD_GARAGE
-
-Item Name: wires
-Item Description: This is just an assortment of random wires
-Openable: false
-Weight: 1
-Item: CUPBOARD
 
 Item Name: remote
 Item Description: this is a remote who knows what the buttons do
@@ -75,12 +69,6 @@ Item Description: this is a metal box. When you shake it seems like something is
 Openable: true
 Weight: 100
 Room: OLD_GARAGE_N
-
-Item Name: blinker
-Item Description: PIECE OF TIME MACHINE<br> 
-Openable: true
-Weight: 2
-Item: METAL_BOX
 
 Item Name: sign
 Item Description: --Welcome to Hill Valley Library--<br>  NORTH - Children's Books<br>  EAST - Science Section<br>  SOUTH - History Section<br>  WEST - Exit
@@ -141,3 +129,27 @@ Item Description: soft fresh bread from the bakery. oh how nice it is that it fe
 Openable: false
 Weight: 1
 Room: BAKERY
+
+Item Name: broken machine
+Item Description: This is a broken arcade machine.
+Openable: true
+Weight: 100
+Room: ARCADE
+
+Item Name: Control Panel
+Item Description: This is a part of the time machine. Refer back to blueprint.
+Openable: false
+Weight: 2
+Item: BROKEN_MACHINE
+
+Item Name: wires
+Item Description: This is just an assortment of random wires
+Openable: false
+Weight: 1
+Item: CUPBOARD
+
+Item Name: blinker
+Item Description: PIECE OF TIME MACHINE<br> 
+Openable: true
+Weight: 2
+Item: METAL_BOX

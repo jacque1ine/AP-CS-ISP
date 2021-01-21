@@ -143,7 +143,7 @@ Locked: false
 Kills: false
 
 Room Name: Attic Continued
-Room Description: You see a large chest here and different stiars going down
+Room Description: You see a large chest here and different stairs going down
 Exit Rooms: D-Flower Shop, S-Attic
 Locked: true
 Kills: false
@@ -173,8 +173,8 @@ Locked: false
 Kills: false
 
 Room Name: Arcade
-Room Description: This is the arcade. There are huge gaming stations everywhere. 
-Exit Rooms: W-Arcade
+Room Description: Welcome to the Arcade. There are claw machines, pinball machines, and basketball games. There seems to be a broken claw machine. 
+Exit Rooms: W-John Street
 Locked: false
 Kills: false
 

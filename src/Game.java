@@ -196,7 +196,7 @@ class Game {
 		if (currentRoom.isKiller()){
 			message=("You have died. Try again.");
 		}else if(hasWon()){
-			message=("CONGRATS!!! You have arrived safely back home.\nHopefully you had fun in the past even though it might have beenjust a little scary.bye");
+			message=("CONGRATS!!! You have arrived safely back home.\nHopefully you had fun in the past even though it might have beena little scary.bye");
 		}
 		System.out.println(message + "\nThank you for playing.  Good bye.");
 	}
@@ -244,6 +244,8 @@ class Game {
 			System.out.println(currentRoom.lookAround());
 		} else if (commandWord.equalsIgnoreCase("jump")) {
 			return jump();
+		} else if (commandWord.equalsIgnoreCase("play")) {
+			playGame();
 		} else if (commandWord.equalsIgnoreCase("sit")) {
 			sit();
 		}else if (commandWord.equalsIgnoreCase("assemble")) {
@@ -298,9 +300,28 @@ class Game {
 //Implementations of user commands:
 
 
-	private void assemble() {
-		System.out.println("NEED TO DO THIS");
+	private void playGame() {
+		int num = (int)(Math.random()*2) +1;
+		if(num==1){
+			System.out.println("Yay! You won"); 
+		}else{
+			System.out.println("awww you lost:(");
+		}
 	}
+
+private void assemble() {
+		if (inventory.hasItem("flux capacitor") && inventory.hasItem("wires")){
+			if(inventory.hasItem("control panel") && inventory.hasItem("blinker")){
+				Item portal = new Item("portal","this will get you back home" );
+				System.out.println("You have succesfully built the portal.");
+				inventory.addItem(portal);
+			}
+		}
+		else{
+			System.out.println("You don't have everything you need to");
+		}
+	}
+		
 
 	private void wearItem(String itemName) {
 		if(currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room") && itemName.equalsIgnoreCase("helmet")){
@@ -342,7 +363,6 @@ class Game {
 					  description = itemInventory.contains(itemName).getDescription();
 				   }
 				}
-
 			}
 			System.out.println(description);
 	}
@@ -459,7 +479,7 @@ class Game {
 	 *HasWon: once a player as the speciifc item, the method will return true. 
 	 */
 	private boolean hasWon(){
-		if(inventory.hasItem("Plutonium Nuclear Reactor")){
+		if(inventory.hasItem("Portal")){
 			return true;
 		}
 		return false;
