@@ -307,14 +307,13 @@ class Game {
 
 	private boolean talk() {
 			if(currentRoom.getRoomName().equalsIgnoreCase("Bakery")){
-				System.out.println("uh oh...remember what the letter's said: 'DO NOT INTERACT WITH THOSE FROM THE PAST'."+ 
+				System.out.println("Uh oh...remember what the letter's said: 'BE CAREFUL WITH WHEN YOU INTERACT WITH THOSE FROM THE PAST'."+ 
 			"\nThe game actually hasn't happened yet, or the semi-finals, but you revealed the results, and provided lots of detail."+
-			"\nThese two nobodies beleived you, and through betting became super rich.\n YOU CHANGED HISTORY, AND THEREFORE YOU NO LONGER EXISTS");
+			"\nThese two nobodies beleived you, and through betting became super rich.\nYOU CHANGED HISTORY, AND THEREFORE YOU NO LONGER EXISTS");
 			}
 			else{
 				System.out.println("By talking to them, you have messsed up the timeline...YOU NO LONGER EXIST");
 			}
-			
 		return true;
 		
 	}

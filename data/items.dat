@@ -23,7 +23,7 @@ Weight: 14
 Item: CUPBOARD
 
 Item Name: blueprint
-Item Description: this is the blueprint to the time machine
+Item Description:--Portal Time Machine--<br>Derived from DMC DeLorean<br><br>KEY PARTS<br>1)Frame<br>2)Wires<br>3)Blinker<br>4)Control Panel<br>5)Flux Capicitor
 Openable: false
 Weight: 1
 Room: OLD_GARAGE
@@ -47,7 +47,7 @@ Weight: 100
 Room: GARAGE_1
 
 Item Name: letters 
-Item Description: there are a lot of letters here, but after carefully looking through them you notice that they all seem to directed towards someone named Dr. Emmett Brown. <br>One of the letters say <br> Dear Dr. Emmett Brown,<br> We are writing to you from the National Defense Commititee and this is a warning that we will be seizing 
+Item Description: there are a lot of letters here, but after carefully looking through them you notice that they all seem to directed towards someone named Dr. Emmett Brown.<br>One of the letters peak your interest.<br><br>THE TIME TRAVELLERS CODE<br>1)BE CAREFUL WITH WHEN YOU INTERACT WITH THOSE FROM THE PAST. Under no circumstances should you interact with yourself, anyone who knows you, or any relatives.<br>2)Do not fall in love with anyone from the past or future<br>3)Beware of the butterfly effect. One small change in the past can have exponential effects on the future.<br>4) Do not travel to a time less than one week ago in the past.<br>5.)Do not expose yourself as a time traveller<br>...
 Openable: false
 Weight: 1
 Item: DRAWERS
@@ -65,7 +65,7 @@ Weight: 1
 Room: GARAGE_SECRET_ROOM
 
 Item Name: newspaper
-Item Description: Well isn't this new? reading something on paper!<br><br>VALLEY GAZETTE<br>June 25, 1950<br>NORTH KOREA INVADES SOUTH KOREA<br>North Korean(Communist) armed forces this morning invaded<br>the Republic of South Korea with tanks and artillery...<br><br>hold on...didn't you learn that this took place 100 years ago.<br>You look at the top of the newspaper and tyou realize YOU ARE IN 1950.<br>You must find your way back home.
+Item Description: Well isn't this new? reading something on paper!<br><br>VALLEY GAZETTE<br>June 25, 1950<br>NORTH KOREA INVADES SOUTH KOREA<br>North Korean(Communist) armed forces this morning invaded<br>the Republic of South Korea with tanks and artillery...<br><br>hold on...didn't you learn that this took place 100 years ago.<br>You look at the top of the newspaper and you realize YOU ARE IN 1950.<br>You must find your way back home.
 Openable: false
 Weight: 1
 Room: OLDTOWN_SQUARE
