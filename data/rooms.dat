@@ -30,12 +30,12 @@ Kills: false
 
 Room Name: Garage 1
 Room Description: An other side to the garage is revealed, and now you are in front of a large desk with drawers on both sides.<br> On the wall there is a picture of an modified old car labeled with "DeLorean".<br>It has has been modifed with chunky parts at the back of the car, and tubes all over.<br> 
-Exit Rooms: S-Garage, W-Garage Secret Room
+Exit Rooms: N-Garage, W-Garage Secret Room
 Locked: true 
 Kills: false
 
 Room Name: Garage Secret Room 
-Room Description: You seem to be in a hidden room of the garage...in here you see a large metal door frame, only it is connected to lots of tubes and has blinking lights around the edges.<br>By going west, you will be going through the strange door.
+Room Description: You seem to be in a hidden room of the garage...<br>in here you see a large metal door frame, only it is connected to lots of tubes and has blinking lights around the edges.<br>There is a helmet on the wall. By going west, you will be going through the strange door.
 Exit Rooms: E-Garage 1, W-Oldtown Square
 Locked: true 
 Kills: false
@@ -44,7 +44,7 @@ Room Name: Oldtown Square
 Room Description:  You are in the familiar main town square of Hill Valley only it looks... much older than you recall. There seems to a newspaper stand. 
 Exit Rooms: N-North Road, S-South Road
 Locked: false
-Kills: false
+Kills: true
 
 Room Name: South Road
 Room Description: You are South of the town square...why are the buildings so short? Where are all the holograms and screens?!
@@ -60,12 +60,12 @@ Kills: false
 
 Room Name: North Road
 Room Description: Wow...this place sure has changed except that once your are on this street don't even think about going left or right for a while...<br>Buidlings...though much shorter....ungulf you on both sides.
-Exit Rooms: S-Oldtown Square, N-More North Road
+Exit Rooms: S-Oldtown Square, N-North Road Continued
 Locked: false
 Kills: false
 
-Room Name: More North Road
-Room Description: Now that we have ventured further...FINALLY! Something familiar...the garage only it looks more put together
+Room Name: North Road Continued
+Room Description: Now that we have ventured further. FINALLY! Something familiar...you see THE GARAGE...only it looks more put together
 Exit Rooms: S-North Road, W-Old Garage
 Locked: false
 Kills: false

@@ -58,9 +58,15 @@ Openable: true
 Weight: 1
 Item: DRAWERS
 
+Item Name: helmet 
+Item Description: this is a protective helmet 
+Openable: false
+Weight: 1
+Room: GARAGE_SECRET_ROOM
+
 Item Name: newspaper
-Item Description: well isn't this new? reading something on paper!<br>Across the top it says, April 9, 2020
-Openable: true
+Item Description: Well isn't this new? reading something on paper!<br><br>VALLEY GAZETTE<br>June 25, 1950<br>NORTH KOREA INVADES SOUTH KOREA<br>North Korean(Communist) armed forces this morning invaded<br>the Republic of South Korea with tanks and artillery...<br><br>hold on...didn't you learn that this took place 100 years ago.<br>You look at the top of the newspaper and tyou realize YOU ARE IN 1950.<br>You must find your way back home.
+Openable: false
 Weight: 1
 Room: OLDTOWN_SQUARE
 

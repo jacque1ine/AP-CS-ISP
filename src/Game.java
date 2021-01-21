@@ -33,7 +33,6 @@ class Game {
 	// Room (assuming you have one).
 	private HashMap<String, Room> masterRoomMap;
 	private HashMap<String, Item> masterItemMap;
-	boolean finished; 
 
 	/*
 	initItems: creates items from the items.dat file, puts the items into their inventories,
@@ -162,7 +161,7 @@ class Game {
 		try {
 			initRooms("data/Rooms.dat");	// creates the map from the rooms.dat file
 			// initRooms is responsible for building/ initializing the masterRoomMap (private instance variable)
-			currentRoom = masterRoomMap.get("TOWN_SQUARE");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
+			currentRoom = masterRoomMap.get("GARAGE_SECRET_ROOM");	// the key for the masterRoomMap is the name of the room all in Upper Case (spaces replaced with _)
 			inventory = new Inventory();
 
 			//Set the kets to each room. setKey() indicates the item needed
@@ -178,27 +177,23 @@ class Game {
 
 	
 	/*
-	 *Main play routine. Loops until end of play.
+	 Main play routine. Loops until end of play.
 	 */
 	public void play() {
 		printWelcome();
-
-		
-		// Enter the main command loop.  Here we repeatedly read commands and
-		// execute them until the game is over.
 		String message = "";
-		finished = false;
-		
+		boolean finished = false;
+	
+		//Repeatedly read commands and execute them until the game is over.
 		while (!finished) {
 			Command command = parser.getCommand();
 			if(processCommand(command) || hasWon() || currentRoom.isKiller()){
 				finished = true;
-			}
-				
+			}	
 		}
 		if (currentRoom.isKiller()){
-			message=("You have died.Try again.");
-		} else if(hasWon()){
+			message=("You have died. Try again.");
+		}else if(hasWon()){
 			message=("CONGRATS!!! You have arrived safely back home.\nHopefully you had fun in the past even though it might have beenjust a little scary.bye");
 		}
 		System.out.println(message + "\nThank you for playing.  Good bye.");
@@ -227,6 +222,7 @@ class Game {
 			return false;
 		}
 		String commandWord = command.getCommandWord();
+
 		if (commandWord.equalsIgnoreCase("help"))
 			printHelp();
 		else if (commandWord.equalsIgnoreCase("go"))
@@ -236,10 +232,6 @@ class Game {
 				System.out.println("Quit what?");
 			else
 				return true; // signal that we want to quit
-		// } else if (currentRoom.getRoomName().equalsIgnoreCase("GARAGE")){
-		// 	if(command.equalsIgnoreCase("w") || command.equalsIgnoreCase("go west")){
-		// 		currentRoom.
-		// 	}
 		}else if (commandWord.equalsIgnoreCase("eat")) {
 			eat(command.getSecondWord());
 		} else if (commandWord.equalsIgnoreCase("talk")) {
@@ -260,6 +252,11 @@ class Game {
 				System.out.println("Drop what?");
 			else
 				dropItem(command.getSecondWord());
+		} else if (commandWord.equalsIgnoreCase("wear")) {
+				if (!command.hasSecondWord())
+					System.out.println("Wear what?");
+				else
+					wearItem(command.getSecondWord());
 		// }else if (commandWord.equalsIgnoreCase("read")) {
 		// 	if (!command.hasSecondWord())
 		// 		System.out.println("Read what?");
@@ -298,67 +295,77 @@ class Game {
 //Implementations of user commands:
 
 
-private boolean talk() {
-		if(currentRoom.getRoomName().equalsIgnoreCase("Bakery")){
-			System.out.println("uh oh...remember what the letter's said: 'DO NOT INTERACT WITH THOSE FROM THE PAST'."+ 
-		"\nThe game actually hasn't happened yet, or the semi-finals, but you revealed the results, and provided lots of detail."+
-		"\nThese two nobodies beleived you, and through betting became super rich.\n YOU CHANGED HISTORY, AND THEREFORE YOU NO LONGER EXISTS");
+	private void wearItem(String itemName) {
+		if(currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room") && itemName.equalsIgnoreCase("helmet")){
+			System.out.println("Yay! You now are protected"); 
 		}
 		else{
-			System.out.println("By talking to them, you have messsed up the timeline...YOU NO LONGER EXIST");
-		}
-		
-	return true;
-	
-}
-
-private void inspectItem(String itemName) {
-		Item playerItem = inventory.contains(itemName);
-		Item roomItem = currentRoom.getInventory().contains(itemName);
-		
-		if(playerItem != null) {
-			System.out.println(playerItem.getDescription());
-		}else if(roomItem != null){
-			System.out.println(roomItem.getDescription());
-		}else{
-			System.out.println("I cannot inspect what is not there.");
-		}
-}
-
-/*
- *Open Item: opens the item requested if there is an item in the inventory.
- */
-	private void openItem(String itemName) {
-		Item playerItem = inventory.contains(itemName);
-		Item roomItem = currentRoom.getInventory().contains(itemName);
-		
-		if(playerItem != null) {
-			System.out.println(playerItem.displayContents());
-		}else if(roomItem != null){
-			System.out.println(roomItem.displayContents());
-		}else{
-			System.out.println("You cannot open " + itemName);
+			System.out.println("fashion star"); 
 		}
 	}
+
+
+	private boolean talk() {
+			if(currentRoom.getRoomName().equalsIgnoreCase("Bakery")){
+				System.out.println("uh oh...remember what the letter's said: 'DO NOT INTERACT WITH THOSE FROM THE PAST'."+ 
+			"\nThe game actually hasn't happened yet, or the semi-finals, but you revealed the results, and provided lots of detail."+
+			"\nThese two nobodies beleived you, and through betting became super rich.\n YOU CHANGED HISTORY, AND THEREFORE YOU NO LONGER EXISTS");
+			}
+			else{
+				System.out.println("By talking to them, you have messsed up the timeline...YOU NO LONGER EXIST");
+			}
+			
+		return true;
+		
+	}
+
+	private void inspectItem(String itemName) {
+			Item playerItem = inventory.contains(itemName);
+			Item roomItem = currentRoom.getInventory().contains(itemName);
+			
+			if(playerItem != null) {
+				System.out.println(playerItem.getDescription());
+			}else if(roomItem != null){
+				System.out.println(roomItem.getDescription());
+			}else{
+				System.out.println("I cannot inspect what is not there.");
+			}
+	}
+
+	/*
+	*Open Item: opens the item requested if there is an item in the inventory.
+	*/
+		private void openItem(String itemName) {
+			Item playerItem = inventory.contains(itemName);
+			Item roomItem = currentRoom.getInventory().contains(itemName);
+			
+			if(playerItem != null) {
+				System.out.println(playerItem.displayContents());
+			}else if(roomItem != null){
+				System.out.println(roomItem.displayContents());
+			}else{
+				System.out.println("You cannot open " + itemName);
+			}
+		}
 
 	/*
 	*Take Item: removes item from room inventory and puts it in the player's inventory.
 	*/
 	private void takeItem(String itemName) {
 		Inventory roomInventory = currentRoom.getInventory();
-		Item item = roomInventory.removeItem(itemName);
+		Item item = roomInventory.removeItem(itemName); 
 
     	//if item is in room inventory
 		if (item != null){
 
 			if(item.canPickUp()){
-				if(inventory.getInvWeight()<=15){
+				if(inventory.getInvWeight()<=10){
 					if(inventory.addItem(item)){
 						System.out.println("You have taken the " + itemName);
 					}
 				}else{
 					System.out.println(itemName + " is there but you do not have space. Drop some items and try again"+
-					"\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory."); 
+					"\nYou have have " + inventory.getInvWeight() + "/10 slots filled in your inventory."); 
 					currentRoom.getInventory().justAddItem(item); 
 				}
 			}else{
@@ -377,13 +384,13 @@ private void inspectItem(String itemName) {
 				if (itemInventory != null && itemInventory.hasItem(itemName)){ 
 					Item removedItem = itemInventory.removeItem(itemName);
 					if(removedItem.canPickUp()){
-						if(inventory.getInvWeight()<=15){
+						if(inventory.getInvWeight()<=10){
 							if(inventory.addItem(removedItem)){
 								System.out.println("You have taken the " + itemName);
 							}
 						}else{
 							System.out.println(itemName + " is there but you do not have space. Drop some items and try again"+
-							"\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory."); 
+							"\nYou have have " + inventory.getInvWeight() + "/10 slots filled in your inventory."); 
 							itemInventory.getInventory().get(i).addItem(removedItem); 
 						}
 					}else{
@@ -392,10 +399,13 @@ private void inspectItem(String itemName) {
 					}
 				}
 				else{
-					System.out.println("You were unable to take the " + itemName + " here.\nYou have have " + inventory.getInvWeight() + "/15 slots filled in your inventory."); 
+					System.out.println("You were unable to take the " + itemName + " here.\nYou have have " + inventory.getInvWeight() + "/10 slots filled in your inventory."); 
 				}
 					
 			}
+		}
+		if(itemName.equalsIgnoreCase("helmet") && currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room")){
+			System.out.println("You are now protected"); 
 		}
 	}
 
@@ -472,12 +482,22 @@ private void inspectItem(String itemName) {
 			System.out.println("There is something obstructing your path. You cannot go this way!");
 		else if (nextRoom.isLocked() && !hasKey(nextRoom)) {
 			System.out.println("The area is locked. You do not have the neccessary items to pass.");
-		
+		} else if(currentRoom.getRoomName().equalsIgnoreCase("Garage Secret Room") && nextRoom.getRoomName().equalsIgnoreCase("oldtown square")){
+			if(inventory.hasItem("helmet")){
+				nextRoom.setKill(false);
+				currentRoom.setLocked(true);
+				System.out.println("\nYOU FEEL A SERIES OF JOLTS, COLOURS EVERYWEHRE!\nYOU ARE VERY DIZZY, WHAT IS HAPPENING?!!\nAfter a series of zaps...you open your eyes and find yourself in...");
+				currentRoom = nextRoom;
+				System.out.println(currentRoom.longDescription());
+			}else{
+				System.out.println("You were not protected from the harmful radiation of the portal");
+				currentRoom=nextRoom;
+			}
 		} else if(nextRoom.isKiller()){
 			currentRoom = nextRoom;
 			if(currentRoom.getRoomName().equalsIgnoreCase("Alleyway")){
 				System.out.println("you walked straight into some thugs, and you have nothing to protect yourself. You were killed because you saw something you shouldn't have");
-			} else{
+			}else{
 				System.out.println("you walked straight into danger and made a bad decision");
 			}
 		
